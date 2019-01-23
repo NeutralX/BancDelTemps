@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="Model1TargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="Model1.User" />
+          <EntitySet Name="Admins" EntityType="Model1.Admin" />
+          <EntitySet Name="Bans" EntityType="Model1.Ban" />
+          <EntitySet Name="Posts" EntityType="Model1.Post" />
+          <EntitySet Name="Categories" EntityType="Model1.Category" />
+          <EntitySet Name="Reports" EntityType="Model1.Report" />
+          <EntitySet Name="Pacts" EntityType="Model1.Pact" />
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id_User" />
+          </Key>
+          <Property Name="Id_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="last_name" Type="String" Nullable="false" />
+          <Property Name="email" Type="String" Nullable="false" />
+          <Property Name="register_date" Type="DateTime" Nullable="false" />
+          <Property Name="time_hours" Type="Double" Nullable="false" />
+          <Property Name="password" Type="String" Nullable="false" />
+          <Property Name="date_of_birth" Type="DateTime" Nullable="false" />
+          <Property Name="gender" Type="String" Nullable="false" />
+          <Property Name="picture_path" Type="String" Nullable="false" />
+          <Property Name="num_bans" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id_Admin" />
+          </Key>
+          <Property Name="Id_Admin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" />
+          <Property Name="password" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ban">
+          <Key>
+            <PropertyRef Name="Id_Ban" />
+          </Key>
+          <Property Name="Id_Ban" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ban_date" Type="DateTime" Nullable="false" />
+          <Property Name="ban_finish_date" Type="DateTime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Id_Post" />
+          </Key>
+          <Property Name="Id_Post" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date_created" Type="DateTime" Nullable="false" />
+          <Property Name="date_finished" Type="DateTime" Nullable="true" />
+          <Property Name="description" Type="String" Nullable="false" />
+          <Property Name="location" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id_Category" />
+          </Key>
+          <Property Name="Id_Category" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="description" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="Id_Report" />
+          </Key>
+          <Property Name="Id_Report" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" Nullable="false" />
+          <Property Name="is_revised" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pact">
+          <Key>
+            <PropertyRef Name="Id_Pact" />
+          </Key>
+          <Property Name="Id_Pact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date_created" Type="DateTime" Nullable="true" />
+          <Property Name="date_finished" Type="DateTime" Nullable="true" />
+          <Property Name="description" Type="String" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Model1" />
+        <Alias Key="Target" Value="Model1.Store" />
+        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -36,15 +36,15 @@
             <Grid x:Name="GridCursor" Width="150" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" Margin="10,45,0,7"/>
         </Grid>
         <Grid Height="503">
-            <Grid x:Name="GridMain" Height="503" Background="Aquamarine">
 
-                
+            <Grid x:Name ="GridShop" Height="503" Background="Black">
+
             </Grid>
-            <Grid x:Name ="GridShop" Height="503" Background="Black" Visibility="Hidden">
-                <Label Content="Label" HorizontalAlignment="Left" Margin="370,136,0,0" VerticalAlignment="Top" Height="112" Width="240" FontSize="36"/>
+            <Grid x:Name="GridMain" Height="503" Background="Aquamarine" Visibility="Hidden">
+
 
             </Grid>
         </Grid>
-        
+
     </StackPanel>
 </Window>
