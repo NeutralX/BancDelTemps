@@ -20,6 +20,30 @@
           <EntitySet Name="Categories" EntityType="Model1.Category" />
           <EntitySet Name="Reports" EntityType="Model1.Report" />
           <EntitySet Name="Pacts" EntityType="Model1.Pact" />
+          <AssociationSet Name="UserPost" Association="Model1.UserPost">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="UserBan" Association="Model1.UserBan">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Ban" EntitySet="Bans" />
+          </AssociationSet>
+          <AssociationSet Name="CategoryPost" Association="Model1.CategoryPost">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="PactPost" Association="Model1.PactPost">
+            <End Role="Pact" EntitySet="Pacts" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="PostReport" Association="Model1.PostReport">
+            <End Role="Post" EntitySet="Posts" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="PactReport" Association="Model1.PactReport">
+            <End Role="Pact" EntitySet="Pacts" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -35,7 +59,8 @@
           <Property Name="date_of_birth" Type="DateTime" Nullable="false" />
           <Property Name="gender" Type="String" Nullable="false" />
           <Property Name="picture_path" Type="String" Nullable="false" />
-          <Property Name="num_bans" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Posts" Relationship="Model1.UserPost" FromRole="User" ToRole="Post" />
+          <NavigationProperty Name="Bans" Relationship="Model1.UserBan" FromRole="User" ToRole="Ban" />
         </EntityType>
         <EntityType Name="Admin">
           <Key>
@@ -52,6 +77,8 @@
           <Property Name="Id_Ban" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ban_date" Type="DateTime" Nullable="false" />
           <Property Name="ban_finish_date" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="User" Relationship="Model1.UserBan" FromRole="Ban" ToRole="User" />
+          <Property Name="UserId_User" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -62,6 +89,12 @@
           <Property Name="date_finished" Type="DateTime" Nullable="true" />
           <Property Name="description" Type="String" Nullable="false" />
           <Property Name="location" Type="String" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Model1.UserPost" FromRole="Post" ToRole="User" />
+          <Property Name="UserId_User" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Model1.CategoryPost" FromRole="Post" ToRole="Category" />
+          <NavigationProperty Name="Pact" Relationship="Model1.PactPost" FromRole="Post" ToRole="Pact" />
+          <NavigationProperty Name="Reports" Relationship="Model1.PostReport" FromRole="Post" ToRole="Report" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -70,6 +103,7 @@
           <Property Name="Id_Category" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" />
           <Property Name="description" Type="String" Nullable="false" />
+          <NavigationProperty Name="Posts" Relationship="Model1.CategoryPost" FromRole="Category" ToRole="Post" />
         </EntityType>
         <EntityType Name="Report">
           <Key>
@@ -78,6 +112,8 @@
           <Property Name="Id_Report" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="description" Type="String" Nullable="false" />
           <Property Name="is_revised" Type="String" Nullable="false" />
+          <NavigationProperty Name="Post" Relationship="Model1.PostReport" FromRole="Report" ToRole="Post" />
+          <NavigationProperty Name="Pact" Relationship="Model1.PactReport" FromRole="Report" ToRole="Pact" />
         </EntityType>
         <EntityType Name="Pact">
           <Key>
@@ -88,7 +124,49 @@
           <Property Name="date_finished" Type="DateTime" Nullable="true" />
           <Property Name="description" Type="String" Nullable="false" />
           <Property Name="title" Type="String" Nullable="false" />
+          <NavigationProperty Name="Posts" Relationship="Model1.PactPost" FromRole="Pact" ToRole="Post" />
+          <NavigationProperty Name="Reports" Relationship="Model1.PactReport" FromRole="Pact" ToRole="Report" />
         </EntityType>
+        <Association Name="UserPost">
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <End Type="Model1.Post" Role="Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id_User" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="UserId_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserBan">
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <End Type="Model1.Ban" Role="Ban" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id_User" />
+            </Principal>
+            <Dependent Role="Ban">
+              <PropertyRef Name="UserId_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CategoryPost">
+          <End Type="Model1.Category" Role="Category" Multiplicity="1" />
+          <End Type="Model1.Post" Role="Post" Multiplicity="*" />
+        </Association>
+        <Association Name="PactPost">
+          <End Type="Model1.Pact" Role="Pact" Multiplicity="1" />
+          <End Type="Model1.Post" Role="Post" Multiplicity="1" />
+        </Association>
+        <Association Name="PostReport">
+          <End Type="Model1.Post" Role="Post" Multiplicity="1" />
+          <End Type="Model1.Report" Role="Report" Multiplicity="*" />
+        </Association>
+        <Association Name="PactReport">
+          <End Type="Model1.Pact" Role="Pact" Multiplicity="1" />
+          <End Type="Model1.Report" Role="Report" Multiplicity="1" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
