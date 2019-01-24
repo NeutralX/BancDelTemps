@@ -37,8 +37,8 @@
         </Grid>
         <Grid Height="503">
 
-            <Grid x:Name ="GridShop" Height="503" Background="Black">
-
+            <Grid x:Name ="GridShop" Height="503" Background="Beige">
+                <DataGrid HorizontalAlignment="Left" Height="394" Margin="342,55,0,0" VerticalAlignment="Top" Width="689"/>
             </Grid>
             <Grid x:Name="GridMain" Height="503" Background="Aquamarine" Visibility="Hidden">
 
