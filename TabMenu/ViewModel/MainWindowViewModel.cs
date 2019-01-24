@@ -61,8 +61,20 @@ namespace BancDelTemps.ViewModel
 
         #region Users
 
+        private List<user> _users;
+        public List<user> Users
+        {
+            get { return _users; }
+            set { _users = value; NotifyPropertyChanged(); }
+        }
 
+        private void UsersPopulate()
+        {
+
+            //Users = 
+
+        }
 
         #endregion
-    }
+        }
 }
