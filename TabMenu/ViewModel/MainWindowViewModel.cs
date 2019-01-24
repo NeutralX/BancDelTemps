@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using BancDelTemps.Annotations;
+using BancDelTemps.Model.Class;
 
 namespace BancDelTemps.ViewModel
 {
@@ -61,8 +61,8 @@ namespace BancDelTemps.ViewModel
 
         #region Users
 
-        private List<user> _users;
-        public List<user> Users
+        private List<User> _users;
+        public List<User> Users
         {
             get { return _users; }
             set { _users = value; NotifyPropertyChanged(); }
