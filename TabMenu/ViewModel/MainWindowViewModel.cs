@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using BancDelTemps.Model;
 using BancDelTemps.Model.Class;
 
 namespace BancDelTemps.ViewModel
@@ -56,6 +57,7 @@ namespace BancDelTemps.ViewModel
         #region Main
         public MainWindowViewModel()
         {
+            UsersPopulate();
         }
         #endregion
 
@@ -71,7 +73,7 @@ namespace BancDelTemps.ViewModel
         private void UsersPopulate()
         {
 
-            //Users = 
+            Users = UsersRepository.GetAllUsers().ToList();
 
         }
 

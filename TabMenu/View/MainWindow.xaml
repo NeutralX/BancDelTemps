@@ -1,10 +1,10 @@
-﻿<Window x:Class="TabMenu.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:local="clr-namespace:TabMenu"
+        xmlns:local="clr-namespace:TabMenu" x:Class="TabMenu.MainWindow"
         mc:Ignorable="d" Height="600" Width="1080" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <StackPanel Background="WhiteSmoke">
         <Grid Height="40">
@@ -36,15 +36,10 @@
             <Grid x:Name="GridCursor" Width="150" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" Margin="10,45,0,7"/>
         </Grid>
         <Grid Height="503">
-
-            <Grid x:Name ="GridShop" Height="503" Background="Beige">
-                <DataGrid HorizontalAlignment="Left" Height="394" Margin="342,55,0,0" VerticalAlignment="Top" Width="689"/>
-            </Grid>
-            <Grid x:Name="GridMain" Height="503" Background="Aquamarine" Visibility="Hidden">
-
-
+            <Grid x:Name="GridMain" Height="503" Background="Aquamarine" Visibility="Hidden"/>
+            <Grid x:Name ="GridUser" Height="503" Background="Beige">
+                <DataGrid HorizontalAlignment="Left" Height="394" Margin="342,55,0,0" VerticalAlignment="Top" Width="689" ItemsSource="{Binding Users}"/>
             </Grid>
         </Grid>
-
     </StackPanel>
 </Window>
