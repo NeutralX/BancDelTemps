@@ -35,11 +35,11 @@ namespace TabMenu
             {
                 case 0:
                     GridMain.Background = Brushes.Aquamarine;
-                    GridShop.Visibility = Visibility.Hidden;
+                    GridUser.Visibility = Visibility.Hidden;
                     GridMain.Visibility = Visibility.Visible;
                     break;
                 case 1:
-                    GridShop.Visibility = Visibility.Visible;
+                    GridUser.Visibility = Visibility.Visible;
                     GridMain.Visibility = Visibility.Hidden;
                     //GridMain.Background = Brushes.Beige;
                     break;

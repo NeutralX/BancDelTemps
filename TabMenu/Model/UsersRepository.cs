@@ -13,13 +13,13 @@ namespace BancDelTemps.Model
 {
     class UsersRepository
     {
-        private static string ws1 = "http://localhost:60608/api/";
+        //private static string ws1 = "https://wsbancdeltemps.azurewebsites.net/api/";
 
-        public static List<User> GetAllUsers()
-        {
-            List<User> lu = (List<User>)MakeRequest(string.Concat(ws1, "users/"), null, "GET", "application/json", typeof(List<User>));
-            return lu;
-        }
+        //public static List<User> GetAllUsers()
+        //{
+        //    List<User> lu = (List<User>)MakeRequest(string.Concat(ws1, "users/"), null, "GET", "application/json", typeof(List<User>));
+        //    return lu;
+        //}
         //public static List<contacte> GetAllContactesTot()
         //{
         //    List<contacte> lc = (List<contacte>)MakeRequest(string.Concat(ws1, "contactesTot/"), null, "GET", "application/json", typeof(List<contacte>));
