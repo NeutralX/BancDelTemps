@@ -22,7 +22,7 @@
                 <Button Content="CONTACT" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
                 <Button Content="ORDER STATUS" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
                 <Button Content="MY ACCOUNT" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA2A2A2" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
-                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Command="{Binding ButtonCloseApp}">
                     <materialDesign:PackIcon Kind="Power" Foreground="#FFA2A2A2" Width="25" Height="25" />
                 </Button>
             </StackPanel>
@@ -40,9 +40,9 @@
             <Grid x:Name="GridCursor" Width="150" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" Margin="10,45,0,7"/>
         </Grid>
         <Grid Height="503">
-            <Grid x:Name="GridMain" Height="503" Background="Aquamarine" Visibility="Hidden"/>
-            <Grid x:Name ="GridUser" Height="503" Background="Beige">
-                <DataGrid HorizontalAlignment="Left" Height="394" Margin="342,55,0,0" VerticalAlignment="Top" Width="689" ItemsSource="{Binding Users}"/>
+            <Grid x:Name="GridMain" Height="503" Background="Aquamarine"/>
+            <Grid x:Name ="GridUser" Height="503" Background="Beige" Visibility="Hidden">
+                <DataGrid HorizontalAlignment="Left" Height="394" Margin="342,55,0,0" VerticalAlignment="Top" Width="689" ItemsSource="{Binding Users}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
             </Grid>
         </Grid>
     </StackPanel>

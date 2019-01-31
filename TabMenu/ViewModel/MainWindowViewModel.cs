@@ -58,8 +58,13 @@ namespace BancDelTemps.ViewModel
         }
         #endregion
         #region Main
+
+        public ICommand ButtonCloseApp { get; set; }
+
         public MainWindowViewModel()
         {
+            ButtonCloseApp = new RelayCommand(o => System.Windows.Application.Current.Shutdown());
+            UsersPopulate();
         }
         #endregion
 
@@ -74,7 +79,25 @@ namespace BancDelTemps.ViewModel
         private void UsersPopulate()
         {
 
-            Users = UsersRepository.GetAllUsers().ToList();
+            Users = UsersRepository.GetAllUsers();
+
+        }
+
+        #endregion
+
+        #region Posts
+
+        private List<Post> _posts;
+        public List<Post> Posts
+        {
+            get { return _posts; }
+            set { _posts = value; NotifyPropertyChanged(); }
+        }
+
+        private void PostsPopulate()
+        {
+
+            Posts = PostsRepository.GetAllPosts();
 
         }
 

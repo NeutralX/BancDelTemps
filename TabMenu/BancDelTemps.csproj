@@ -84,6 +84,7 @@
     <Compile Include="Model\Class\Post.cs" />
     <Compile Include="Model\Class\Report.cs" />
     <Compile Include="Model\Class\User.cs" />
+    <Compile Include="Model\PostsRepository.cs" />
     <Compile Include="Model\UsersRepository.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />

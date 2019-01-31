@@ -11,14 +11,14 @@ using Newtonsoft.Json;
 
 namespace BancDelTemps.Model
 {
-    class UsersRepository
+    class PostsRepository
     {
         private static string ws1 = "https://wsbancdeltemps.azurewebsites.net/api/";
 
-        public static List<User> GetAllUsers()
+        public static List<Post> GetAllPosts()
         {
-            List<User> lu = (List<User>)MakeRequest(string.Concat(ws1, "users"), null, "GET", "application/json", typeof(List<User>));
-            return lu;
+            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "posts"), null, "GET", "application/json", typeof(List<Post>));
+            return lp;
         }
         //public static List<contacte> GetAllContactesTot()
         //{

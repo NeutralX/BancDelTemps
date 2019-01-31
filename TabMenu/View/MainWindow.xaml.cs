@@ -30,18 +30,17 @@ namespace TabMenu
             int index = int.Parse(((Button)e.Source).Uid);
 
             GridCursor.Margin = new Thickness(10 + (150 * index), 45, 0, 7);
-
-            switch(index)
+            GridUser.Visibility = Visibility.Hidden;
+            GridMain.Visibility = Visibility.Hidden;
+            switch (index)
             {
                 case 0:
                     GridMain.Background = Brushes.Aquamarine;
-                    GridUser.Visibility = Visibility.Hidden;
                     GridMain.Visibility = Visibility.Visible;
                     break;
                 case 1:
                     GridUser.Visibility = Visibility.Visible;
-                    GridMain.Visibility = Visibility.Hidden;
-                    //GridMain.Background = Brushes.Beige;
+                    GridUser.Background = Brushes.Beige;
                     break;
                 case 2:
                     GridMain.Background = Brushes.CadetBlue;
