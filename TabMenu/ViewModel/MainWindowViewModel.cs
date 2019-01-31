@@ -27,59 +27,58 @@ namespace BancDelTemps.ViewModel
 
         #endregion
 
-        //#region RelayCommand
-        //class RelayCommand : ICommand
-        //{
-        //    private Action<object> _action;
+        #region RelayCommand
+        class RelayCommand : ICommand
+        {
+            private Action<object> _action;
 
-        //    public RelayCommand(Action<object> action)
-        //    {
-        //        _action = action;
-        //    }
+            public RelayCommand(Action<object> action)
+            {
+                _action = action;
+            }
 
-        //    public bool CanExecute(object parameter)
-        //    {
-        //        return true;
-        //    }
+            public bool CanExecute(object parameter)
+            {
+                return true;
+            }
 
-        //    public void Execute(object parameter)
-        //    {
-        //        if (parameter != null)
-        //        {
-        //            _action(parameter);
-        //        }
-        //        else
-        //        {
-        //            _action("Hello world");
-        //        }
-        //    }
+            public void Execute(object parameter)
+            {
+                if (parameter != null)
+                {
+                    _action(parameter);
+                }
+                else
+                {
+                    _action("Hello world");
+                }
+            }
 
-        //    public event EventHandler CanExecuteChanged;
-        //}
-        //#endregion
-        //#region Main
-        //public MainWindowViewModel()
-        //{
-        //}
-        //#endregion
+            public event EventHandler CanExecuteChanged;
+        }
+        #endregion
+        #region Main
+        public MainWindowViewModel()
+        {
+        }
+        #endregion
 
-        //#region Users
+        #region Users
 
-        //private List<User> _users;
-        //public List<User> Users
-        //{
-        //    get { return _users; }
-        //    set { _users = value; NotifyPropertyChanged(); }
-        //}
+        private List<User> _users;
+        public List<User> Users {
+            get { return _users; }
+            set { _users = value; NotifyPropertyChanged(); }
+        }
 
-        //private void UsersPopulate()
-        //{
+        private void UsersPopulate()
+        {
 
-        //    Users = UsersRepository.GetAllUsers().ToList();
+            Users = UsersRepository.GetAllUsers().ToList();
 
-        //}
+        }
 
-        //#endregion
-        //}
+        #endregion
     }
 }
+

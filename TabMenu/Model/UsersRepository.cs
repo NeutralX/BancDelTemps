@@ -13,13 +13,13 @@ namespace BancDelTemps.Model
 {
     class UsersRepository
     {
-        //private static string ws1 = "https://wsbancdeltemps.azurewebsites.net/api/";
+        private static string ws1 = "https://wsbancdeltemps.azurewebsites.net/api/";
 
-        //public static List<User> GetAllUsers()
-        //{
-        //    List<User> lu = (List<User>)MakeRequest(string.Concat(ws1, "users/"), null, "GET", "application/json", typeof(List<User>));
-        //    return lu;
-        //}
+        public static List<User> GetAllUsers()
+        {
+            List<User> lu = (List<User>)MakeRequest(string.Concat(ws1, "users/"), null, "GET", "application/json", typeof(List<User>));
+            return lu;
+        }
         //public static List<contacte> GetAllContactesTot()
         //{
         //    List<contacte> lc = (List<contacte>)MakeRequest(string.Concat(ws1, "contactesTot/"), null, "GET", "application/json", typeof(List<contacte>));
@@ -102,10 +102,10 @@ namespace BancDelTemps.Model
         //    return t;
         //}
 
-        //public static void DeleteEmail(int id)
-        //{
-        //    MakeRequest(string.Concat(ws1, "email/", id), null, "DELETE", null, typeof(void));
-        //}
+        public static void DeleteEmail(int id)
+        {
+            MakeRequest(string.Concat(ws1, "email/", id), null, "DELETE", null, typeof(void));
+        }
 
         public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)
         //  requestUrl: Url completa del Web Service, amb l'opció sol·licitada
