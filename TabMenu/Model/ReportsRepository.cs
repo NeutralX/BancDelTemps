@@ -11,31 +11,31 @@ using Newtonsoft.Json;
 
 namespace BancDelTemps.Model
 {
-    class PostsRepository
+    class ReportsRepository
     {
         private static string ws1 = "https://wsbancdeltemps.azurewebsites.net/api/";
 
-        public static List<Post> GetAllPosts()
+        public static List<Report> GetAllReports()
         {
-            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "posts"), null, "GET", "application/json", typeof(List<Post>));
-            return lp;
+            List<Report> lr = (List<Report>)MakeRequest(string.Concat(ws1, "reports"), null, "GET", "application/json", typeof(List<Report>));
+            return lr;
         }
 
-        public static Post InsertPost(Post u2Add)
+        public static Report InsertReport(Report r2Add)
         {
-            Post p = (Post)MakeRequest(string.Concat(ws1, "post"), u2Add, "POST", "application/json", typeof(Post));
-            return p;
+            Report r = (Report)MakeRequest(string.Concat(ws1, "report"), r2Add, "POST", "application/json", typeof(Report));
+            return r;
         }
 
-        public static Post UpdatePost(Post p2Upd)
+        public static Report UpdatePost(Report r2Upd)
         {
-            Post p = (Post)MakeRequest(string.Concat(ws1, "post/", p2Upd.Id_Post), p2Upd, "PUT", "application/json", typeof(Post));
-            return p;
+            Report r = (Report)MakeRequest(string.Concat(ws1, "report/", r2Upd.Id_Report), r2Upd, "PUT", "application/json", typeof(Report));
+            return r;
         }
 
-        public static void DeletePost(int id)
+        public static void DeleteReport(int id)
         {
-            MakeRequest(string.Concat(ws1, "post/", id), null, "DELETE", null, typeof(void));
+            MakeRequest(string.Concat(ws1, "report/", id), null, "DELETE", null, typeof(void));
         }
 
         public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)

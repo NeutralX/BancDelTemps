@@ -11,31 +11,31 @@ using Newtonsoft.Json;
 
 namespace BancDelTemps.Model
 {
-    class PostsRepository
+    class BansRepository
     {
         private static string ws1 = "https://wsbancdeltemps.azurewebsites.net/api/";
 
-        public static List<Post> GetAllPosts()
+        public static List<Ban> GetAllBans()
         {
-            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "posts"), null, "GET", "application/json", typeof(List<Post>));
-            return lp;
+            List<Ban> lb = (List<Ban>)MakeRequest(string.Concat(ws1, "bans"), null, "GET", "application/json", typeof(List<Ban>));
+            return lb;
         }
 
-        public static Post InsertPost(Post u2Add)
+        public static Ban InsertBan(Pact b2Add)
         {
-            Post p = (Post)MakeRequest(string.Concat(ws1, "post"), u2Add, "POST", "application/json", typeof(Post));
-            return p;
+            Ban b = (Ban)MakeRequest(string.Concat(ws1, "bans"), b2Add, "POST", "application/json", typeof(Ban));
+            return b;
         }
 
-        public static Post UpdatePost(Post p2Upd)
+        public static Ban UpdateBan(Ban b2Upd)
         {
-            Post p = (Post)MakeRequest(string.Concat(ws1, "post/", p2Upd.Id_Post), p2Upd, "PUT", "application/json", typeof(Post));
-            return p;
+            Ban b = (Ban)MakeRequest(string.Concat(ws1, "ban/", b2Upd.Id_Ban), b2Upd, "PUT", "application/json", typeof(Ban));
+            return b;
         }
 
-        public static void DeletePost(int id)
+        public static void DeleteBan(int id)
         {
-            MakeRequest(string.Concat(ws1, "post/", id), null, "DELETE", null, typeof(void));
+            MakeRequest(string.Concat(ws1, "ban/", id), null, "DELETE", null, typeof(void));
         }
 
         public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)

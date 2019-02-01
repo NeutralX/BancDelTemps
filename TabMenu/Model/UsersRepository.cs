@@ -20,6 +20,24 @@ namespace BancDelTemps.Model
             List<User> lu = (List<User>)MakeRequest(string.Concat(ws1, "users"), null, "GET", "application/json", typeof(List<User>));
             return lu;
         }
+
+        public static User InsertUser(User u2Add)
+        {
+            User u = (User)MakeRequest(string.Concat(ws1, "user"), u2Add, "POST", "application/json", typeof(User));
+            return u;
+        }
+
+        public static User UpdateUser(User u2Upd)
+        {
+            User c = (User)MakeRequest(string.Concat(ws1, "user/", u2Upd.Id_User), u2Upd, "PUT", "application/json", typeof(User));
+            return c;
+        }
+
+        public static void DeleteUser(int id)
+        {
+            MakeRequest(string.Concat(ws1, "user/", id), null, "DELETE", null, typeof(void));
+        }
+
         //public static List<contacte> GetAllContactesTot()
         //{
         //    List<contacte> lc = (List<contacte>)MakeRequest(string.Concat(ws1, "contactesTot/"), null, "GET", "application/json", typeof(List<contacte>));
@@ -32,17 +50,7 @@ namespace BancDelTemps.Model
         //    return c;
         //}
 
-        //public static contacte InsertContacte(contacte c2Add)
-        //{
-        //    contacte c = (contacte)MakeRequest(string.Concat(ws1, "contacte/"), c2Add, "POST", "application/json", typeof(contacte));
-        //    return c;
-        //}
 
-        //public static contacte UpdateContacte(contacte c2Upd)
-        //{
-        //    contacte c = (contacte)MakeRequest(string.Concat(ws1, "contacte/", c2Upd.contacteId), c2Upd, "PUT", "application/json", typeof(contacte));
-        //    return c;
-        //}
 
         //public static void DeleteContacte(int id)
         //{
@@ -73,10 +81,7 @@ namespace BancDelTemps.Model
         //    return t;
         //}
 
-        //public static void DeleteTelefon(int id)
-        //{
-        //    MakeRequest(string.Concat(ws1, "telefon/", id), null, "DELETE", null, typeof(void));
-        //}
+
 
         //public static List<email> GetAllEmails()
         //{
@@ -102,10 +107,10 @@ namespace BancDelTemps.Model
         //    return t;
         //}
 
-        public static void DeleteEmail(int id)
-        {
-            MakeRequest(string.Concat(ws1, "email/", id), null, "DELETE", null, typeof(void));
-        }
+        //public static void DeleteEmail(int id)
+        //{
+        //    MakeRequest(string.Concat(ws1, "email/", id), null, "DELETE", null, typeof(void));
+        //}
 
         public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)
         //  requestUrl: Url completa del Web Service, amb l'opció sol·licitada

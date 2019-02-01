@@ -83,6 +83,47 @@ namespace BancDelTemps.ViewModel
 
         }
 
+        private User _selectedUser;
+        public User SelectedUser
+        {
+            get { return _selectedUser; }
+            set
+            {
+                _selectedUser = value; NotifyPropertyChanged();
+            }
+        }
+
+        private void InsertUser()
+        {
+            if (_selectedUser != null)
+            {
+                User uNew = new User();
+                User u2 = UsersRepository.InsertUser(uNew);
+                UsersPopulate();
+            }
+        }
+
+        private void UpdateUser()
+        {
+            if (_selectedUser != null)
+            {
+                User uNew = _selectedUser;
+                //cNew.nom = NomContacte;
+                //cNew.cognoms = CognomContacte;
+                User u2 = UsersRepository.UpdateUser(uNew);
+                UsersPopulate();
+            }
+        }
+
+        private void DeleteUser()
+        {
+            if (_selectedUser != null)
+            {
+                UsersRepository.DeleteUser(_selectedUser.Id_User);
+                UsersPopulate();
+            }
+        }
+
         #endregion
 
         #region Posts
