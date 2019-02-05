@@ -38,6 +38,18 @@ namespace BancDelTemps.Model
             MakeRequest(string.Concat(ws1, "user/", id), null, "DELETE", null, typeof(void));
         }
 
+        public static List<User> GeUsersByEmail(string email)
+        {
+            List<User> lu = (List <User>)MakeRequest(string.Concat(ws1, "usersEmail/", email), null, "GET", "application/json", typeof(List<User>));
+            return lu;
+        }
+
+        public static List<User> GeUsersByName(string name)
+        {
+            List<User> lu = (List<User>)MakeRequest(string.Concat(ws1, "usersName/", name), null, "GET", "application/json", typeof(List<User>));
+            return lu;
+        }
+
         //public static List<contacte> GetAllContactesTot()
         //{
         //    List<contacte> lc = (List<contacte>)MakeRequest(string.Concat(ws1, "contactesTot/"), null, "GET", "application/json", typeof(List<contacte>));
@@ -63,11 +75,7 @@ namespace BancDelTemps.Model
         //    return lt;
         //}
 
-        //public static telefon GetTelefon(int id)
-        //{
-        //    telefon t = (telefon)MakeRequest(string.Concat(ws1, "telefon/", id), null, "GET", "application/json", typeof(telefon));
-        //    return t;
-        //}
+
 
         //public static telefon InsertTelefon(telefon t2Add)
         //{
