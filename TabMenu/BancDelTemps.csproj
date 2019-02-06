@@ -103,9 +103,11 @@
     <Compile Include="Model\PactsRepository.cs" />
     <Compile Include="Model\ReportsRepository.cs" />
     <Compile Include="Model\PostsRepository.cs" />
+    <Compile Include="Model\AdminsRepository.cs" />
     <Compile Include="Model\UsersRepository.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\prova.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

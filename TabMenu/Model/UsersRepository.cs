@@ -13,7 +13,7 @@ namespace BancDelTemps.Model
 {
     class UsersRepository
     {
-        private static string ws1 = "https://wsbancdeltemps.azurewebsites.net/api/";
+        private static string ws1 = "http://wsbancdeltemps.azurewebsites.net/api/";
 
         public static List<User> GetAllUsers()
         {
@@ -129,10 +129,10 @@ namespace BancDelTemps.Model
         {
             try
             {
+
                 HttpWebRequest request = WebRequest.Create(requestUrl) as HttpWebRequest; //WebRequest WR = WebRequest.Create(requestUrl);   
                 string sb = JsonConvert.SerializeObject(JSONRequest);
                 request.Method = JSONmethod;  // "GET"/"POST"/"PUT"/"DELETE";  
-
                 if (JSONmethod != "GET")
                 {
                     request.ContentType = JSONContentType; // "application/json";   
