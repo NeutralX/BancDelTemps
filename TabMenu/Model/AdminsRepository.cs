@@ -21,6 +21,12 @@ namespace BancDelTemps.Model
             return la;
         }
 
+        public static Admin InsertAdmin(User a2Add)
+        {
+            Admin a = (Admin)MakeRequest(string.Concat(ws1, "admin"), a2Add, "POST", "application/json", typeof(Admin));
+            return a;
+        }
+
         public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)
         //  requestUrl: Url completa del Web Service, amb l'opció sol·licitada
         //  JSONrequest: objecte que se li passa en el body (només per a POST/PUT)

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 		xmlns:ViewModel="clr-namespace:BancDelTemps.ViewModel"
+		xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
 		x:Class="TabMenu.MainWindow"
         mc:Ignorable="d" Height="600" Width="1080" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.DataContext>
@@ -15,6 +16,8 @@
             <StackPanel HorizontalAlignment="Left" Margin="20 0">
                 <ComboBox FontSize="15" Width="50" Foreground="#FFA2A2A2" SelectedIndex="0" VerticalAlignment="Center">
                     <ComboBoxItem Content="EN"/>
+                    <ComboBoxItem Content="ES"/>
+                    <ComboBoxItem Content="CAT"/>
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20 0">
@@ -40,20 +43,41 @@
             <Grid x:Name="GridCursor" Width="150" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" Margin="10,45,0,7"/>
         </Grid>
         <Grid Height="503">
-            <Grid x:Name="GridMain" Height="503" Background="Aquamarine" Visibility="Hidden"/>
-            <Grid x:Name ="GridUser" Height="503" Background="White" Visibility="Hidden">
+            <Grid x:Name="GridMain" Height="503" Background="Aquamarine" >
+                <Grid>
+                    <wpf:PieChart LegendLocation="Bottom"  Hoverable="False" DataTooltip="{x:Null}" >
+                        <wpf:PieChart.Series>
+                            <wpf:PieSeries Title="Maria" Values="3" DataLabels="True" 
+                            />
+                            <wpf:PieSeries Title="Charles" Values="4" DataLabels="True" 
+                            />
+                            <wpf:PieSeries Title="Frida" Values="6" DataLabels="True" 
+                            />
+                            <wpf:PieSeries Title="Frederic" Values="2" DataLabels="True" 
+                            />
+                        </wpf:PieChart.Series>
+                    </wpf:PieChart>
+                </Grid>
+            </Grid>
+            <Grid x:Name ="GridUsers" Height="503" Background="White" Visibility="Hidden" >
                 <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Users}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
                 <Button x:Name="ButtonUsersFiltreMail" Content="Filtrar per e-mail" HorizontalAlignment="Left" Margin="192,114,0,0" VerticalAlignment="Top" Width="206" Height="36"/>
                 <TextBox x:Name="TextBoxUsersFiltreMail" HorizontalAlignment="Left" Height="22" Margin="42,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="#FF000001" BorderThickness="1"/>
                 <Button x:Name="ButtonUsersFiltreNom" Content="Filtrar per nom i cognoms" HorizontalAlignment="Left" Margin="192,202,0,0" VerticalAlignment="Top" Width="206" Height="36"/>
                 <TextBox x:Name="TextBoxUsersFiltreNom" HorizontalAlignment="Left" Height="24" Margin="42,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="#FF000001" BorderThickness="1"/>
             </Grid>
-            <Grid x:Name ="GridPosts" Height="503" Background="CadetBlue" >
-                <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Users}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
+            <Grid x:Name ="GridPosts" Height="503" Background="CadetBlue" Visibility="Hidden">
+                <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Posts}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
                 <Button x:Name="ButtonPostsFiltreCreador" Content="Filtrar per creador" HorizontalAlignment="Left" Margin="192,114,0,0" VerticalAlignment="Top" Width="206" Height="36"/>
                 <TextBox x:Name="TextBoxPostsFiltreCreador" HorizontalAlignment="Left" Height="22" Margin="42,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="#FF000001" BorderThickness="1"/>
                 <ComboBox x:Name="ComboBoxFiltreCatgoria" HorizontalAlignment="Left" Margin="192,208,0,0" VerticalAlignment="Top" Width="120" BorderThickness="1" BorderBrush="#FF000001"/>
                 <Label x:Name="LabelComboxCategoria" Content="Label" HorizontalAlignment="Left" Margin="42,210,0,0" VerticalAlignment="Top"/>
+            </Grid>
+            <Grid x:Name ="GridReports" Height="503" Background="CadetBlue" Visibility="Hidden">
+                <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Reports}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
+            </Grid>
+            <Grid x:Name ="GridPacts" Height="503" Background="CadetBlue" Visibility="Hidden">
+                <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Bans}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
             </Grid>
         </Grid>
     </StackPanel>

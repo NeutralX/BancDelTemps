@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace TabMenu
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Interraccio logica amb MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -30,8 +30,11 @@ namespace TabMenu
             int index = int.Parse(((Button)e.Source).Uid);
 
             GridCursor.Margin = new Thickness(10 + (150 * index), 45, 0, 7);
-            GridUser.Visibility = Visibility.Hidden;
             GridMain.Visibility = Visibility.Hidden;
+            GridUsers.Visibility = Visibility.Hidden;
+            GridPosts.Visibility = Visibility.Hidden;
+            GridReports.Visibility = Visibility.Hidden;
+            GridPacts.Visibility = Visibility.Hidden;
             switch (index)
             {
                 case 0:
@@ -39,23 +42,26 @@ namespace TabMenu
                     GridMain.Visibility = Visibility.Visible;
                     break;
                 case 1:
-                    GridUser.Visibility = Visibility.Visible;
-                    GridUser.Background = Brushes.Beige;
+                    GridUsers.Background = Brushes.Beige;
+                    GridUsers.Visibility = Visibility.Visible;
                     break;
                 case 2:
-                    GridMain.Background = Brushes.CadetBlue;
+                    GridPosts.Background = Brushes.CadetBlue;
+                    GridPosts.Visibility = Visibility.Visible;
                     break;
                 case 3:
-                    GridMain.Background = Brushes.DarkBlue;
+                    GridReports.Background = Brushes.DarkBlue;
+                    GridReports.Visibility = Visibility.Visible;
                     break;
                 case 4:
-                    GridMain.Background = Brushes.Firebrick;
+                    GridPacts.Background = Brushes.Firebrick;
+                    GridPacts.Visibility = Visibility.Visible;
                     break;
                 case 5:
-                    GridMain.Background = Brushes.Gainsboro;
+                    //GridMain.Background = Brushes.Gainsboro;
                     break;
                 case 6:
-                    GridMain.Background = Brushes.HotPink;
+                    //GridMain.Background = Brushes.HotPink;
                     break;
             }
         }

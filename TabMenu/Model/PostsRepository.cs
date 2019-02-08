@@ -21,6 +21,48 @@ namespace BancDelTemps.Model
             return lp;
         }
 
+        public static List<Post> GetAllPostsByCategory(int idCategory)
+        {
+            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsCategory/", idCategory), null, "GET", "application/json", typeof(List<Post>));
+            return lp;
+        }
+
+        public static List<Post> GetAllPostsByDateCreated(DateTime dateCreated)
+        {
+            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsDateCreated/", dateCreated), null, "GET", "application/json", typeof(List<Post>));
+            return lp;
+        }
+
+        public static List<Post> GetAllPostsByDateFinished(DateTime dateFinished)
+        {
+            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsDateFinished/",dateFinished), null, "GET", "application/json", typeof(List<Post>));
+            return lp;
+        }
+
+        public static List<Post> GetAllPostsByLocation(string location)
+        {
+            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsLocation/", location), null, "GET", "application/json", typeof(List<Post>));
+            return lp;
+        }
+
+        public static List<Post> GetAllPostsByTitle(string title)
+        {
+            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsTitle/", title), null, "GET", "application/json", typeof(List<Post>));
+            return lp;
+        }
+
+        public static List<Post> GetAllPostsByUser(int userId)
+        {
+            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsUser/", userId), null, "GET", "application/json", typeof(List<Post>));
+            return lp;
+        }
+
+        public static Post GetPostById(int idPost)
+        {
+            Post p = (Post)MakeRequest(string.Concat(ws1, "post/", idPost), null, "POST", "application/json", typeof(Post));
+            return p;
+        }
+
         public static Post InsertPost(Post u2Add)
         {
             Post p = (Post)MakeRequest(string.Concat(ws1, "post"), u2Add, "POST", "application/json", typeof(Post));

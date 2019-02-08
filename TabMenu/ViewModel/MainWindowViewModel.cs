@@ -161,6 +161,40 @@ namespace BancDelTemps.ViewModel
         }
 
         #endregion
+        #region Reports
+
+        private List<Report> _reports;
+        public List<Report> Reports
+        {
+            get { return _reports; }
+            set { _reports = value; NotifyPropertyChanged(); }
+        }
+
+        private void ReportsPopulate()
+        {
+
+            //Reports = ReportsRepository.GetAllPosts();
+
+        }
+
+        #endregion
+        #region Bans
+
+        private List<Ban> _bans;
+        public List<Ban> Bans
+        {
+            get { return _bans; }
+            set { _bans = value; NotifyPropertyChanged(); }
+        }
+
+        private void BansPopulate()
+        {
+
+            //Bans = BansRepository.GetAllPosts();
+
+        }
+
+        #endregion
     }
 }
 
