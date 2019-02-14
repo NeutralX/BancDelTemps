@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,6 +71,7 @@ namespace BancDelTemps.ViewModel
         private Boolean firstTime;
         public MainWindowViewModel()
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Culture);
             ButtonCloseApp = new RelayCommand(o => System.Windows.Application.Current.Shutdown());
             AdminsPopulate();
