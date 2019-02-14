@@ -22,14 +22,14 @@ namespace BancDelTemps.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    public class Strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Strings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace BancDelTemps.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BancDelTemps.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BancDelTemps.Properties.Strings", typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,47 +61,11 @@ namespace BancDelTemps.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to HOME.
+        ///   Looks up a localized string similar to EN.
         /// </summary>
-        public static string TitleHome {
+        public static string culture1 {
             get {
-                return ResourceManager.GetString("TitleHome", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to PACTS.
-        /// </summary>
-        public static string TitlePacts {
-            get {
-                return ResourceManager.GetString("TitlePacts", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to POSTS.
-        /// </summary>
-        public static string TitlePosts {
-            get {
-                return ResourceManager.GetString("TitlePosts", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to REPORTS.
-        /// </summary>
-        public static string TitleReports {
-            get {
-                return ResourceManager.GetString("TitleReports", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to USERS.
-        /// </summary>
-        public static string TitleUsers {
-            get {
-                return ResourceManager.GetString("TitleUsers", resourceCulture);
+                return ResourceManager.GetString("culture1", resourceCulture);
             }
         }
     }

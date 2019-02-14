@@ -6,6 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 		xmlns:ViewModel="clr-namespace:BancDelTemps.ViewModel"
 		xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+		xmlns:p = "clr-namespace:BancDelTemps.Properties"
 		x:Class="TabMenu.MainWindow"
         mc:Ignorable="d" Height="600" Width="1080" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.DataContext>
@@ -14,10 +15,11 @@
     <StackPanel Background="WhiteSmoke">
         <Grid Height="40">
             <StackPanel HorizontalAlignment="Left" Margin="20 0">
-                <ComboBox FontSize="15" Width="50" Foreground="#FFA2A2A2" SelectedIndex="0" VerticalAlignment="Center">
-                    <ComboBoxItem Content="EN"/>
+                <ComboBox FontSize="15" Width="50" Foreground="#FFA2A2A2" VerticalAlignment="Center" SelectedValue="{Binding SelectedValueCulture}" SelectedIndex="0" SelectedItem="{Binding SelectedItemCulture}"  >
+                    <ComboBoxItem Content="" />
+                    <ComboBoxItem Content="EN" />
                     <ComboBoxItem Content="ES"/>
-                    <ComboBoxItem Content="CAT"/>
+                    <ComboBoxItem Content="CA"/>
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20 0">
@@ -32,11 +34,11 @@
         </Grid>
         <Grid Height="57">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
-                <Button Uid="0" Width="150" Content="HOME" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
-                <Button Uid="1" Width="150" Content="USERS" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
-                <Button Uid="2" Width="150" Content="POSTS" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
-                <Button Uid="3" Width="150" Content="REPORTS" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
-                <Button Uid="4" Width="150" Content="PACTS" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
+                <Button Uid="0" Width="150" Content="{x:Static p:Resources.TitleHome}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
+                <Button Uid="1" Width="150" Content="{x:Static p:Resources.TitleUsers}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
+                <Button Uid="2" Width="150" Content="{x:Static p:Resources.TitlePosts}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
+                <Button Uid="3" Width="150" Content="{x:Static p:Resources.TitleReports}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
+                <Button Uid="4" Width="150" Content="{x:Static p:Resources.TitlePacts}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
                 <Button Uid="5" Width="150" Content="BRANDS" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
                 <Button Uid="6" Width="150" Content="GIFT CARDS" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
             </StackPanel>

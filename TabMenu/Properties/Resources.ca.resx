@@ -118,18 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="TitleHome" xml:space="preserve">
-    <value>HOME</value>
+    <value>INICI</value>
   </data>
   <data name="TitlePacts" xml:space="preserve">
-    <value>PACTS</value>
+    <value>PACTES</value>
   </data>
   <data name="TitlePosts" xml:space="preserve">
-    <value>POSTS</value>
+    <value>ANUNCIS</value>
   </data>
   <data name="TitleReports" xml:space="preserve">
     <value>REPORTS</value>
   </data>
   <data name="TitleUsers" xml:space="preserve">
-    <value>USERS</value>
+    <value>USUARIS</value>
   </data>
 </root>

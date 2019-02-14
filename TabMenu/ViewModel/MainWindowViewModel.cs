@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using BancDelTemps.Model;
 using BancDelTemps.Model.Class;
+using BancDelTemps.Properties;
+using TabMenu;
 
 namespace BancDelTemps.ViewModel
 {
@@ -61,11 +66,55 @@ namespace BancDelTemps.ViewModel
 
         public ICommand ButtonCloseApp { get; set; }
 
+        private String culture;
+        private Boolean firstTime;
         public MainWindowViewModel()
         {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Culture);
             ButtonCloseApp = new RelayCommand(o => System.Windows.Application.Current.Shutdown());
             AdminsPopulate();
             UsersPopulate();
+            firstTime = true;
+
+        }
+
+        private ComboBoxItem _selectedValueCulture;
+        public ComboBoxItem SelectedValueCulture
+        {
+            get { return _selectedValueCulture; }
+            set
+            {
+                _selectedValueCulture = value; NotifyPropertyChanged();
+                if (firstTime == true)
+                {
+                    firstTime = false;
+                }
+                else
+                {
+                    Language_Changer(_selectedValueCulture.Content.ToString());
+                }
+            }
+        }
+
+        public void Language_Changer(string culture)
+        {
+
+            switch (culture)
+            {
+                case "EN":
+                    if(Settings.Default.Culture != "en") culture = "en";
+                    break;
+                case "ES":
+                    if(Settings.Default.Culture != "es") culture = "es";
+                    break;
+                case "CA":
+                    if(Settings.Default.Culture != "ca")culture = "ca";
+                    break;
+            }
+            Settings.Default.Culture = culture;
+            Settings.Default.Save();
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            App.Current.Shutdown();
         }
         #endregion
 

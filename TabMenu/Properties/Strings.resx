@@ -117,19 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TitleHome" xml:space="preserve">
-    <value>HOME</value>
-  </data>
-  <data name="TitlePacts" xml:space="preserve">
-    <value>PACTS</value>
-  </data>
-  <data name="TitlePosts" xml:space="preserve">
-    <value>POSTS</value>
-  </data>
-  <data name="TitleReports" xml:space="preserve">
-    <value>REPORTS</value>
-  </data>
-  <data name="TitleUsers" xml:space="preserve">
-    <value>USERS</value>
+  <data name="culture1" xml:space="preserve">
+    <value>EN</value>
   </data>
 </root>
