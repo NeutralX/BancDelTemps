@@ -28,7 +28,7 @@ namespace BancDelTemps.Model
         }
         public static Admin LoginAdmin(Admin login)
         {
-            Admin a = (Admin)MakeRequest(string.Concat(ws1, "admin/login"), login, "GET", "application/json", typeof(Admin));
+            Admin a = (Admin)MakeRequest(string.Concat(ws1, "admin/login"), login, "PUT", "application/json", typeof(Admin));
             return a;
         }
 

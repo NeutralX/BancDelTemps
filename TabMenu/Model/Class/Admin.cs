@@ -4,7 +4,6 @@
     {
         public Admin(string username, string password)
         {
-            this.Id_Admin = 1;
             this.username = username;
             this.password = password;
         }
