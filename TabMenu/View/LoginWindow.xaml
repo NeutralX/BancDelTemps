@@ -1,0 +1,34 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BancDelTemps.View"
+        xmlns:ViewModel="clr-namespace:BancDelTemps.ViewModel"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        x:Class="BancDelTemps.View.LoginWindow"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="312.712" Width="555.932">
+    <Window.DataContext>
+        <ViewModel:LoginWindowViewModel/>
+    </Window.DataContext>
+    <Grid Margin="0,0,2,-21">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="227,183,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.088,2.136" Command="{Binding ButtonLogin}" Grid.ColumnSpan="2" CommandParameter="{Binding ElementName=TxtPassword}"/>
+        <TextBox HorizontalAlignment="Left" Height="43" Margin="204,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" materialDesign:HintAssist.Hint="Username"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="NameTextBox" Grid.ColumnSpan="2" Text="{Binding Username}" >
+        </TextBox>
+        <TextBlock
+            Style="{StaticResource MaterialDesignBody1TextBlock}" Grid.ColumnSpan="2" Margin="222,135,244,135" Foreground="Red">
+            Error
+        </TextBlock>
+        <PasswordBox HorizontalAlignment="Left" Margin="204,86,0,173" Width="120"
+                     materialDesign:HintAssist.Hint="Password"
+                     Name="TxtPassword"
+                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Grid.ColumnSpan="2" PasswordChar="{Binding Password}" />
+
+    </Grid>
+</Window>
