@@ -13,6 +13,8 @@ using BancDelTemps.Model;
 using BancDelTemps.Model.Class;
 using BancDelTemps.Properties;
 using BancDelTemps.View;
+using MahApps.Metro.Controls;
+using MaterialDesignThemes.Wpf;
 using TabMenu;
 
 namespace BancDelTemps.ViewModel
@@ -69,7 +71,8 @@ namespace BancDelTemps.ViewModel
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Culture);
             ButtonLogin = new RelayCommand(o => LoginToApp(o));
-
+            ProgressVisibility = "HIDDEN";
+            Username = Settings.Default.Username;
         }
 
         private string _username;
@@ -93,14 +96,51 @@ namespace BancDelTemps.ViewModel
             set { _errorText = value; NotifyPropertyChanged(); }
         }
 
-        public void LoginToApp(object parameter)
+        private bool _IsDialogOpen;
+        public bool IsDialogOpen
         {
+            get { return _IsDialogOpen; }
+            set { _IsDialogOpen = value; NotifyPropertyChanged(); }
+        }
+
+        private string _progressVisibility;
+        public string ProgressVisibility
+        {
+            get { return _progressVisibility; }
+            set { _progressVisibility = value; NotifyPropertyChanged(); }
+        }
+
+        private bool _isCheckedRemember;
+        public bool IsCheckedRemember
+        {
+            get { return _isCheckedRemember; }
+            set
+            {
+                _isCheckedRemember = value; NotifyPropertyChanged();
+                
+            }
+        }
+
+        public async void LoginToApp(object parameter)
+        {
+            ProgressVisibility = "VISIBLE";
             var passwordBox = parameter as PasswordBox;
             Password = passwordBox.Password;
             if (_username != "" && _password != "")
             {
                 Admin login = new Admin(_username,_password);
-                Admin returnAdmin = AdminsRepository.LoginAdmin(login);
+                if (_isCheckedRemember == true)
+                {
+                    Settings.Default.Username = _username;
+                    Settings.Default.Save();
+                }
+                else
+                {
+                    Settings.Default.Username = "";
+                    Settings.Default.Save();
+                }
+                    Admin returnAdmin = await Task.Run(() => loginAdmin(login));
+                
                 if (returnAdmin != null)
                 {
                     MainWindow mw = new MainWindow();
@@ -110,9 +150,16 @@ namespace BancDelTemps.ViewModel
                 }
                 else
                 {
-
+                    IsDialogOpen = true;
                 }
+                ProgressVisibility = "HIDDEN";
             }
+        }
+
+        public async Task<Admin> loginAdmin(Admin login)
+        {
+             Admin returnAdmin = AdminsRepository.LoginAdmin(login);
+             return returnAdmin;
         }
     }
 }

@@ -77,7 +77,6 @@ namespace BancDelTemps.ViewModel
             AdminsPopulate();
             UsersPopulate();
             firstTime = true;
-
         }
 
         private ComboBoxItem _selectedValueCulture;

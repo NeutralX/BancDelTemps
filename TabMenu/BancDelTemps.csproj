@@ -126,6 +126,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Domain\NotEmptyValidationRule.cs" />
     <Compile Include="Model\Class\Admin.cs" />
     <Compile Include="Model\Class\Ban.cs" />
     <Compile Include="Model\Class\Category.cs" />
