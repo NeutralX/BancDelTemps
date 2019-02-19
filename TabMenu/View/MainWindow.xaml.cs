@@ -63,7 +63,10 @@ namespace TabMenu
                     GridPosts.Visibility = Visibility.Visible;
                     break;
                 case 3:
-                    GridReports.Background = Brushes.DarkBlue;
+                    BrushConverter bc = new BrushConverter();
+                    Brush brush = (Brush)bc.ConvertFrom("#3F51B5");
+                    brush.Freeze();
+                    GridReports.Background = brush;
                     GridReports.Visibility = Visibility.Visible;
                     break;
                 case 4:
@@ -71,10 +74,10 @@ namespace TabMenu
                     GridPacts.Visibility = Visibility.Visible;
                     break;
                 case 5:
-                    //GridMain.Background = Brushes.Gainsboro;
+                    GridMain.Background = Brushes.Gainsboro;
                     break;
                 case 6:
-                    //GridMain.Background = Brushes.HotPink;
+                    GridMain.Background = Brushes.HotPink;
                     break;
             }
         }
