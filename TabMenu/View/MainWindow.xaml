@@ -88,13 +88,14 @@
                 <TextBox x:Name="TextBoxPostsTitol" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Titol" Margin="14,58,900,0" />
 
             </Grid>
-            <Grid x:Name ="GridReports" Height="503" Background="CadetBlue" >
+            <Grid x:Name ="GridReports" Height="503" Background="CadetBlue"  Visibility="Hidden">
                 <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Reports}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
-                <Button x:Name="ButtonReportsFiltreDesc" Content="Filtrar per titol" HorizontalAlignment="Left" Margin="214,82,0,0" VerticalAlignment="Top" Width="206" Height="36" RenderTransformOrigin="0.722,0.528"/>
-                <TextBox x:Name="TextBoxReportsDesc" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Titol" Margin="14,58,900,0" />
-
+                <Button x:Name="ButtonReportsFiltreDesc" Content="Filtrar per descripció" HorizontalAlignment="Left" Margin="210,154,0,0" VerticalAlignment="Top" Width="206" Height="36" RenderTransformOrigin="0.722,0.528"/>
+                <TextBox x:Name="TextBoxReportsDesc" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Descripció" Margin="10,130,904,0" />
+                <ToggleButton Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="Default ToggleButton Style" Margin="280,80,732,399" />
+                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="26,80,922,402" Text="Filtrar per estat"/>
             </Grid>
-            <Grid x:Name ="GridPacts" Height="503" Background="CadetBlue" Visibility="Hidden">
+            <Grid x:Name ="GridPacts" Height="503" Background="CadetBlue">
                 <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Bans}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
             </Grid>
         </Grid>

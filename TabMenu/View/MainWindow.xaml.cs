@@ -55,22 +55,21 @@ namespace TabMenu
                     GridMain.Visibility = Visibility.Visible;
                     break;
                 case 1:
-                    GridUsers.Background = Brushes.Beige;
+                    GridUsers.Background = Brushes.BurlyWood;
                     GridUsers.Visibility = Visibility.Visible;
                     break;
                 case 2:
-                    GridPosts.Background = Brushes.CadetBlue;
+                    GridPosts.Background = Brushes.CornflowerBlue;
                     GridPosts.Visibility = Visibility.Visible;
                     break;
                 case 3:
-                    BrushConverter bc = new BrushConverter();
-                    Brush brush = (Brush)bc.ConvertFrom("#3F51B5");
-                    brush.Freeze();
-                    GridReports.Background = brush;
+
+                    GridReports.Background = Brushes.Coral;
                     GridReports.Visibility = Visibility.Visible;
                     break;
                 case 4:
-                    GridPacts.Background = Brushes.Firebrick;
+
+                    GridReports.Background = Brushes.HotPink;
                     GridPacts.Visibility = Visibility.Visible;
                     break;
                 case 5:
