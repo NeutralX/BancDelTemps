@@ -113,10 +113,17 @@
                 </Grid.RowDefinitions>
                 <TextBox x:Name="TextBoxUsersEmail" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="E-mail" Margin="10,51.5,904,0" Text="{Binding EmailUser}" Grid.Row="1" />
                 <TextBox x:Name="TextBoxUsersCognom" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Nom i cognoms" Margin="10,139.5,904,0" Text="{Binding NomCognomUser}" Grid.Row="1" />
-                <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Users}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" Grid.RowSpan="2"/>
-                <Button x:Name="ButtonUsersFiltreMail" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per e-mail" HorizontalAlignment="Left" Margin="192,75.5,0,0" VerticalAlignment="Top" Width="206" Height="36" Command="{Binding ButtonFiltreUserEmail}" Grid.Row="1"/>
-                <Button x:Name="ButtonUsersFiltreNom" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per nom i cognoms" HorizontalAlignment="Left" Margin="192,163.5,0,0" VerticalAlignment="Top" Width="206" Height="36" Command="{Binding ButtonFiltreUserNomCognom}" Grid.Row="1"/>
-                <Button x:Name="ButtonUsersFiltreBorrar" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Borrar el filtre" HorizontalAlignment="Left" Margin="10,351,0,0" VerticalAlignment="Top" Width="388" Height="36" Command="{Binding ButtonFiltreUserReiniciar}" Grid.Row="1"/>
+                <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Users}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" Grid.RowSpan="2">
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn Binding="{Binding Id_User}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridUserName}"/>
+                        <DataGridCheckBoxColumn Binding="{Binding last_name}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridUserLastName}"/>
+                        <DataGridCheckBoxColumn Binding="{Binding email}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridUserEmail}"/>
+                        <DataGridCheckBoxColumn Binding="{Binding register_date}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridUserRegisterDate}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="ButtonUsersFiltreMail" Content="Filtrar per e-mail" HorizontalAlignment="Left" Margin="192,75.5,0,0" VerticalAlignment="Top" Width="206" Height="36" Command="{Binding ButtonFiltreUserEmail}" Grid.Row="1"/>
+                <Button x:Name="ButtonUsersFiltreNom" Content="Filtrar per nom i cognoms" HorizontalAlignment="Left" Margin="192,163.5,0,0" VerticalAlignment="Top" Width="206" Height="36" Command="{Binding ButtonFiltreUserNomCognom}" Grid.Row="1"/>
+                <Button x:Name="ButtonUsersFiltreBorrar" Content="Borrar el filtre" HorizontalAlignment="Left" Margin="10,351,0,0" VerticalAlignment="Top" Width="388" Height="36" Command="{Binding ButtonFiltreUserReiniciar}" Grid.Row="1"/>
             </Grid>
             <Grid x:Name ="GridPosts" Height="503" Background="#e6e6e6" Visibility="Visible">
                 <Button x:Name="ButtonPostsFiltreBorrar" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Borrar el filtre" HorizontalAlignment="Left" Margin="214,28,0,0" VerticalAlignment="Top" Width="206" Height="36" Command="{Binding ButtonFiltreUserNomCognom}"/>
