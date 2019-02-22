@@ -51,32 +51,31 @@ namespace TabMenu
             switch (index)
             {
                 case 0:
-                    GridMain.Background = Brushes.Aquamarine;
+                   // GridMain.Background = Brushes.Aquamarine;
                     GridMain.Visibility = Visibility.Visible;
                     break;
                 case 1:
-                    GridUsers.Background = Brushes.BurlyWood;
+                   // GridUsers.Background = Brushes.BurlyWood;
                     GridUsers.Visibility = Visibility.Visible;
                     break;
                 case 2:
-                    GridPosts.Background = Brushes.CornflowerBlue;
+                   // GridPosts.Background = Brushes.CornflowerBlue;
                     GridPosts.Visibility = Visibility.Visible;
                     break;
                 case 3:
-
-                    GridReports.Background = Brushes.Coral;
+                   // GridReports.Background = Brushes.Coral;
                     GridReports.Visibility = Visibility.Visible;
                     break;
                 case 4:
 
-                    GridReports.Background = Brushes.HotPink;
+                    //GridReports.Background = Brushes.HotPink;
                     GridPacts.Visibility = Visibility.Visible;
                     break;
                 case 5:
-                    GridMain.Background = Brushes.Gainsboro;
+                   // GridMain.Background = Brushes.Gainsboro;
                     break;
                 case 6:
-                    GridMain.Background = Brushes.HotPink;
+                   // GridMain.Background = Brushes.HotPink;
                     break;
             }
         }
