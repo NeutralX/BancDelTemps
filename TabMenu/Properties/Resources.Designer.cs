@@ -61,6 +61,42 @@ namespace BancDelTemps.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string GridUserEmail {
+            get {
+                return ResourceManager.GetString("GridUserEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last name.
+        /// </summary>
+        public static string GridUserLastName {
+            get {
+                return ResourceManager.GetString("GridUserLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string GridUserName {
+            get {
+                return ResourceManager.GetString("GridUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register date.
+        /// </summary>
+        public static string GridUserRegisterDate {
+            get {
+                return ResourceManager.GetString("GridUserRegisterDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HOME.
         /// </summary>
         public static string TitleHome {
