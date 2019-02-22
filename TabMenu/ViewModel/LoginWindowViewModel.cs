@@ -144,9 +144,8 @@ namespace BancDelTemps.ViewModel
                 if (returnAdmin != null)
                 {
                     MainWindow mw = new MainWindow();
-                    mw.Show();
-                    var w = Application.Current.Windows[0];
-                    w.Close();
+                    mw.ShowDialog();
+                    Application.Current.Windows[0].Close();
                 }
                 else
                 {
