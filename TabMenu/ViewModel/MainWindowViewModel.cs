@@ -70,15 +70,14 @@ namespace BancDelTemps.ViewModel
         #region Main
 
         public ICommand ButtonCloseApp { get; set; }
-
         public ICommand ButtonFiltreUserEmail { get; set; }
-
         public ICommand ButtonFiltreUserNomCognom{ get; set; }
+        public ICommand ButtonFiltreUserReiniciar { get; set; }
 
-        private String culture;
-        private Boolean firstTime;
+        private Boolean _firstTime;
         private double _lastLecture;
         private double _trend;
+
         public MainWindowViewModel()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
@@ -87,10 +86,11 @@ namespace BancDelTemps.ViewModel
             ButtonCloseApp = new RelayCommand(o => System.Windows.Application.Current.Shutdown());
             ButtonFiltreUserEmail = new RelayCommand(o => Users = UsersRepository.GetUsersByEmail(_emailUser));
             ButtonFiltreUserNomCognom = new RelayCommand(o => Users = UsersRepository.GetUsersByName(_nomCognomUser));
+            ButtonFiltreUserReiniciar = new RelayCommand(o => UsersPopulate());
 
             AdminsPopulate();
             UsersPopulate();
-            firstTime = true;
+            _firstTime = true;
             LastHourSeries = new SeriesCollection
                 {
                     new LineSeries
@@ -169,9 +169,9 @@ namespace BancDelTemps.ViewModel
             set
             {
                 _selectedValueCulture = value; NotifyPropertyChanged();
-                if (firstTime == true)
+                if (_firstTime == true)
                 {
-                    firstTime = false;
+                    _firstTime = false;
                 }
                 else
                 {
@@ -213,7 +213,8 @@ namespace BancDelTemps.ViewModel
 
         private void UsersPopulate()
         {
-
+            EmailUser = "";
+            NomCognomUser = "";
             Users = UsersRepository.GetAllUsers();
 
         }
