@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,9 @@ using System.Windows.Input;
 using BancDelTemps.Model;
 using BancDelTemps.Model.Class;
 using BancDelTemps.Properties;
+using LiveCharts;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
 using TabMenu;
 
 namespace BancDelTemps.ViewModel
@@ -67,16 +71,95 @@ namespace BancDelTemps.ViewModel
 
         public ICommand ButtonCloseApp { get; set; }
 
+        public ICommand ButtonFiltreUserEmail { get; set; }
+
+        public ICommand ButtonFiltreUserNomCognom{ get; set; }
+
         private String culture;
         private Boolean firstTime;
+        private double _lastLecture;
+        private double _trend;
         public MainWindowViewModel()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Culture);
+
             ButtonCloseApp = new RelayCommand(o => System.Windows.Application.Current.Shutdown());
+            ButtonFiltreUserEmail = new RelayCommand(o => Users = UsersRepository.GetUsersByEmail(_emailUser));
+            ButtonFiltreUserNomCognom = new RelayCommand(o => Users = UsersRepository.GetUsersByName(_nomCognomUser));
+
             AdminsPopulate();
             UsersPopulate();
             firstTime = true;
+            LastHourSeries = new SeriesCollection
+                {
+                    new LineSeries
+                    {
+                        AreaLimit = -10,
+                        Values = new ChartValues<ObservableValue>
+                        {
+                            new ObservableValue(3),
+                            new ObservableValue(5),
+                            new ObservableValue(6),
+                            new ObservableValue(7),
+                            new ObservableValue(3),
+                            new ObservableValue(4),
+                            new ObservableValue(2),
+                            new ObservableValue(5),
+                            new ObservableValue(8),
+                            new ObservableValue(3),
+                            new ObservableValue(5),
+                            new ObservableValue(6),
+                            new ObservableValue(7),
+                            new ObservableValue(3),
+                            new ObservableValue(4),
+                            new ObservableValue(2),
+                            new ObservableValue(5),
+                            new ObservableValue(8)
+                        }
+                    }
+                };
+            _trend = 8;
+
+#if NET40
+                Task.Factory.StartNew(() =>
+                {
+                    var r = new Random();
+     
+                    Action action = delegate
+                    {
+                        LastHourSeries[0].Values.Add(new ObservableValue(_trend));
+                        LastHourSeries[0].Values.RemoveAt(0);
+                        SetLecture();
+                    };
+     
+                    while (true)
+                    {
+                        Thread.Sleep(500);
+                        _trend += (r.NextDouble() > 0.3 ? 1 : -1) * r.Next(0, 5);
+                        Application.Current.Dispatcher.Invoke(DispatcherPriority.Normal, action);
+                    }
+                });
+#endif
+
+            Task.Run(() =>
+            {
+                var r = new Random();
+                while (true)
+                {
+                    Thread.Sleep(500);
+                    _trend += (r.NextDouble() > 0.3 ? 1 : -1) * r.Next(0, 5);
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        LastHourSeries[0].Values.Add(new ObservableValue(_trend));
+                        LastHourSeries[0].Values.RemoveAt(0);
+                        SetLecture();
+                    });
+                }
+            });
+
+
+            //DataContext = this;
         }
 
         private ComboBoxItem _selectedValueCulture;
@@ -142,6 +225,37 @@ namespace BancDelTemps.ViewModel
             set
             {
                 _selectedUser = value; NotifyPropertyChanged();
+            }
+        }
+
+        private string _emailUser;
+        public string EmailUser
+        {
+            get { return _emailUser; }
+            set
+            {
+                _emailUser = value; NotifyPropertyChanged();
+            }
+        }
+
+        private string _nomCognomUser;
+        public string NomCognomUser
+        {
+            get { return _nomCognomUser; }
+            set
+            {
+                _nomCognomUser = value; NotifyPropertyChanged();
+            }
+        }
+
+        private string _filtreEmail;
+        public string FiltreEmail
+        {
+            get { return _filtreEmail; }
+            set
+            {
+                _filtreEmail = value; NotifyPropertyChanged();
+                Users = UsersRepository.GetUsersByEmail(_emailUser);
             }
         }
 
@@ -245,6 +359,53 @@ namespace BancDelTemps.ViewModel
         }
 
         #endregion
+        #region Card
+        public SeriesCollection LastHourSeries { get; set; }
+
+        public double LastLecture
+        {
+            get { return _lastLecture; }
+            set
+            {
+                _lastLecture = value;
+                NotifyPropertyChanged("LastLecture");
+            }
+        }
+
+        private void SetLecture()
+        {
+            var target = ((ChartValues<ObservableValue>)LastHourSeries[0].Values).Last().Value;
+            var step = (target - _lastLecture) / 4;
+#if NET40
+                Task.Factory.StartNew(() =>
+                {
+                    for (var i = 0; i < 4; i++)
+                    {
+                        Thread.Sleep(100);
+                        LastLecture += step;
+                    }
+                    LastLecture = target;
+                });
+#endif
+
+            Task.Run(() =>
+            {
+                for (var i = 0; i < 4; i++)
+                {
+                    Thread.Sleep(100);
+                    LastLecture += step;
+                }
+                LastLecture = target;
+            });
+
+        }
+
+        private void UpdateOnclick(object sender, RoutedEventArgs e)
+        {
+            //TimePowerChart.Update(true);
+        }
+        #endregion
     }
+    
 }
 
