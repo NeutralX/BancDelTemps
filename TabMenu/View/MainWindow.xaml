@@ -39,7 +39,7 @@
                 <Button Uid="2" Width="150" Content="{x:Static p:Resources.TitlePosts}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
                 <Button Uid="3" Width="150" Content="{x:Static p:Resources.TitleReports}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
                 <Button Uid="4" Width="150" Content="{x:Static p:Resources.TitlePacts}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
-                <Button Uid="5" Width="150" Content="BRANDS" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
+                <Button Uid="5" Width="150" Content="{x:Static p:Resources.TitleCategories}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
                 <Button Uid="6" Width="150" Content="GIFT CARDS" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
             </StackPanel>
             <Grid x:Name="GridCursor" Width="150" Height="5" Background="#ffffff" HorizontalAlignment="Left" Margin="10,45,0,7"/>
@@ -106,7 +106,7 @@
                     </StackPanel>
                 </Grid>
             </Grid>
-            <Grid x:Name ="GridUsers" Height="503" Background="#e6e6e6"  Visibility="Visible">
+            <Grid x:Name ="GridUsers" Height="503" Background="#e6e6e6"  Visibility="Hidden">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="13*"/>
                     <RowDefinition Height="59*"/>
@@ -126,7 +126,7 @@
                 <Button x:Name="ButtonUsersFiltreNom"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per nom i cognoms" HorizontalAlignment="Left" Margin="192,163.5,0,0" VerticalAlignment="Top" Width="206" Height="36" Command="{Binding ButtonFiltreUserNomCognom}" Grid.Row="1"/>
                 <Button x:Name="ButtonUsersFiltreBorrar" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Content="Borrar el filtre" HorizontalAlignment="Left" Margin="10,351,0,0" VerticalAlignment="Top" Width="388" Height="36" Command="{Binding ButtonFiltreUserReiniciar}" Grid.Row="1"/>
             </Grid>
-            <Grid x:Name ="GridPosts" Height="503" Background="#e6e6e6" Visibility="Visible">
+            <Grid x:Name ="GridPosts" Height="503" Background="#e6e6e6" Visibility="Hidden">
                 <Button x:Name="ButtonPostsFiltreBorrar" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Borrar el filtre" HorizontalAlignment="Left" Margin="214,28,0,0" VerticalAlignment="Top" Width="206" Height="36" Command="{Binding ButtonFiltreUserNomCognom}"/>
                 <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Posts}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False"/>
                 <Button x:Name="ButtonPostsFiltreCreador" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per creador" HorizontalAlignment="Left" Margin="214,174,0,0" VerticalAlignment="Top" Width="206" Height="36" RenderTransformOrigin="0.722,0.528"/>
@@ -155,8 +155,13 @@
                 <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}" ToolTip="Default ToggleButton Style" Margin="280,116,732,363" />
                 <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="26,116,922,366" Text="Filtrar per estat"/>
             </Grid>
-            <Grid x:Name ="GridPacts" Height="503" Background="#e6e6e6" Visibility="Hidden">
+            <Grid x:Name ="GridPacts" Height="503" Background="#e6e6e6">
                 <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Bans}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
+                <DatePicker x:Name="DatePickerPactsCreated" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="14,337,900,113" />
+                <DatePicker x:Name="DatePickerPactsFinished" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="14,419,900,31" />
+                <Button x:Name="ButtonPactsFiltreCreated" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per data d'inici" HorizontalAlignment="Left" Margin="214,354,0,0" VerticalAlignment="Top" Width="206" Height="36"/>
+                <Button x:Name="ButtonPactsFiltreFinished" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Content="Filtrar per data de finalització" HorizontalAlignment="Left" Margin="214,436,0,0" VerticalAlignment="Top" Width="206" Height="36"/>
+
             </Grid>
         </Grid>
     </StackPanel>

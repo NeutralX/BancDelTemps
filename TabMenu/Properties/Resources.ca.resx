@@ -129,6 +129,9 @@
   <data name="GridUserRegisterDate" xml:space="preserve">
     <value>Data de registre</value>
   </data>
+  <data name="TitleCategories" xml:space="preserve">
+    <value>CATEGORIES</value>
+  </data>
   <data name="TitleHome" xml:space="preserve">
     <value>INICI</value>
   </data>

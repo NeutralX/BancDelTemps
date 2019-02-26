@@ -97,6 +97,15 @@ namespace BancDelTemps.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CATEGORIES.
+        /// </summary>
+        public static string TitleCategories {
+            get {
+                return ResourceManager.GetString("TitleCategories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HOME.
         /// </summary>
         public static string TitleHome {
