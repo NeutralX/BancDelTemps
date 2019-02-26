@@ -68,11 +68,19 @@ namespace BancDelTemps.ViewModel
         }
         #endregion
         #region Main
-
+        //GENERAL
         public ICommand ButtonCloseApp { get; set; }
+        //USER
         public ICommand ButtonFiltreUserEmail { get; set; }
         public ICommand ButtonFiltreUserNomCognom{ get; set; }
         public ICommand ButtonFiltreUserReiniciar { get; set; }
+        //POST
+        public ICommand ButtonFiltrePostTitol { get; set; }
+        public ICommand ButtonFiltrePostCreador { get; set; }
+        public ICommand ButtonFiltrePostCategoria { get; set; }
+        public ICommand ButtonFiltrePostDataInici { get; set; }
+        public ICommand ButtonFiltrePostDataFinal { get; set; }
+        public ICommand ButtonFiltrePostReiniciar { get; set; }
 
         private Boolean _firstTime;
         private double _lastLecture;
@@ -83,13 +91,25 @@ namespace BancDelTemps.ViewModel
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Culture);
 
+            //GENERAL
             ButtonCloseApp = new RelayCommand(o => System.Windows.Application.Current.Shutdown());
+            //USER
             ButtonFiltreUserEmail = new RelayCommand(o => Users = UsersRepository.GetUsersByEmail(_emailUser));
             ButtonFiltreUserNomCognom = new RelayCommand(o => Users = UsersRepository.GetUsersByName(_nomCognomUser));
             ButtonFiltreUserReiniciar = new RelayCommand(o => UsersPopulate());
+            //POST
+            DataIniciPost = DateTime.Today;
+            DataFinalPost = DateTime.Today;
+            ButtonFiltrePostTitol = new RelayCommand(o => Posts = PostsRepository.GetPostsByTitle(_titolPost));
+            ButtonFiltrePostCreador = new RelayCommand(o => Posts = PostsRepository.GetPostsByUser(_creadorPost));
+            ButtonFiltrePostCategoria = new RelayCommand(o => Posts = PostsRepository.GetPostsByCategory(_categoriaPost));
+            ButtonFiltrePostDataInici = new RelayCommand(o => Posts = PostsRepository.GetPostsByDateCreated(_dataIniciPost));
+            ButtonFiltrePostDataFinal = new RelayCommand(o => Posts = PostsRepository.GetPostsByDateFinished(_dataFinalPost));
+            ButtonFiltrePostReiniciar = new RelayCommand(o => PostsPopulate());
 
-            AdminsPopulate();
             UsersPopulate();
+            PostsPopulate();
+
             _firstTime = true;
             LastHourSeries = new SeriesCollection
                 {
@@ -306,6 +326,56 @@ namespace BancDelTemps.ViewModel
 
             Posts = PostsRepository.GetAllPosts();
 
+        }
+
+        private string _titolPost;
+        public string TitolPost
+        {
+            get { return _titolPost; }
+            set
+            {
+                _titolPost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private string _creadorPost;
+        public string CreadorPost
+        {
+            get { return _titolPost; }
+            set
+            {
+                _titolPost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private int _categoriaPost;
+        public int CategoriaPost
+        {
+            get { return _categoriaPost; }
+            set
+            {
+                _categoriaPost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private DateTime _dataIniciPost;
+        public DateTime DataIniciPost
+        {
+            get { return _dataIniciPost; }
+            set
+            {
+                _dataIniciPost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private DateTime _dataFinalPost;
+        public DateTime DataFinalPost
+        {
+            get { return _dataFinalPost; }
+            set
+            {
+                _dataFinalPost = value; NotifyPropertyChanged();
+            }
         }
 
         #endregion

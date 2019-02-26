@@ -21,39 +21,39 @@ namespace BancDelTemps.Model
             return lp;
         }
 
-        public static List<Post> GetAllPostsByCategory(int idCategory)
+        public static List<Post> GetPostsByCategory(int idCategory)
         {
             List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsCategory/", idCategory), null, "GET", "application/json", typeof(List<Post>));
             return lp;
         }
 
-        public static List<Post> GetAllPostsByDateCreated(DateTime dateCreated)
+        public static List<Post> GetPostsByDateCreated(DateTime dateCreated)
         {
             List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsDateCreated/", dateCreated), null, "GET", "application/json", typeof(List<Post>));
             return lp;
         }
 
-        public static List<Post> GetAllPostsByDateFinished(DateTime dateFinished)
+        public static List<Post> GetPostsByDateFinished(DateTime dateFinished)
         {
             List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsDateFinished/",dateFinished), null, "GET", "application/json", typeof(List<Post>));
             return lp;
         }
 
-        public static List<Post> GetAllPostsByLocation(string location)
+        public static List<Post> GetPostsByLocation(string location)
         {
             List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsLocation/", location), null, "GET", "application/json", typeof(List<Post>));
             return lp;
         }
 
-        public static List<Post> GetAllPostsByTitle(string title)
+        public static List<Post> GetPostsByTitle(string title)
         {
             List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsTitle/", title), null, "GET", "application/json", typeof(List<Post>));
             return lp;
         }
 
-        public static List<Post> GetAllPostsByUser(int userId)
+        public static List<Post> GetPostsByUser(string userName)
         {
-            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsUser/", userId), null, "GET", "application/json", typeof(List<Post>));
+            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsUser/", userName), null, "GET", "application/json", typeof(List<Post>));
             return lp;
         }
 
