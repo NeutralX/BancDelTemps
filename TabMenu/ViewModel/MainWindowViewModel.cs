@@ -341,10 +341,10 @@ namespace BancDelTemps.ViewModel
         private string _creadorPost;
         public string CreadorPost
         {
-            get { return _titolPost; }
+            get { return _creadorPost; }
             set
             {
-                _titolPost = value; NotifyPropertyChanged();
+                _creadorPost = value; NotifyPropertyChanged();
             }
         }
 
