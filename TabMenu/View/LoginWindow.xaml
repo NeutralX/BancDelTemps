@@ -42,10 +42,10 @@
             Value="0"
             Visibility="{Binding ProgressVisibility}"
             IsIndeterminate="True" Grid.ColumnSpan="2" Margin="248,161,268,92" Height="Auto" Width="Auto" RenderTransformOrigin="0.521,0.832" />
-            <CheckBox
+        <CheckBox
             Style="{StaticResource MaterialDesignCheckBox}"
             Margin="204,128,222,125" Grid.ColumnSpan="2" Content="Remember" IsChecked="{Binding IsCheckedRemember}">
-            </CheckBox>
+        </CheckBox>
         <materialDesign:DialogHost CloseOnClickAway="True" Grid.ColumnSpan="2" Margin="-13,0,-12,-12" IsOpen="{Binding IsDialogOpen}" >
             <materialDesign:DialogHost.DialogContent>
                 <Grid Margin="20">
