@@ -72,7 +72,7 @@ namespace BancDelTemps.ViewModel
         public ICommand ButtonCloseApp { get; set; }
         //USER
         public ICommand ButtonFiltreUserEmail { get; set; }
-        public ICommand ButtonFiltreUserNomCognom{ get; set; }
+        public ICommand ButtonFiltreUserNomCognom { get; set; }
         public ICommand ButtonFiltreUserReiniciar { get; set; }
         //POST
         public ICommand ButtonFiltrePostTitol { get; set; }
@@ -183,11 +183,9 @@ namespace BancDelTemps.ViewModel
         }
 
         private ComboBoxItem _selectedValueCulture;
-        public ComboBoxItem SelectedValueCulture
-        {
+        public ComboBoxItem SelectedValueCulture {
             get { return _selectedValueCulture; }
-            set
-            {
+            set {
                 _selectedValueCulture = value; NotifyPropertyChanged();
                 if (_firstTime == true)
                 {
@@ -206,13 +204,13 @@ namespace BancDelTemps.ViewModel
             switch (culture)
             {
                 case "EN":
-                    if(Settings.Default.Culture != "en") culture = "en";
+                    if (Settings.Default.Culture != "en") culture = "en";
                     break;
                 case "ES":
-                    if(Settings.Default.Culture != "es") culture = "es";
+                    if (Settings.Default.Culture != "es") culture = "es";
                     break;
                 case "CA":
-                    if(Settings.Default.Culture != "ca")culture = "ca";
+                    if (Settings.Default.Culture != "ca") culture = "ca";
                     break;
             }
             Settings.Default.Culture = culture;
@@ -225,8 +223,7 @@ namespace BancDelTemps.ViewModel
         #region Users
 
         private List<User> _users;
-        public List<User> Users
-        {
+        public List<User> Users {
             get { return _users; }
             set { _users = value; NotifyPropertyChanged(); }
         }
@@ -240,41 +237,33 @@ namespace BancDelTemps.ViewModel
         }
 
         private User _selectedUser;
-        public User SelectedUser
-        {
+        public User SelectedUser {
             get { return _selectedUser; }
-            set
-            {
+            set {
                 _selectedUser = value; NotifyPropertyChanged();
             }
         }
 
         private string _emailUser;
-        public string EmailUser
-        {
+        public string EmailUser {
             get { return _emailUser; }
-            set
-            {
+            set {
                 _emailUser = value; NotifyPropertyChanged();
             }
         }
 
         private string _nomCognomUser;
-        public string NomCognomUser
-        {
+        public string NomCognomUser {
             get { return _nomCognomUser; }
-            set
-            {
+            set {
                 _nomCognomUser = value; NotifyPropertyChanged();
             }
         }
 
         private string _filtreEmail;
-        public string FiltreEmail
-        {
+        public string FiltreEmail {
             get { return _filtreEmail; }
-            set
-            {
+            set {
                 _filtreEmail = value; NotifyPropertyChanged();
                 Users = UsersRepository.GetUsersByEmail(_emailUser);
             }
@@ -315,8 +304,7 @@ namespace BancDelTemps.ViewModel
         #region Posts
 
         private List<Post> _posts;
-        public List<Post> Posts
-        {
+        public List<Post> Posts {
             get { return _posts; }
             set { _posts = value; NotifyPropertyChanged(); }
         }
@@ -329,51 +317,41 @@ namespace BancDelTemps.ViewModel
         }
 
         private string _titolPost;
-        public string TitolPost
-        {
+        public string TitolPost {
             get { return _titolPost; }
-            set
-            {
+            set {
                 _titolPost = value; NotifyPropertyChanged();
             }
         }
 
         private string _creadorPost;
-        public string CreadorPost
-        {
+        public string CreadorPost {
             get { return _creadorPost; }
-            set
-            {
+            set {
                 _creadorPost = value; NotifyPropertyChanged();
             }
         }
 
         private int _categoriaPost;
-        public int CategoriaPost
-        {
+        public int CategoriaPost {
             get { return _categoriaPost; }
-            set
-            {
+            set {
                 _categoriaPost = value; NotifyPropertyChanged();
             }
         }
 
         private DateTime _dataIniciPost;
-        public DateTime DataIniciPost
-        {
+        public DateTime DataIniciPost {
             get { return _dataIniciPost; }
-            set
-            {
+            set {
                 _dataIniciPost = value; NotifyPropertyChanged();
             }
         }
 
         private DateTime _dataFinalPost;
-        public DateTime DataFinalPost
-        {
+        public DateTime DataFinalPost {
             get { return _dataFinalPost; }
-            set
-            {
+            set {
                 _dataFinalPost = value; NotifyPropertyChanged();
             }
         }
@@ -382,8 +360,7 @@ namespace BancDelTemps.ViewModel
         #region Admins
 
         private List<Admin> _admins;
-        public List<Admin> Admins
-        {
+        public List<Admin> Admins {
             get { return _admins; }
             set { _admins = value; NotifyPropertyChanged(); }
         }
@@ -399,8 +376,7 @@ namespace BancDelTemps.ViewModel
         #region Reports
 
         private List<Report> _reports;
-        public List<Report> Reports
-        {
+        public List<Report> Reports {
             get { return _reports; }
             set { _reports = value; NotifyPropertyChanged(); }
         }
@@ -416,8 +392,7 @@ namespace BancDelTemps.ViewModel
         #region Bans
 
         private List<Ban> _bans;
-        public List<Ban> Bans
-        {
+        public List<Ban> Bans {
             get { return _bans; }
             set { _bans = value; NotifyPropertyChanged(); }
         }
@@ -433,11 +408,9 @@ namespace BancDelTemps.ViewModel
         #region Card
         public SeriesCollection LastHourSeries { get; set; }
 
-        public double LastLecture
-        {
+        public double LastLecture {
             get { return _lastLecture; }
-            set
-            {
+            set {
                 _lastLecture = value;
                 NotifyPropertyChanged("LastLecture");
             }
@@ -477,6 +450,6 @@ namespace BancDelTemps.ViewModel
         }
         #endregion
     }
-    
+
 }
 
