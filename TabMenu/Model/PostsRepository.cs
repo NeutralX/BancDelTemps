@@ -14,8 +14,8 @@ namespace BancDelTemps.Model
 {
     class PostsRepository
     {
-        //private static string ws1 = "https://wsbancdeltemps.azurewebsites.net/api/";
-        private static string ws1 = "http://localhost:60608/api/";
+        private static string ws1 = "https://wsbancdeltemps.azurewebsites.net/api/";
+        //private static string ws1 = "http://localhost:60608/api/";
 
         public static List<Post> GetAllPosts()
         {
@@ -39,7 +39,7 @@ namespace BancDelTemps.Model
 
         public static List<Post> GetPostsByDateFinished(DateTime dateFinished)
         {
-            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsDateFinished/",dateFinished), null, "GET", "application/json", typeof(List<Post>));
+            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsDateFinished/", dateFinished), null, "GET", "application/json", typeof(List<Post>));
             return lp;
         }
 
