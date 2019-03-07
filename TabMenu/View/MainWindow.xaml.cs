@@ -48,6 +48,8 @@ namespace TabMenu
             GridPosts.Visibility = Visibility.Hidden;
             GridReports.Visibility = Visibility.Hidden;
             GridPacts.Visibility = Visibility.Hidden;
+            GridCategories.Visibility = Visibility.Hidden;
+
             switch (index)
             {
                 case 0:
@@ -72,6 +74,7 @@ namespace TabMenu
                     GridPacts.Visibility = Visibility.Visible;
                     break;
                 case 5:
+                    GridCategories.Visibility = Visibility.Visible;
                    // GridMain.Background = Brushes.Gainsboro;
                     break;
                 case 6:
