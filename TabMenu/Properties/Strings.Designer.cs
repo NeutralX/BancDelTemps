@@ -68,5 +68,14 @@ namespace BancDelTemps.Properties {
                 return ResourceManager.GetString("culture1", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://172.16.12.5:45455/api/.
+        /// </summary>
+        public static string ipWebService {
+            get {
+                return ResourceManager.GetString("ipWebService", resourceCulture);
+            }
+        }
     }
 }

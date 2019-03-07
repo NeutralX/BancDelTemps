@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using BancDelTemps.Model.Class;
+using BancDelTemps.Properties;
 using Newtonsoft.Json;
 
 namespace BancDelTemps.Model
 {
     class ReportsRepository
     {
-        private static string ws1 = "https://wsbancdeltemps.azurewebsites.net/api/";
+        private static string ws1 = Strings.ipWebService;
 
         public static List<Report> GetAllReports()
         {
@@ -23,11 +24,11 @@ namespace BancDelTemps.Model
 
         public static Report InsertReport(Report r2Add)
         {
-            Report r = (Report)MakeRequest(string.Concat(ws1, "report"), r2Add, "POST", "application/json", typeof(Report));
+            Report r = (Report)MakeRequest(string.Concat(ws1, "report"), r2Add, "Report", "application/json", typeof(Report));
             return r;
         }
 
-        public static Report UpdatePost(Report r2Upd)
+        public static Report UpdateReport(Report r2Upd)
         {
             Report r = (Report)MakeRequest(string.Concat(ws1, "report/", r2Upd.Id_Report), r2Upd, "PUT", "application/json", typeof(Report));
             return r;
@@ -36,6 +37,18 @@ namespace BancDelTemps.Model
         public static void DeleteReport(int id)
         {
             MakeRequest(string.Concat(ws1, "report/", id), null, "DELETE", null, typeof(void));
+        }
+
+        public static List<Report> GetReportsByState(bool state)
+        {
+            List<Report> lr = (List<Report>)MakeRequest(string.Concat(ws1, "postsTitle/", state), null, "GET", "application/json", typeof(List<Report>));
+            return lr;
+        }
+
+        public static List<Report> GetReportsByDescription(string description)
+        {
+            List<Report> lr = (List<Report>)MakeRequest(string.Concat(ws1, "reportsDescription/", description), null, "GET", "application/json", typeof(List<Report>));
+            return lr;
         }
 
         public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)

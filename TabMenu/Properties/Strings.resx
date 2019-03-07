@@ -120,4 +120,7 @@
   <data name="culture1" xml:space="preserve">
     <value>EN</value>
   </data>
+  <data name="ipWebService" xml:space="preserve">
+    <value>http://172.16.12.5:45455/api/</value>
+  </data>
 </root>

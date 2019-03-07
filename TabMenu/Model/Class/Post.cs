@@ -13,8 +13,8 @@ namespace BancDelTemps.Model.Class
         }
 
         public int Id_Post { get; set; }
-        public System.DateTime date_created { get; set; }
-        public Nullable<System.DateTime> date_finished { get; set; }
+        public string date_created { get; set; }
+        public string date_finished { get; set; }
         public string description { get; set; }
         public string location { get; set; }
         public string title { get; set; }

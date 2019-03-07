@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using BancDelTemps.Model.Class;
+using BancDelTemps.Properties;
 using Newtonsoft.Json;
 
 namespace BancDelTemps.Model
 {
     class BansRepository
     {
-        private static string ws1 = "https://wsbancdeltemps.azurewebsites.net/api/";
+        private static string ws1 = Strings.ipWebService;
 
         public static List<Ban> GetAllBans()
         {

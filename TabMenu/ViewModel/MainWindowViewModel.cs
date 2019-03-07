@@ -81,6 +81,10 @@ namespace BancDelTemps.ViewModel
         public ICommand ButtonFiltrePostDataInici { get; set; }
         public ICommand ButtonFiltrePostDataFinal { get; set; }
         public ICommand ButtonFiltrePostReiniciar { get; set; }
+        //REPORT
+        public ICommand ButtonFiltreReportDescripcio { get; set; }
+        public ICommand ButtonFiltreReportReiniciar { get; set; }
+
 
         private Boolean _firstTime;
         private double _lastLecture;
@@ -106,6 +110,9 @@ namespace BancDelTemps.ViewModel
             ButtonFiltrePostDataInici = new RelayCommand(o => Posts = PostsRepository.GetPostsByDateCreated(_dataIniciPost));
             ButtonFiltrePostDataFinal = new RelayCommand(o => Posts = PostsRepository.GetPostsByDateFinished(_dataFinalPost));
             ButtonFiltrePostReiniciar = new RelayCommand(o => PostsPopulate());
+            //REPORT
+            ButtonFiltreReportDescripcio = new RelayCommand(o => Reports = ReportsRepository.GetReportsByDescription(_descripcioReport));
+            ButtonFiltreReportReiniciar = new RelayCommand(o => ReportsPopulate());
 
             UsersPopulate();
             PostsPopulate();
@@ -383,9 +390,36 @@ namespace BancDelTemps.ViewModel
 
         private void ReportsPopulate()
         {
+            Reports = ReportsRepository.GetAllReports();
+        }
 
-            //Reports = ReportsRepository.GetAllPosts();
+        private bool _estatReport;
+        public bool EstatReport
+        {
+            get { return _estatReport; }
+            set
+            {
+                _estatReport = value; NotifyPropertyChanged();
+                if (_estatReport == true)
+                {
+                    Reports = ReportsRepository.GetReportsByState(true);
+                }
+                else
+                {
+                    ReportsPopulate();
+                }
+                
+            }
+        }
 
+        private string _descripcioReport;
+        public string DescripcioReport
+        {
+            get { return _descripcioReport; }
+            set
+            {
+                _descripcioReport = value; NotifyPropertyChanged();
+            }
         }
 
         #endregion

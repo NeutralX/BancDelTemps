@@ -126,7 +126,7 @@
                 <Button x:Name="ButtonUsersFiltreNom"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per nom i cognoms" HorizontalAlignment="Left" Margin="210,151,0,0" VerticalAlignment="Top" Width="206" Height="36" Command="{Binding ButtonFiltreUserNomCognom}" Grid.Row="1"/>
                 <Button x:Name="ButtonUsersFiltreBorrar" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Content="Borrar el filtre" HorizontalAlignment="Left" Margin="28,349,0,0" VerticalAlignment="Top" Width="388" Height="36" Command="{Binding ButtonFiltreUserReiniciar}" Grid.Row="1"/>
             </Grid>
-            <Grid x:Name ="GridPosts" Height="503" Background="#e6e6e6" Visibility="Visible">
+            <Grid x:Name ="GridPosts" Height="503" Background="#e6e6e6" Visibility="Hidden">
                 <Button x:Name="ButtonPostsFiltreBorrar" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Borrar el filtre" HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top" Width="406" Height="36" Command="{Binding ButtonFiltrePostReiniciar}"/>
                 <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Posts}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False">
                     <DataGrid.Columns>
@@ -149,23 +149,23 @@
                     </ComboBox.ItemsPanel>
                 </ComboBox>
                 <Button x:Name="ButtonPostsFiltreCategoria" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per categoria" HorizontalAlignment="Left" Margin="210,211,0,0" VerticalAlignment="Top" Width="206" Height="36" Command="{Binding ButtonFiltrePostCategoria}"/>
-                <DatePicker x:Name="DatePickerPostsCreated" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="10,285,904,165" Text="{Binding DataIniciPost}"/>
-                <DatePicker x:Name="DatePickerPostsFinished" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="10,367,904,83" RenderTransformOrigin="0.563,-0.113" Text="{Binding DataFinalPost}"/>
+                <DatePicker x:Name="DatePickerPostsCreated" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="10,285,904,165" SelectedDate="{Binding DataIniciPost}" />
+                <DatePicker x:Name="DatePickerPostsFinished" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="10,367,904,83" RenderTransformOrigin="0.563,-0.113" SelectedDate="{Binding DataFinalPost}" SelectedDateFormat="Short" />
                 <Button x:Name="ButtonPostsFiltreCreated" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per data d'inici" HorizontalAlignment="Left" Margin="210,291,0,0" VerticalAlignment="Top" Width="206" Height="36" Command="{Binding ButtonFiltrePostDataInici}"/>
                 <Button x:Name="ButtonPostsFiltreFinished" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Content="Filtrar per data de finalització" HorizontalAlignment="Left" Margin="210,373,0,0" VerticalAlignment="Top" Width="206" Height="36" Command="{Binding ButtonFiltrePostDataFinal}"/>
                 <Button x:Name="ButtonPostsFiltreTitol" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per titol" HorizontalAlignment="Left" Margin="210,42,0,0" VerticalAlignment="Top" Width="206" Height="36" RenderTransformOrigin="0.722,0.528" Command="{Binding ButtonFiltrePostTitol}"/>
                 <TextBox x:Name="TextBoxPostsTitol" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Titol" Margin="10,28,904,0" Text="{Binding TitolPost}" />
 
             </Grid>
-            <Grid x:Name ="GridReports" Height="503" Background="#e6e6e6"  Visibility="Hidden">
-                <Button x:Name="ButtonReportsFiltreBorrar" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Borrar el filtre" HorizontalAlignment="Left" Margin="83,50,0,0" VerticalAlignment="Top" Width="206" Height="36" Command="{Binding ButtonFiltreUserNomCognom}"/>
+            <Grid x:Name ="GridReports" Height="503" Background="#e6e6e6"  Visibility="Visible">
+                <Button x:Name="ButtonReportsFiltreBorrar" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Borrar el filtre" HorizontalAlignment="Left" Margin="26,442,0,0" VerticalAlignment="Top" Width="390" Height="36" Command="{Binding ButtonFiltreReportReiniciar}"/>
                 <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Reports}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
-                <Button x:Name="ButtonReportsFiltreDesc" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per descripció" HorizontalAlignment="Left" Margin="210,190,0,0" VerticalAlignment="Top" Width="206" Height="36" RenderTransformOrigin="0.722,0.528"/>
-                <TextBox x:Name="TextBoxReportsDesc" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Descripció" Margin="10,166,904,0" />
-                <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}" ToolTip="Default ToggleButton Style" Margin="280,116,732,363" />
-                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="26,116,922,366" Text="Filtrar per estat"/>
+                <Button x:Name="ButtonReportsFiltreDesc" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per descripció" HorizontalAlignment="Left" Margin="213,253,0,0" VerticalAlignment="Top" Width="206" Height="36" RenderTransformOrigin="0.722,0.528" Command="{Binding ButtonFiltreReportDescripcio}"/>
+                <TextBox x:Name="TextBoxReportsDesc" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Descripció" Margin="13,229,901,0" Text="{Binding DescripcioReport}" />
+                <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}" ToolTip="Default ToggleButton Style" Margin="283,179,729,300" IsChecked="{Binding EstatReport}" />
+                <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="29,179,919,303" Text="Filtrar per estat"/>
             </Grid>
-            <Grid x:Name ="GridPacts" Height="503" Background="#e6e6e6">
+            <Grid x:Name ="GridPacts" Height="503" Background="#e6e6e6" Visibility="Hidden">
                 <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Bans}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
                 <DatePicker x:Name="DatePickerPactsCreated" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="14,337,900,113" />
                 <DatePicker x:Name="DatePickerPactsFinished" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="14,419,900,31" />

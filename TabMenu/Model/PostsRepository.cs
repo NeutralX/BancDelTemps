@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Documents;
 using BancDelTemps.Model.Class;
+using BancDelTemps.Properties;
 using Newtonsoft.Json;
 
 namespace BancDelTemps.Model
 {
     class PostsRepository
     {
-        private static string ws1 = "https://wsbancdeltemps.azurewebsites.net/api/";
-        //private static string ws1 = "http://localhost:60608/api/";
+        private static string ws1 = Strings.ipWebService;
 
         public static List<Post> GetAllPosts()
         {
@@ -31,9 +31,8 @@ namespace BancDelTemps.Model
 
         public static List<Post> GetPostsByDateCreated(DateTime dateCreated)
         {
-            var kek = dateCreated.ToString("yy-MM-dd");
-            var kek2 = DateTime.Parse(kek);
-            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsDateCreated/", kek), null, "GET", "application/json", typeof(List<Post>));
+            string dateString = dateCreated.ToString("dd-MM-yyyy");
+            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsDateCreated/", dateString), null , "GET", "application/json", typeof(List<Post>));
             return lp;
         }
 
