@@ -13,7 +13,7 @@ namespace BancDelTemps.Model
 {
     class AdminsRepository
     {
-        private static string ws1 = "http://wsbancdeltemps.azurewebsites.net/api/";
+        private static string ws1 = "http://172.16.12.5:45455/api/";
 
         public static List<Admin> GetAllAdmins()
         {

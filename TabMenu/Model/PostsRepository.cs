@@ -14,7 +14,7 @@ namespace BancDelTemps.Model
 {
     class PostsRepository
     {
-        private static string ws1 = "https://wsbancdeltemps.azurewebsites.net/api/";
+        private static string ws1 = "http://172.16.12.5:45455/api/";
         //private static string ws1 = "http://localhost:60608/api/";
 
         public static List<Post> GetAllPosts()
