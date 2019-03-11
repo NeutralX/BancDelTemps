@@ -40,7 +40,6 @@
                 <Button Uid="3" Width="150" Content="{x:Static p:Resources.TitleReports}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
                 <Button Uid="4" Width="150" Content="{x:Static p:Resources.TitlePacts}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
                 <Button Uid="5" Width="150" Content="{x:Static p:Resources.TitleCategories}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
-                <Button Uid="6" Width="150" Content="GIFT CARDS" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
             </StackPanel>
             <Grid x:Name="GridCursor" Width="150" Height="5" Background="#ffffff" HorizontalAlignment="Left" Margin="10,45,0,7"/>
         </Grid>
