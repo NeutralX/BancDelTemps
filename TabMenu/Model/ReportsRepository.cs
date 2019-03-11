@@ -41,13 +41,13 @@ namespace BancDelTemps.Model
 
         public static List<Report> GetReportsByState(bool state)
         {
-            List<Report> lr = (List<Report>)MakeRequest(string.Concat(ws1, "postsTitle/", state), null, "GET", "application/json", typeof(List<Report>));
+            List<Report> lr = (List<Report>)MakeRequest(string.Concat(ws1, "reportsRevised/", state), null, "GET", "application/json", typeof(List<Report>));
             return lr;
         }
 
         public static List<Report> GetReportsByDescription(string description)
         {
-            List<Report> lr = (List<Report>)MakeRequest(string.Concat(ws1, "reportsDescription/", description), null, "GET", "application/json", typeof(List<Report>));
+            List<Report> lr = (List<Report>)MakeRequest(string.Concat(ws1, "reportsDesc/", description), null, "GET", "application/json", typeof(List<Report>));
             return lr;
         }
 

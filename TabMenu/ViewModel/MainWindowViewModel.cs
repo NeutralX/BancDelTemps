@@ -84,6 +84,12 @@ namespace BancDelTemps.ViewModel
         //REPORT
         public ICommand ButtonFiltreReportDescripcio { get; set; }
         public ICommand ButtonFiltreReportReiniciar { get; set; }
+        //PACT
+        public ICommand ButtonFiltrePactTitol { get; set; }
+        public ICommand ButtonFiltrePactDescripcio { get; set; }
+        public ICommand ButtonFiltrePactDataInici { get; set; }
+        public ICommand ButtonFiltrePactDataFinal { get; set; }
+        public ICommand ButtonFiltrePactReiniciar { get; set; }
 
 
         private Boolean _firstTime;
@@ -112,10 +118,20 @@ namespace BancDelTemps.ViewModel
             ButtonFiltrePostReiniciar = new RelayCommand(o => PostsPopulate());
             //REPORT
             ButtonFiltreReportDescripcio = new RelayCommand(o => Reports = ReportsRepository.GetReportsByDescription(_descripcioReport));
-            ButtonFiltreReportReiniciar = new RelayCommand(o => ReportsPopulate());
+            ButtonFiltreReportReiniciar = new RelayCommand(o => EstatReport = false);
+            //PACT
+            DataIniciPact = DateTime.Today;
+            DataFinalPact = DateTime.Today;
+            ButtonFiltrePactTitol = new RelayCommand(o => Pacts = PactsRepository.GetPactsByTitle(_titolPact));
+            ButtonFiltrePactDescripcio = new RelayCommand(o => Pacts = PactsRepository.GetPactsByDescription(_descripcioPact));
+            ButtonFiltrePactDataInici = new RelayCommand(o => Pacts = PactsRepository.GetPactsByDateCreated(_dataIniciPact));
+            ButtonFiltrePactDataFinal = new RelayCommand(o => Pacts = PactsRepository.GetPactsByDateFinished(_dataFinalPact));
+            ButtonFiltrePactReiniciar = new RelayCommand(o => PactsPopulate());
 
             UsersPopulate();
             PostsPopulate();
+            ReportsPopulate();
+            PactsPopulate();
 
             _firstTime = true;
             LastHourSeries = new SeriesCollection
@@ -318,7 +334,12 @@ namespace BancDelTemps.ViewModel
 
         private void PostsPopulate()
         {
-
+            TitolPost = "";
+            CreadorPost = "";
+            CategoriaPost = 0;
+            CreadorPost = "";
+            DataIniciPost = DateTime.Today;
+            DataFinalPost = DateTime.Today;
             Posts = PostsRepository.GetAllPosts();
 
         }
@@ -390,7 +411,8 @@ namespace BancDelTemps.ViewModel
 
         private void ReportsPopulate()
         {
-            Reports = ReportsRepository.GetAllReports();
+            //Reports = ReportsRepository.GetAllReports();
+            Reports = ReportsRepository.GetReportsByState(false);
         }
 
         private bool _estatReport;
@@ -403,10 +425,12 @@ namespace BancDelTemps.ViewModel
                 if (_estatReport == true)
                 {
                     Reports = ReportsRepository.GetReportsByState(true);
+                    DescripcioReport = "";
                 }
                 else
                 {
-                    ReportsPopulate();
+                    Reports = ReportsRepository.GetReportsByState(false);
+                    DescripcioReport = "";
                 }
                 
             }
@@ -423,6 +447,64 @@ namespace BancDelTemps.ViewModel
         }
 
         #endregion
+        #region Pacts
+
+        private List<Pact> _pacts;
+        public List<Pact> Pacts
+        {
+            get { return _pacts; }
+            set { _pacts = value; NotifyPropertyChanged(); }
+        }
+
+        private void PactsPopulate()
+        {
+            TitolPact = "";
+            DescripcioPact = "";
+            Pacts = PactsRepository.GetAllPacts();
+
+        }
+
+        private string _titolPact;
+        public string TitolPact
+        {
+            get { return _titolPact; }
+            set
+            {
+                _titolPact = value; NotifyPropertyChanged();
+            }
+        }
+
+        private string _descripcioPact;
+        public string DescripcioPact
+        {
+            get { return _descripcioPact; }
+            set
+            {
+                _descripcioPact = value; NotifyPropertyChanged();
+            }
+        }
+
+        private DateTime _dataIniciPact;
+        public DateTime DataIniciPact
+        {
+            get { return _dataIniciPact; }
+            set
+            {
+                _dataIniciPact = value; NotifyPropertyChanged();
+            }
+        }
+
+        private DateTime _dataFinalPact;
+        public DateTime DataFinalPact
+        {
+            get { return _dataFinalPact; }
+            set
+            {
+                _dataFinalPact = value; NotifyPropertyChanged();
+            }
+        }
+
+        #endregion
         #region Bans
 
         private List<Ban> _bans;
@@ -434,12 +516,18 @@ namespace BancDelTemps.ViewModel
         private void BansPopulate()
         {
 
-            //Bans = BansRepository.GetAllPosts();
+            Bans = BansRepository.GetAllBans();
 
         }
 
         #endregion
-        #region Card
+
+        #region Categories
+
+        
+
+        #endregion
+        #region CardHome
         public SeriesCollection LastHourSeries { get; set; }
 
         public double LastLecture {
