@@ -39,6 +39,32 @@ namespace BancDelTemps.Model
             MakeRequest(string.Concat(ws1, "pact/", id), null, "DELETE", null, typeof(void));
         }
 
+        public static List<Pact> GetPactsByTitle(string titlePact)
+        {
+            List<Pact> lp = (List<Pact>)MakeRequest(string.Concat(ws1, "pactsTitle/", titlePact), null, "GET", "application/json", typeof(List<Pact>));
+            return lp;
+        }
+
+        public static List<Pact> GetPactsByDescription(string descriptionPact)
+        {
+            List<Pact> lp = (List<Pact>)MakeRequest(string.Concat(ws1, "pactsDesc/", descriptionPact), null, "GET", "application/json", typeof(List<Pact>));
+            return lp;
+        }
+
+        public static List<Pact> GetPactsByDateCreated(DateTime dateCreated)
+        {
+            string dateString = dateCreated.ToString("dd-MM-yyyy");
+            List<Pact> lp = (List<Pact>)MakeRequest(string.Concat(ws1, "pactsDateCreated/", dateString), null, "GET", "application/json", typeof(List<Pact>));
+            return lp;
+        }
+
+        public static List<Pact> GetPactsByDateFinished(DateTime dateFinished)
+        {
+            string dateString = dateFinished.ToString("dd-MM-yyyy");
+            List<Pact> lp = (List<Pact>)MakeRequest(string.Concat(ws1, "pactsDateFinished/", dateString), null, "GET", "application/json", typeof(List<Pact>));
+            return lp;
+        }
+
         public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)
         //  requestUrl: Url completa del Web Service, amb l'opció sol·licitada
         //  JSONrequest: objecte que se li passa en el body (només per a POST/PUT)
