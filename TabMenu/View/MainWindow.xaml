@@ -159,14 +159,29 @@
             </Grid>
             <Grid x:Name ="GridReports" Height="503" Background="#e6e6e6"  Visibility="Hidden">
                 <Button x:Name="ButtonReportsFiltreBorrar" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Borrar el filtre" HorizontalAlignment="Left" Margin="26,442,0,0" VerticalAlignment="Top" Width="390" Height="36" Command="{Binding ButtonFiltreReportReiniciar}"/>
-                <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Reports}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
+                <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Reports}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Id_Report}" ClipboardContentBinding="{x:Null}" Header="Id"/>
+                        <DataGridTextColumn Binding="{Binding description}" ClipboardContentBinding="{x:Null}" Header="Description"/>
+                        <DataGridCheckBoxColumn Binding="{Binding is_revised}" ClipboardContentBinding="{x:Null}" Header="Revised"/>
+                        <DataGridTextColumn Binding="{Binding Post.title}" ClipboardContentBinding="{x:Null}" Header="Title Post"/>
+                    </DataGrid.Columns>
+                </DataGrid>
                 <Button x:Name="ButtonReportsFiltreDesc" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per descripció" HorizontalAlignment="Left" Margin="213,253,0,0" VerticalAlignment="Top" Width="206" Height="36" RenderTransformOrigin="0.722,0.528" Command="{Binding ButtonFiltreReportDescripcio}"/>
                 <TextBox x:Name="TextBoxReportsDesc" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Descripció" Margin="13,229,901,0" Text="{Binding DescripcioReport}" />
                 <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}" ToolTip="Default ToggleButton Style" Margin="283,179,729,300" IsChecked="{Binding EstatReport}" />
                 <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="29,179,919,303" Text="Filtrar per estat"/>
             </Grid>
             <Grid x:Name ="GridPacts" Height="503" Background="#e6e6e6" Visibility="Hidden">
-                <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Pacts}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
+                <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Pacts}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Id_Pact}" ClipboardContentBinding="{x:Null}" Header="Id"/>
+                        <DataGridTextColumn Binding="{Binding title}" ClipboardContentBinding="{x:Null}" Header="Title"/>
+                        <DataGridTextColumn Binding="{Binding description}" ClipboardContentBinding="{x:Null}" Header="Description"/>
+                        <DataGridTextColumn Binding="{Binding date_created}" ClipboardContentBinding="{x:Null}" Header="Date Created"/>
+                        <DataGridTextColumn Binding="{Binding date_finished}" ClipboardContentBinding="{x:Null}" Header="Date Finished"/>
+                    </DataGrid.Columns>
+                </DataGrid>
                 <DatePicker x:Name="DatePickerPactsCreated" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="14,221,900,229" SelectedDate="{Binding DataIniciPact}" />
                 <DatePicker x:Name="DatePickerPactsFinished" materialDesign:HintAssist.Hint="Pick Date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="14,303,900,147" SelectedDate="{Binding DataFinalPact}" />
                 <Button x:Name="ButtonPactsFiltreCreated" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per data d'inici" HorizontalAlignment="Left" Margin="214,238,0,0" VerticalAlignment="Top" Width="206" Height="36" Command="{Binding ButtonFiltrePactDataInici}"/>
@@ -178,7 +193,7 @@
                 <Button x:Name="ButtonPactsFiltreBorrar" Style="{StaticResource MaterialDesignRaisedAccentButton}"  Content="Borrar el filtre" HorizontalAlignment="Left" Margin="28,453,0,0" VerticalAlignment="Top" Width="388" Height="36" Command="{Binding ButtonFiltrePactReiniciar}"/>
 
             </Grid>
-            <Grid  x:Name ="GridCategories" Height="503" Background="#e6e6e6" Visibility="Visible">
+            <Grid  x:Name ="GridCategories" Height="503" Background="#e6e6e6" Visibility="Hidden">
                 <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
                 <Button x:Name="TextBoxCategoriesFiltreDesc" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per descripció" HorizontalAlignment="Left" Margin="210,208,0,0" VerticalAlignment="Top" Width="206" Height="36" RenderTransformOrigin="0.722,0.528"/>
                 <TextBox x:Name="TextBoxCategoriesDesc" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Descripció" Margin="10,194,904,0" Text="{Binding TitolPost}" />

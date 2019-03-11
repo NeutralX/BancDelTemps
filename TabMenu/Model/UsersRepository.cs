@@ -56,69 +56,6 @@ namespace BancDelTemps.Model
             User u = (User)MakeRequest(string.Concat(ws1, "user/", id), null, "GET", "application/json", typeof(User));
             return u;
         }
-
-        //public static List<contacte> GetAllContactesTot()
-        //{
-        //    List<contacte> lc = (List<contacte>)MakeRequest(string.Concat(ws1, "contactesTot/"), null, "GET", "application/json", typeof(List<contacte>));
-        //    return lc;
-        //}
-
-        //public static void DeleteContacte(int id)
-        //{
-        //    MakeRequest(string.Concat(ws1, "contacte/", id), null, "DELETE", null, typeof(void));
-        //}
-
-        //public static List<telefon> GetAllTelefons()
-        //{
-        //    List<telefon> lt = (List<telefon>)MakeRequest(string.Concat(ws1, "telefons/"), null, "GET", "application/json", typeof(List<telefon>));
-        //    return lt;
-        //}
-
-
-
-        //public static telefon InsertTelefon(telefon t2Add)
-        //{
-        //    telefon t = (telefon)MakeRequest(string.Concat(ws1, "telefon/"), t2Add, "POST", "application/json", typeof(telefon));
-        //    return t;
-        //}
-
-        //public static telefon UpdateTelefon(telefon t2Upd)
-        //{
-        //    telefon t = (telefon)MakeRequest(string.Concat(ws1, "telefon/", t2Upd.contacteId), t2Upd, "PUT", "application/json", typeof(telefon));
-        //    return t;
-        //}
-
-
-
-        //public static List<email> GetAllEmails()
-        //{
-        //    List<email> le = (List<email>)MakeRequest(string.Concat(ws1, "emails/"), null, "GET", "application/json", typeof(List<email>));
-        //    return le;
-        //}
-
-        //public static email GetEmail(int id)
-        //{
-        //    email e = (email)MakeRequest(string.Concat(ws1, "email/", id), null, "GET", "application/json", typeof(email));
-        //    return e;
-        //}
-
-        //public static email InsertEmail(email e2Add)
-        //{
-        //    email e = (email)MakeRequest(string.Concat(ws1, "email/"), e2Add, "POST", "application/json", typeof(email));
-        //    return e;
-        //}
-
-        //public static email UpdateEmail(email e2Upd)
-        //{
-        //    email t = (email)MakeRequest(string.Concat(ws1, "email/", e2Upd.contacteId), e2Upd, "PUT", "application/json", typeof(email));
-        //    return t;
-        //}
-
-        //public static void DeleteEmail(int id)
-        //{
-        //    MakeRequest(string.Concat(ws1, "email/", id), null, "DELETE", null, typeof(void));
-        //}
-
         public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)
         //  requestUrl: Url completa del Web Service, amb l'opció sol·licitada
         //  JSONrequest: objecte que se li passa en el body (només per a POST/PUT)
