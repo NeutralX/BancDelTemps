@@ -61,38 +61,308 @@ namespace BancDelTemps.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filter by author.
+        /// </summary>
+        public static string ButtonFilterAuthor {
+            get {
+                return ResourceManager.GetString("ButtonFilterAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter by category.
+        /// </summary>
+        public static string ButtonFilterCategory {
+            get {
+                return ResourceManager.GetString("ButtonFilterCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter by date created.
+        /// </summary>
+        public static string ButtonFilterDateCreated {
+            get {
+                return ResourceManager.GetString("ButtonFilterDateCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter by date finished.
+        /// </summary>
+        public static string ButtonFilterDateFinished {
+            get {
+                return ResourceManager.GetString("ButtonFilterDateFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Erase the filter.
+        /// </summary>
+        public static string ButtonFilterDelete {
+            get {
+                return ResourceManager.GetString("ButtonFilterDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter by description.
+        /// </summary>
+        public static string ButtonFilterDescription {
+            get {
+                return ResourceManager.GetString("ButtonFilterDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter by e-mail.
+        /// </summary>
+        public static string ButtonFilterEmail {
+            get {
+                return ResourceManager.GetString("ButtonFilterEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter by full name.
+        /// </summary>
+        public static string ButtonFilterFullName {
+            get {
+                return ResourceManager.GetString("ButtonFilterFullName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter by state.
+        /// </summary>
+        public static string ButtonFilterState {
+            get {
+                return ResourceManager.GetString("ButtonFilterState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter by title.
+        /// </summary>
+        public static string ButtonFilterTitle {
+            get {
+                return ResourceManager.GetString("ButtonFilterTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string ButtonLogin {
+            get {
+                return ResourceManager.GetString("ButtonLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remember.
+        /// </summary>
+        public static string CheckboxRemember {
+            get {
+                return ResourceManager.GetString("CheckboxRemember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Author name.
+        /// </summary>
+        public static string GridAuthorName {
+            get {
+                return ResourceManager.GetString("GridAuthorName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category.
+        /// </summary>
+        public static string GridCategory {
+            get {
+                return ResourceManager.GetString("GridCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date created.
+        /// </summary>
+        public static string GridDateCreated {
+            get {
+                return ResourceManager.GetString("GridDateCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date finished.
+        /// </summary>
+        public static string GridDateFinished {
+            get {
+                return ResourceManager.GetString("GridDateFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string GridDescription {
+            get {
+                return ResourceManager.GetString("GridDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
-        public static string GridUserEmail {
+        public static string GridEmail {
             get {
-                return ResourceManager.GetString("GridUserEmail", resourceCulture);
+                return ResourceManager.GetString("GridEmail", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Last name.
         /// </summary>
-        public static string GridUserLastName {
+        public static string GridLastName {
             get {
-                return ResourceManager.GetString("GridUserLastName", resourceCulture);
+                return ResourceManager.GetString("GridLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string GridLocation {
+            get {
+                return ResourceManager.GetString("GridLocation", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
-        public static string GridUserName {
+        public static string GridName {
             get {
-                return ResourceManager.GetString("GridUserName", resourceCulture);
+                return ResourceManager.GetString("GridName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Register date.
         /// </summary>
-        public static string GridUserRegisterDate {
+        public static string GridRegisterDate {
             get {
-                return ResourceManager.GetString("GridUserRegisterDate", resourceCulture);
+                return ResourceManager.GetString("GridRegisterDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Revised.
+        /// </summary>
+        public static string GridRevised {
+            get {
+                return ResourceManager.GetString("GridRevised", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string GridTitle {
+            get {
+                return ResourceManager.GetString("GridTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title post.
+        /// </summary>
+        public static string GridTitlePost {
+            get {
+                return ResourceManager.GetString("GridTitlePost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong username/password.
+        /// </summary>
+        public static string LoginErrorText {
+            get {
+                return ResourceManager.GetString("LoginErrorText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Author.
+        /// </summary>
+        public static string TextboxAuthor {
+            get {
+                return ResourceManager.GetString("TextboxAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category.
+        /// </summary>
+        public static string TextboxCategory {
+            get {
+                return ResourceManager.GetString("TextboxCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string TextboxDescription {
+            get {
+                return ResourceManager.GetString("TextboxDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full name.
+        /// </summary>
+        public static string TextboxFullName {
+            get {
+                return ResourceManager.GetString("TextboxFullName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string TextboxPassword {
+            get {
+                return ResourceManager.GetString("TextboxPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string TextboxTitle {
+            get {
+                return ResourceManager.GetString("TextboxTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string TextboxUsername {
+            get {
+                return ResourceManager.GetString("TextboxUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick a date.
+        /// </summary>
+        public static string TextDatePicker {
+            get {
+                return ResourceManager.GetString("TextDatePicker", resourceCulture);
             }
         }
         

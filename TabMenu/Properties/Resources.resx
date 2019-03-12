@@ -117,17 +117,92 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="GridUserEmail" xml:space="preserve">
+  <data name="ButtonFilterAuthor" xml:space="preserve">
+    <value>Filter by author</value>
+  </data>
+  <data name="ButtonFilterCategory" xml:space="preserve">
+    <value>Filter by category</value>
+  </data>
+  <data name="ButtonFilterDateCreated" xml:space="preserve">
+    <value>Filter by date created</value>
+  </data>
+  <data name="ButtonFilterDateFinished" xml:space="preserve">
+    <value>Filter by date finished</value>
+  </data>
+  <data name="ButtonFilterDelete" xml:space="preserve">
+    <value>Erase the filter</value>
+  </data>
+  <data name="ButtonFilterDescription" xml:space="preserve">
+    <value>Filter by description</value>
+  </data>
+  <data name="ButtonFilterEmail" xml:space="preserve">
+    <value>Filter by e-mail</value>
+  </data>
+  <data name="ButtonFilterFullName" xml:space="preserve">
+    <value>Filter by full name</value>
+  </data>
+  <data name="ButtonFilterState" xml:space="preserve">
+    <value>Filter by state</value>
+  </data>
+  <data name="ButtonFilterTitle" xml:space="preserve">
+    <value>Filter by title</value>
+  </data>
+  <data name="GridAuthorName" xml:space="preserve">
+    <value>Author name</value>
+  </data>
+  <data name="GridCategory" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="GridDateCreated" xml:space="preserve">
+    <value>Date created</value>
+  </data>
+  <data name="GridDateFinished" xml:space="preserve">
+    <value>Date finished</value>
+  </data>
+  <data name="GridDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="GridEmail" xml:space="preserve">
     <value>Email</value>
   </data>
-  <data name="GridUserLastName" xml:space="preserve">
+  <data name="GridLastName" xml:space="preserve">
     <value>Last name</value>
   </data>
-  <data name="GridUserName" xml:space="preserve">
+  <data name="GridLocation" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="GridName" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="GridUserRegisterDate" xml:space="preserve">
+  <data name="GridRegisterDate" xml:space="preserve">
     <value>Register date</value>
+  </data>
+  <data name="GridRevised" xml:space="preserve">
+    <value>Revised</value>
+  </data>
+  <data name="GridTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="GridTitlePost" xml:space="preserve">
+    <value>Title post</value>
+  </data>
+  <data name="TextboxAuthor" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="TextboxCategory" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="TextboxDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="TextboxFullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="TextboxTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="TextDatePicker" xml:space="preserve">
+    <value>Pick a date</value>
   </data>
   <data name="TitleCategories" xml:space="preserve">
     <value>CATEGORIES</value>
@@ -146,5 +221,20 @@
   </data>
   <data name="TitleUsers" xml:space="preserve">
     <value>USERS</value>
+  </data>
+  <data name="ButtonLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="CheckboxRemember" xml:space="preserve">
+    <value>Remember</value>
+  </data>
+  <data name="LoginErrorText" xml:space="preserve">
+    <value>Wrong username/password</value>
+  </data>
+  <data name="TextboxPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="TextboxUsername" xml:space="preserve">
+    <value>Username</value>
   </data>
 </root>

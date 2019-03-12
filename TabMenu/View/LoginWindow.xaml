@@ -9,6 +9,7 @@
         xmlns:domain="clr-namespace:MaterialDesignDemo.Domain"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         x:Class="BancDelTemps.View.LoginWindow"
+        xmlns:p = "clr-namespace:BancDelTemps.Properties"
         mc:Ignorable="d"
         Title="LoginWindow" Height="312.712" Width="555.932">
     <Window.DataContext>
@@ -19,8 +20,8 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="227,207,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.088,2.136" Command="{Binding ButtonLogin}" Grid.ColumnSpan="2" CommandParameter="{Binding ElementName=TxtPassword}"/>
-        <TextBox HorizontalAlignment="Left" Height="43" Margin="204,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" materialDesign:HintAssist.Hint="Username"
+        <Button Content="{x:Static p:Resources.ButtonLogin}" HorizontalAlignment="Left" Margin="227,207,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.088,2.136" Command="{Binding ButtonLogin}" Grid.ColumnSpan="2" CommandParameter="{Binding ElementName=TxtPassword}"/>
+        <TextBox HorizontalAlignment="Left" Height="43" Margin="204,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxUsername}"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" x:Name="NameTextBox" Grid.ColumnSpan="2" >
             <TextBox.Text>
                 <Binding
@@ -34,7 +35,7 @@
             </TextBox.Text>
         </TextBox>
         <PasswordBox HorizontalAlignment="Left" Margin="204,71,0,160" Width="120"
-                     materialDesign:HintAssist.Hint="Password"
+                     materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxPassword}"
                      Name="TxtPassword"
                      Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Grid.ColumnSpan="2" PasswordChar="{Binding Password}" />
         <ProgressBar
@@ -44,12 +45,12 @@
             IsIndeterminate="True" Grid.ColumnSpan="2" Margin="248,161,268,92" Height="Auto" Width="Auto" RenderTransformOrigin="0.521,0.832" />
         <CheckBox
             Style="{StaticResource MaterialDesignCheckBox}"
-            Margin="204,128,222,125" Grid.ColumnSpan="2" Content="Remember" IsChecked="{Binding IsCheckedRemember}">
+            Margin="204,128,222,125" Grid.ColumnSpan="2" Content="{x:Static p:Resources.CheckboxRemember}" IsChecked="{Binding IsCheckedRemember}">
         </CheckBox>
         <materialDesign:DialogHost CloseOnClickAway="True" Grid.ColumnSpan="2" Margin="-13,0,-12,-12" IsOpen="{Binding IsDialogOpen}" >
             <materialDesign:DialogHost.DialogContent>
                 <Grid Margin="20">
-                    <TextBlock Text="Wrong username/password" Margin="5 0 0 0" Foreground="#DDF30000" />
+                    <TextBlock Text="{x:Static p:Resources.LoginErrorText}" Margin="5 0 0 0" Foreground="#DDF30000" />
                     <Button Style="{StaticResource MaterialDesignFlatButton}"
                             IsDefault="True"
                             Margin="5 25 8 0"
