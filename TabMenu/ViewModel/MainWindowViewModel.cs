@@ -14,6 +14,7 @@ using System.Windows.Input;
 using BancDelTemps.Model;
 using BancDelTemps.Model.Class;
 using BancDelTemps.Properties;
+using BancDelTemps.View;
 using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
@@ -90,6 +91,8 @@ namespace BancDelTemps.ViewModel
         public ICommand ButtonFiltrePactDataInici { get; set; }
         public ICommand ButtonFiltrePactDataFinal { get; set; }
         public ICommand ButtonFiltrePactReiniciar { get; set; }
+        public ICommand DobleClickUsers { get; set; }
+
 
 
         private Boolean _firstTime;
@@ -107,6 +110,7 @@ namespace BancDelTemps.ViewModel
             ButtonFiltreUserEmail = new RelayCommand(o => Users = UsersRepository.GetUsersByEmail(_emailUser));
             ButtonFiltreUserNomCognom = new RelayCommand(o => Users = UsersRepository.GetUsersByName(_nomCognomUser));
             ButtonFiltreUserReiniciar = new RelayCommand(o => UsersPopulate());
+            DobleClickUsers = new RelayCommand(o => test());
             //POST
             DataIniciPost = DateTime.Today;
             DataFinalPost = DateTime.Today;
@@ -245,10 +249,23 @@ namespace BancDelTemps.ViewModel
 
         #region Users
 
+        public void test()
+        {
+            //MessageBox.Show(User.name);
+            UserDetall userDetall = new UserDetall(User);
+            userDetall.ShowDialog();
+        }
+
         private List<User> _users;
         public List<User> Users {
             get { return _users; }
             set { _users = value; NotifyPropertyChanged(); }
+        }
+
+        private User _user;
+        public User User {
+            get => _user;
+            set { _user = value; NotifyPropertyChanged(); }
         }
 
         private void UsersPopulate()
@@ -416,11 +433,9 @@ namespace BancDelTemps.ViewModel
         }
 
         private bool _estatReport;
-        public bool EstatReport
-        {
+        public bool EstatReport {
             get { return _estatReport; }
-            set
-            {
+            set {
                 _estatReport = value; NotifyPropertyChanged();
                 if (_estatReport == true)
                 {
@@ -432,16 +447,14 @@ namespace BancDelTemps.ViewModel
                     Reports = ReportsRepository.GetReportsByState(false);
                     DescripcioReport = "";
                 }
-                
+
             }
         }
 
         private string _descripcioReport;
-        public string DescripcioReport
-        {
+        public string DescripcioReport {
             get { return _descripcioReport; }
-            set
-            {
+            set {
                 _descripcioReport = value; NotifyPropertyChanged();
             }
         }
@@ -450,8 +463,7 @@ namespace BancDelTemps.ViewModel
         #region Pacts
 
         private List<Pact> _pacts;
-        public List<Pact> Pacts
-        {
+        public List<Pact> Pacts {
             get { return _pacts; }
             set { _pacts = value; NotifyPropertyChanged(); }
         }
@@ -465,41 +477,33 @@ namespace BancDelTemps.ViewModel
         }
 
         private string _titolPact;
-        public string TitolPact
-        {
+        public string TitolPact {
             get { return _titolPact; }
-            set
-            {
+            set {
                 _titolPact = value; NotifyPropertyChanged();
             }
         }
 
         private string _descripcioPact;
-        public string DescripcioPact
-        {
+        public string DescripcioPact {
             get { return _descripcioPact; }
-            set
-            {
+            set {
                 _descripcioPact = value; NotifyPropertyChanged();
             }
         }
 
         private DateTime _dataIniciPact;
-        public DateTime DataIniciPact
-        {
+        public DateTime DataIniciPact {
             get { return _dataIniciPact; }
-            set
-            {
+            set {
                 _dataIniciPact = value; NotifyPropertyChanged();
             }
         }
 
         private DateTime _dataFinalPact;
-        public DateTime DataFinalPact
-        {
+        public DateTime DataFinalPact {
             get { return _dataFinalPact; }
-            set
-            {
+            set {
                 _dataFinalPact = value; NotifyPropertyChanged();
             }
         }
@@ -524,7 +528,7 @@ namespace BancDelTemps.ViewModel
 
         #region Categories
 
-        
+
 
         #endregion
         #region CardHome
@@ -571,6 +575,8 @@ namespace BancDelTemps.ViewModel
             //TimePowerChart.Update(true);
         }
         #endregion
+
+
     }
 
 }
