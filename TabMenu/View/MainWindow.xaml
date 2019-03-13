@@ -112,7 +112,7 @@
                 </Grid.RowDefinitions>
                 <TextBox x:Name="TextBoxUsersEmail" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="E-mail" Margin="28,49,886,0" Text="{Binding EmailUser}" Grid.Row="1" />
                 <TextBox x:Name="TextBoxUsersCognom" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxFullName}" Margin="28,137,886,0" Text="{Binding NomCognomUser}" Grid.Row="1" />
-                <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Users}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" Grid.RowSpan="2" AutoGenerateColumns="False">
+                <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Users}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" Grid.RowSpan="2" AutoGenerateColumns="False" SelectedItem="{Binding User}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Id_User}" ClipboardContentBinding="{x:Null}" Header="Id"/>
                         <DataGridTextColumn Binding="{Binding name}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridName}"/>
