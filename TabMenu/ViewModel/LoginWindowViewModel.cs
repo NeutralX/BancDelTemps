@@ -123,11 +123,12 @@ namespace BancDelTemps.ViewModel
 
         public async void LoginToApp(object parameter)
         {
-            ProgressVisibility = "VISIBLE";
+            
             var passwordBox = parameter as PasswordBox;
             Password = passwordBox.Password;
             if (_username != "" && _password != "")
             {
+                ProgressVisibility = "VISIBLE";
                 Admin login = new Admin(_username,_password);
                 if (_isCheckedRemember == true)
                 {
@@ -152,7 +153,7 @@ namespace BancDelTemps.ViewModel
                     IsDialogOpen = true;
                 }
                 ProgressVisibility = "HIDDEN";
-            }
+            } 
         }
 
         public async Task<Admin> loginAdmin(Admin login)

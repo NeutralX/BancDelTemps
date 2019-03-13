@@ -525,7 +525,6 @@ namespace BancDelTemps.ViewModel
         }
 
         #endregion
-
         #region Categories
 
 

@@ -38,7 +38,8 @@ namespace BancDelTemps.Model
 
         public static List<Post> GetPostsByDateFinished(DateTime dateFinished)
         {
-            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsDateFinished/", dateFinished), null, "GET", "application/json", typeof(List<Post>));
+            string dateString = dateFinished.ToString("dd-MM-yyyy");
+            List<Post> lp = (List<Post>)MakeRequest(string.Concat(ws1, "postsDateFinished/", dateString), null, "GET", "application/json", typeof(List<Post>));
             return lp;
         }
 
