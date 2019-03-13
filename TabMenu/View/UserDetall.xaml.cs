@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BancDelTemps.Model.Class;
+using BancDelTemps.ViewModel;
 
 namespace BancDelTemps.View
 {
@@ -23,6 +24,7 @@ namespace BancDelTemps.View
         public UserDetall(User user)
         {
             InitializeComponent();
+            this.DataContext = new UserDetallViewModel(user);
         }
     }
 }

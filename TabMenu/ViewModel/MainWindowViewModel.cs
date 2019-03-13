@@ -251,7 +251,6 @@ namespace BancDelTemps.ViewModel
 
         public void test()
         {
-            //MessageBox.Show(User.name);
             UserDetall userDetall = new UserDetall(User);
             userDetall.ShowDialog();
         }

@@ -56,6 +56,8 @@ namespace BancDelTemps.Model
             User u = (User)MakeRequest(string.Concat(ws1, "user/", id), null, "GET", "application/json", typeof(User));
             return u;
         }
+
+
         public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)
         //  requestUrl: Url completa del Web Service, amb l'opció sol·licitada
         //  JSONrequest: objecte que se li passa en el body (només per a POST/PUT)

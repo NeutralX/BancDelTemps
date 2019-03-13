@@ -117,6 +117,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\UserDetallViewModel.cs" />
     <Compile Include="View\UserDetall.xaml.cs">
       <DependentUpon>UserDetall.xaml</DependentUpon>
     </Compile>
