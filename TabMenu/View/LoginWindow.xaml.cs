@@ -22,6 +22,7 @@ namespace BancDelTemps.View
         public LoginWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
     }
 }

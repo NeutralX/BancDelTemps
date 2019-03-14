@@ -65,14 +65,61 @@ namespace BancDelTemps.ViewModel
         }
         #endregion
 
+        //GENERAL
+        public ICommand ButtonCloseApp { get; set; }
         public ICommand ButtonLogin { get; set; }
+
+        private Boolean _firstTime;
+
         public LoginWindowViewModel()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Culture);
+            //GENERAL
+            ButtonCloseApp = new RelayCommand(o => System.Windows.Application.Current.Shutdown());
             ButtonLogin = new RelayCommand(o => LoginToApp(o));
             ProgressVisibility = "HIDDEN";
             Username = Settings.Default.Username;
+            _firstTime = true;
+        }
+
+        private ComboBoxItem _selectedValueCulture;
+        public ComboBoxItem SelectedValueCulture
+        {
+            get { return _selectedValueCulture; }
+            set
+            {
+                _selectedValueCulture = value; NotifyPropertyChanged();
+                if (_firstTime == true)
+                {
+                    _firstTime = false;
+                }
+                else
+                {
+                    Language_Changer(_selectedValueCulture.Content.ToString());
+                }
+            }
+        }
+
+        public void Language_Changer(string culture)
+        {
+
+            switch (culture)
+            {
+                case "EN":
+                    if (Settings.Default.Culture != "en") culture = "en";
+                    break;
+                case "ES":
+                    if (Settings.Default.Culture != "es") culture = "es";
+                    break;
+                case "CA":
+                    if (Settings.Default.Culture != "ca") culture = "ca";
+                    break;
+            }
+            Settings.Default.Culture = culture;
+            Settings.Default.Save();
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            App.Current.Shutdown();
         }
 
         private string _username;

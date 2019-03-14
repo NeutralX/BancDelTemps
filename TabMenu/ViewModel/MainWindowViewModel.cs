@@ -209,42 +209,42 @@ namespace BancDelTemps.ViewModel
             //DataContext = this;
         }
 
-        private ComboBoxItem _selectedValueCulture;
-        public ComboBoxItem SelectedValueCulture {
-            get { return _selectedValueCulture; }
-            set {
-                _selectedValueCulture = value; NotifyPropertyChanged();
-                if (_firstTime == true)
-                {
-                    _firstTime = false;
-                }
-                else
-                {
-                    Language_Changer(_selectedValueCulture.Content.ToString());
-                }
-            }
-        }
+        //private ComboBoxItem _selectedValueCulture;
+        //public ComboBoxItem SelectedValueCulture {
+        //    get { return _selectedValueCulture; }
+        //    set {
+        //        _selectedValueCulture = value; NotifyPropertyChanged();
+        //        if (_firstTime == true)
+        //        {
+        //            _firstTime = false;
+        //        }
+        //        else
+        //        {
+        //            Language_Changer(_selectedValueCulture.Content.ToString());
+        //        }
+        //    }
+        //}
 
-        public void Language_Changer(string culture)
-        {
+        //public void Language_Changer(string culture)
+        //{
 
-            switch (culture)
-            {
-                case "EN":
-                    if (Settings.Default.Culture != "en") culture = "en";
-                    break;
-                case "ES":
-                    if (Settings.Default.Culture != "es") culture = "es";
-                    break;
-                case "CA":
-                    if (Settings.Default.Culture != "ca") culture = "ca";
-                    break;
-            }
-            Settings.Default.Culture = culture;
-            Settings.Default.Save();
-            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
-            App.Current.Shutdown();
-        }
+        //    switch (culture)
+        //    {
+        //        case "EN":
+        //            if (Settings.Default.Culture != "en") culture = "en";
+        //            break;
+        //        case "ES":
+        //            if (Settings.Default.Culture != "es") culture = "es";
+        //            break;
+        //        case "CA":
+        //            if (Settings.Default.Culture != "ca") culture = "ca";
+        //            break;
+        //    }
+        //    Settings.Default.Culture = culture;
+        //    Settings.Default.Save();
+        //    System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+        //    App.Current.Shutdown();
+        //}
         #endregion
 
         #region Users
