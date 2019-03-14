@@ -92,6 +92,7 @@ namespace BancDelTemps.ViewModel
         public ICommand ButtonFiltrePactDataFinal { get; set; }
         public ICommand ButtonFiltrePactReiniciar { get; set; }
         public ICommand DobleClickUsers { get; set; }
+        public ICommand DobleClickPosts { get; set; }
 
 
 
@@ -120,6 +121,7 @@ namespace BancDelTemps.ViewModel
             ButtonFiltrePostDataInici = new RelayCommand(o => Posts = PostsRepository.GetPostsByDateCreated(_dataIniciPost));
             ButtonFiltrePostDataFinal = new RelayCommand(o => Posts = PostsRepository.GetPostsByDateFinished(_dataFinalPost));
             ButtonFiltrePostReiniciar = new RelayCommand(o => PostsPopulate());
+            DobleClickPosts = new RelayCommand(o=> obrirDetallPosts());
             //REPORT
             ButtonFiltreReportDescripcio = new RelayCommand(o => Reports = ReportsRepository.GetReportsByDescription(_descripcioReport));
             ButtonFiltreReportReiniciar = new RelayCommand(o => EstatReport = false);
@@ -341,6 +343,19 @@ namespace BancDelTemps.ViewModel
 
         #endregion
         #region Posts
+
+        public void obrirDetallPosts()
+        {
+            PostDetall postDetall = new PostDetall(Post);
+            postDetall.ShowDialog();
+        }
+
+        private Post _post;
+
+        public Post Post {
+            get => _post;
+            set { _post = value; NotifyPropertyChanged(); }
+        }
 
         private List<Post> _posts;
         public List<Post> Posts {
