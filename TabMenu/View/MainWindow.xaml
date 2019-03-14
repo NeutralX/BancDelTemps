@@ -133,7 +133,7 @@
                 </Grid>
                 <Grid x:Name ="GridPosts" Height="503" Background="#e6e6e6" Visibility="Hidden">
                     <Button x:Name="ButtonPostsFiltreBorrar" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.ButtonFilterDelete}" HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top" Width="406" Height="36" Command="{Binding ButtonFiltrePostReiniciar}"/>
-                    <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Posts}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False">
+                    <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Posts}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False" SelectedItem="{Binding Post}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Id_Post}" ClipboardContentBinding="{x:Null}" Header="Id"/>
                             <DataGridTextColumn Binding="{Binding title}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridTitle}"/>
@@ -143,6 +143,11 @@
                             <DataGridTextColumn Binding="{Binding date_created}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridDateCreated}"/>
                             <DataGridTextColumn Binding="{Binding date_finished}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridDateFinished}"/>
                         </DataGrid.Columns>
+                        <DataGrid.InputBindings>
+                            <MouseBinding
+                                MouseAction="LeftDoubleClick"
+                                Command="{Binding DobleClickPosts}"/>
+                        </DataGrid.InputBindings>
                     </DataGrid>
                     <Button x:Name="ButtonPostsFiltreCreador" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.ButtonFilterAuthor}" HorizontalAlignment="Left" Margin="210,134,0,0" VerticalAlignment="Top" Width="206" Height="36" RenderTransformOrigin="0.722,0.528" Command="{Binding ButtonFiltrePostCreador}"/>
                     <TextBox x:Name="TextBoxPostsCreador" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxAuthor}" Margin="10,120,904,0" Text="{Binding CreadorPost}"/>
