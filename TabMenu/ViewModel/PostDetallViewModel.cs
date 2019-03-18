@@ -62,7 +62,6 @@ namespace BancDelTemps.ViewModel
         public PostDetallViewModel(Post post)
         {
             Post = post;
-            MessageBox.Show(Post.title);
         }
     }
 }

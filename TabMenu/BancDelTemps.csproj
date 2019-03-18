@@ -119,12 +119,22 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\PostDetallViewModel.cs" />
     <Compile Include="ViewModel\UserDetallViewModel.cs" />
+    <Compile Include="View\Informacio.xaml.cs">
+      <DependentUpon>Informacio.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PostDetall.xaml.cs">
       <DependentUpon>PostDetall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportsDetall.xaml.cs">
+      <DependentUpon>ReportsDetall.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserDetall.xaml.cs">
       <DependentUpon>UserDetall.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Informacio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -179,6 +189,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\PostDetall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ReportsDetall.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

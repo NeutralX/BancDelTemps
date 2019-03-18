@@ -346,6 +346,7 @@ namespace BancDelTemps.ViewModel
 
         public void obrirDetallPosts()
         {
+
             PostDetall postDetall = new PostDetall(Post);
             postDetall.ShowDialog();
         }
