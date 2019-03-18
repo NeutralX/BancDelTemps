@@ -237,4 +237,13 @@
   <data name="TextboxUsername" xml:space="preserve">
     <value>Username</value>
   </data>
+  <data name="GenreMen" xml:space="preserve">
+    <value>Men</value>
+  </data>
+  <data name="GenreOther" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="GenreWoman" xml:space="preserve">
+    <value>Woman</value>
+  </data>
 </root>

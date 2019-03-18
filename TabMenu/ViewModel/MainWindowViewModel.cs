@@ -111,7 +111,7 @@ namespace BancDelTemps.ViewModel
             ButtonFiltreUserEmail = new RelayCommand(o => Users = UsersRepository.GetUsersByEmail(_emailUser));
             ButtonFiltreUserNomCognom = new RelayCommand(o => Users = UsersRepository.GetUsersByName(_nomCognomUser));
             ButtonFiltreUserReiniciar = new RelayCommand(o => UsersPopulate());
-            DobleClickUsers = new RelayCommand(o => test());
+            DobleClickUsers = new RelayCommand(o => openUserInfo());
             //POST
             DataIniciPost = DateTime.Today;
             DataFinalPost = DateTime.Today;
@@ -251,10 +251,11 @@ namespace BancDelTemps.ViewModel
 
         #region Users
 
-        public void test()
+        public void openUserInfo()
         {
             UserDetall userDetall = new UserDetall(User);
             userDetall.ShowDialog();
+            UsersPopulate();
         }
 
         private List<User> _users;

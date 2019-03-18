@@ -169,6 +169,33 @@ namespace BancDelTemps.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Men.
+        /// </summary>
+        public static string GenreMen {
+            get {
+                return ResourceManager.GetString("GenreMen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other.
+        /// </summary>
+        public static string GenreOther {
+            get {
+                return ResourceManager.GetString("GenreOther", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Woman.
+        /// </summary>
+        public static string GenreWoman {
+            get {
+                return ResourceManager.GetString("GenreWoman", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Author name.
         /// </summary>
         public static string GridAuthorName {

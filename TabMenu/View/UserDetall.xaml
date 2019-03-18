@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BancDelTemps.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:ViewModel="clr-namespace:BancDelTemps.ViewModel" x:Class="BancDelTemps.View.UserDetall"
+        xmlns:ViewModel="clr-namespace:BancDelTemps.ViewModel"
+        xmlns:p="clr-namespace:BancDelTemps.Properties"
+        x:Class="BancDelTemps.View.UserDetall"
         mc:Ignorable="d"
         Title="UserDetall" Height="290.978" Width="595.301" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.DataContext>
@@ -14,22 +16,27 @@
     <Border BorderBrush="Black" BorderThickness="1">
         <Grid>
 
-            <Grid x:Name="Lel" Background="#3F51B5" Margin="0,0,0,252"/>
-            <materialDesign:PackIcon Kind="Close" Margin="569,10,0,0" Foreground="White"/>
-            <TextBox x:Name="Name" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="55,44,376,184" />
-            <TextBox x:Name="LastName" materialDesign:HintAssist.Hint="Last name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="55,112,376,130" />
-            <TextBox x:Name="Email" materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="55,161,376,76" />
-            <ComboBox x:Name="Gender" materialDesign:HintAssist.Hint="Gender" MinWidth="72" Margin="239,68,210,183" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+            <Grid x:Name="blue" Background="#3F51B5" Margin="0,0,0,252"/>
+            <Button Background="{x:Null}" Margin="553,0,0,249" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Command="{Binding ButtonCloseApp}">
+                <materialDesign:PackIcon Kind="Close" Foreground="White" Width="25" Height="25" />
+            </Button>
+            <TextBox x:Name="Name" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="55,97,376,131" Text="{Binding NameUser}" />
+            <TextBox x:Name="LastName" materialDesign:HintAssist.Hint="Last name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="55,168,376,74" Text="{Binding LastNameUser}" />
+            <TextBox x:Name="Email" materialDesign:HintAssist.Hint="E-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="239,53,192,184" Text="{Binding EmailUser}" />
+            <ComboBox x:Name="Gender" materialDesign:HintAssist.Hint="Gender" MinWidth="72" Margin="239,120,210,131" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="{Binding SelectedIndexGenre}" >
+                <ComboBoxItem Content="{x:Static p:Resources.GenreMen}" />
+                <ComboBoxItem Content="{x:Static p:Resources.GenreWoman}"/>
+                <ComboBoxItem Content="{x:Static p:Resources.GenreOther}"/>
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel />
                     </ItemsPanelTemplate>
                 </ComboBox.ItemsPanel>
             </ComboBox>
-            <DatePicker x:Name="BirthDate" IsEnabled="False" materialDesign:HintAssist.Hint="01-01-2019" Margin="239,128,210,130" />
-            <Image x:Name="ProfilePic" HorizontalAlignment="Left" Height="50" Margin="283,180,0,0" VerticalAlignment="Top" Width="50"/>
-            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Guardar canvis" HorizontalAlignment="Left" Margin="434,76,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
-            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Descartar canvis" HorizontalAlignment="Left" Margin="434,184,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
+            <DatePicker x:Name="BirthDate" materialDesign:HintAssist.Hint="01-01-2019" Margin="239,182,210,76" SelectedDate="{Binding BirthDateUser}" IsEnabled="False" />
+            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Guardar canvis" HorizontalAlignment="Left" Margin="434,76,0,0" VerticalAlignment="Top" Width="137" Height="36" Command="{Binding ButtonSaveChanges}"/>
+            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Descartar canvis" HorizontalAlignment="Left" Margin="434,184,0,0" VerticalAlignment="Top" Width="137" Height="36" Command="{Binding ButtonDiscardChanges}"/>
+            <TextBox x:Name="Id" materialDesign:HintAssist.Hint="Id" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="55,46,376,182" IsEnabled="False" Text="{Binding IdUser}" />
 
         </Grid>
     </Border>
