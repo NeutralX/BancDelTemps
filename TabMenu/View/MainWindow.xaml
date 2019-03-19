@@ -163,13 +163,18 @@
                 </Grid>
                 <Grid x:Name ="GridReports" Height="503" Background="#e6e6e6"  Visibility="Hidden">
                     <Button x:Name="ButtonReportsFiltreBorrar" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.ButtonFilterDelete}" HorizontalAlignment="Left" Margin="26,442,0,0" VerticalAlignment="Top" Width="390" Height="36" Command="{Binding ButtonFiltreReportReiniciar}"/>
-                    <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Reports}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False">
+                    <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Reports}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False" SelectedItem="{Binding Report}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Id_Report}" ClipboardContentBinding="{x:Null}" Header="Id"/>
                             <DataGridTextColumn Binding="{Binding description}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridDescription}"/>
                             <DataGridCheckBoxColumn Binding="{Binding is_revised}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridRevised}"/>
                             <DataGridTextColumn Binding="{Binding Post.title}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridTitlePost}"/>
                         </DataGrid.Columns>
+                        <DataGrid.InputBindings>
+                            <MouseBinding
+                                MouseAction="LeftDoubleClick"
+                                Command="{Binding DobleClickReports}"/>
+                        </DataGrid.InputBindings>
                     </DataGrid>
                     <Button x:Name="ButtonReportsFiltreDesc" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.ButtonFilterDescription}" HorizontalAlignment="Left" Margin="213,253,0,0" VerticalAlignment="Top" Width="206" Height="36" RenderTransformOrigin="0.722,0.528" Command="{Binding ButtonFiltreReportDescripcio}"/>
                     <TextBox x:Name="TextBoxReportsDesc" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxDescription}" Margin="13,229,901,0" Text="{Binding DescripcioReport}" />

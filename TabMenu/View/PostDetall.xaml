@@ -18,7 +18,6 @@
             <Grid x:Name="Lel" Background="#3F51B5" Margin="0,0,0,414"/>
             <materialDesign:PackIcon Kind="Close" Margin="569,10,0,0" Foreground="White"/>
             <TextBox x:Name="Author" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxAuthor}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="55,52,376,340" />
-            <TextBox x:Name="Category" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxCategory}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="55,118,376,274" />
             <TextBox x:Name="Title" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxTitle}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="55,184,376,208" />
             <TextBox x:Name="Desc"  TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxDescription}" Margin="244,52,66,274" Text="Hello there"/>
             <TextBox x:Name="Location" materialDesign:HintAssist.Hint="{x:Static p:Resources.GridLocation}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="244,184,187,208" />
@@ -30,6 +29,17 @@
             <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Descartar canvis" HorizontalAlignment="Left" Margin="244,371,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
             <Button x:Name="Delete"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Borrar anunci" HorizontalAlignment="Left" Margin="446,371,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
             <Button x:Name="Info"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Informació usuari" HorizontalAlignment="Left" Margin="436,222,0,0" VerticalAlignment="Top" Width="147" Height="36"/>
+            <ComboBox x:Name="Gender" materialDesign:HintAssist.Hint="Gender" MinWidth="72" Margin="55,132,376,274" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="{Binding SelectedIndexGenre}" Height="47" >
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel />
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+                <ComboBoxItem Content="Categoria 1" />
+                <ComboBoxItem Content="Categoria 2" />
+                <ComboBoxItem Content="Categoria 3" />
+                <ComboBoxItem Content="Categoria 4" />
+            </ComboBox>
 
         </Grid>
     </Border>
