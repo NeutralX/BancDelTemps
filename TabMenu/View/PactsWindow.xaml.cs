@@ -11,20 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using BancDelTemps.Model.Class;
-using BancDelTemps.ViewModel;
 
 namespace BancDelTemps.View
 {
     /// <summary>
-    /// Interaction logic for ReportsDetall.xaml
+    /// Interaction logic for PactsWindow.xaml
     /// </summary>
-    public partial class ReportsDetall : Window
+    public partial class PactsWindow : Window
     {
-        public ReportsDetall(Report report)
+        public PactsWindow()
         {
             InitializeComponent();
-            DataContext = new ReportDetallViewModel(report);
         }
     }
 }

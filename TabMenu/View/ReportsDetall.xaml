@@ -1,4 +1,4 @@
-﻿<Window x:Class="BancDelTemps.View.ReportsDetall"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,13 +6,17 @@
         xmlns:local="clr-namespace:BancDelTemps.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:p="clr-namespace:BancDelTemps.Properties"
+        xmlns:ViewModel="clr-namespace:BancDelTemps.ViewModel" x:Class="BancDelTemps.View.ReportsDetall"
         mc:Ignorable="d"
-        Title="ReportsDetall" Height="334.978" Width="595.301" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="ReportsDetall" Height="470.978" Width="664.301" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Window.DataContext>
+        <ViewModel:ReportDetallViewModel/>
+    </Window.DataContext>
     <Border BorderBrush="Black" BorderThickness="1">
         <Grid>
-            <Grid x:Name="Lel" Background="#3F51B5" Margin="0,0,0,296"/>
-            <materialDesign:PackIcon Kind="Close" Margin="569,10,0,0" Foreground="White"/>
-            <ListView x:Name="ReportedUser" Margin="10,61,303,171">
+            <Grid x:Name="Lel" Background="#3F51B5" Margin="0,0,0,432"/>
+            <materialDesign:PackIcon Kind="Close" Margin="636,10,0,0" Foreground="White"/>
+            <ListView x:Name="ReportedUser" Margin="10,61,348,171">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn
@@ -24,7 +28,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <ListView x:Name="UserReport" Margin="295,61,10,171" >
+            <ListView x:Name="UserReport" Margin="342,61,10,171" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn
@@ -36,13 +40,13 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="10,48,411,263" Text="Reported user"/>
-            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="295,42,126,269" Text="Author of the report"/>
-            <TextBox x:Name="Desc"  TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxDescription}" Margin="10,167,271,103" Text="Hello there"/>
-            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Guardar canvis" HorizontalAlignment="Left" Margin="10,262,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
-            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Descartar canvis" HorizontalAlignment="Left" Margin="185,262,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
-            <Button x:Name="BanReported"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Banejar reportat" HorizontalAlignment="Left" Margin="383,199,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
-            <Button x:Name="BanAuthor"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Banejar autor" HorizontalAlignment="Left" Margin="383,262,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
+            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="10,48,494,400" Text="Reported user"/>
+            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="342,42,188,408" Text="Author of the report"/>
+            <TextBox x:Name="Desc"  TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxDescription}" Margin="31,314,292,65" Text="Hello there"/>
+            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Guardar canvis" HorizontalAlignment="Left" Margin="31,423,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
+            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Descartar canvis" HorizontalAlignment="Left" Margin="212,423,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
+            <Button x:Name="BanReported"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Banejar reportat" HorizontalAlignment="Left" Margin="448,360,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
+            <Button x:Name="BanAuthor"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Banejar autor" HorizontalAlignment="Left" Margin="448,423,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
 
         </Grid>
     </Border>

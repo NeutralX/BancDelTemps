@@ -1,0 +1,17 @@
+﻿<Window x:Class="BancDelTemps.View.PactsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BancDelTemps.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="PactsWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Border BorderBrush="Black" BorderThickness="1">
+        <Grid>
+            <Grid x:Name="Lel" Background="#3F51B5" Margin="0,0,0,412"/>
+            <materialDesign:PackIcon Kind="Close" Margin="772,10,0,0" Foreground="White"/>
+
+        </Grid>
+    </Border>
+</Window>

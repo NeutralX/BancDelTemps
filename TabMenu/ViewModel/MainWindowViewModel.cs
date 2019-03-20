@@ -18,6 +18,7 @@ using BancDelTemps.View;
 using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
+using MaterialDesignThemes.Wpf;
 using TabMenu;
 
 namespace BancDelTemps.ViewModel
@@ -93,6 +94,7 @@ namespace BancDelTemps.ViewModel
         public ICommand ButtonFiltrePactReiniciar { get; set; }
         public ICommand DobleClickUsers { get; set; }
         public ICommand DobleClickPosts { get; set; }
+        public ICommand DobleClickReports { get; set; }
 
 
 
@@ -111,7 +113,7 @@ namespace BancDelTemps.ViewModel
             ButtonFiltreUserEmail = new RelayCommand(o => Users = UsersRepository.GetUsersByEmail(_emailUser));
             ButtonFiltreUserNomCognom = new RelayCommand(o => Users = UsersRepository.GetUsersByName(_nomCognomUser));
             ButtonFiltreUserReiniciar = new RelayCommand(o => UsersPopulate());
-            DobleClickUsers = new RelayCommand(o => openUserInfo());
+            DobleClickUsers = new RelayCommand(o => obrirDetallUser());
             //POST
             DataIniciPost = DateTime.Today;
             DataFinalPost = DateTime.Today;
@@ -125,6 +127,7 @@ namespace BancDelTemps.ViewModel
             //REPORT
             ButtonFiltreReportDescripcio = new RelayCommand(o => Reports = ReportsRepository.GetReportsByDescription(_descripcioReport));
             ButtonFiltreReportReiniciar = new RelayCommand(o => EstatReport = false);
+            DobleClickReports = new RelayCommand(o=> obrirDetallReport());
             //PACT
             DataIniciPact = DateTime.Today;
             DataFinalPact = DateTime.Today;
@@ -251,7 +254,7 @@ namespace BancDelTemps.ViewModel
 
         #region Users
 
-        public void openUserInfo()
+        public void obrirDetallUser()
         {
             UserDetall userDetall = new UserDetall(User);
             userDetall.ShowDialog();
@@ -440,6 +443,20 @@ namespace BancDelTemps.ViewModel
         public List<Report> Reports {
             get { return _reports; }
             set { _reports = value; NotifyPropertyChanged(); }
+        }
+
+        private Report _report;
+
+        public Report Report
+        {
+            get => _report;
+            set { _report = value; NotifyPropertyChanged(); }
+        }
+
+        private void obrirDetallReport()
+        {
+            ReportsDetall reportsDetall = new ReportsDetall(Report);
+            reportsDetall.ShowDialog();
         }
 
         private void ReportsPopulate()
