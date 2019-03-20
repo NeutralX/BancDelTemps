@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:BancDelTemps.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Informacio" Height="217.5" Width="541.684" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="Informacio" Height="346.989" Width="541.684" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Border BorderBrush="Black" BorderThickness="1">
         <Grid>
-            <Grid x:Name="Lel" Background="#3F51B5" Margin="0,0,0,182"/>
+            <Grid x:Name="Lel" Background="#3F51B5" Margin="0,0,0,311"/>
             <materialDesign:PackIcon Kind="Close" Margin="514,10,0,0" Foreground="White"/>
 
-            <ListView  Margin="10,60,10,86">
+            <ListView  Margin="10,39,10,10">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn

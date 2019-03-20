@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
+using BancDelTemps.Model;
 using BancDelTemps.Model.Class;
 
 namespace BancDelTemps.ViewModel
@@ -53,6 +54,9 @@ namespace BancDelTemps.ViewModel
         }
         #endregion
 
+        public ICommand ButtonCloseApp { get; set; }
+        public ICommand ButtonSaveChanges { get; set; }
+        public ICommand ButtonDiscardChanges { get; set; }
         public Post Post { get; set; }
 
         public PostDetallViewModel()
@@ -61,7 +65,120 @@ namespace BancDelTemps.ViewModel
 
         public PostDetallViewModel(Post post)
         {
+            ButtonCloseApp = new PostDetallViewModel.RelayCommand(o => Application.Current.Windows[1].Close());
+            ButtonSaveChanges = new PostDetallViewModel.RelayCommand(o => saveChanges());
+            ButtonDiscardChanges = new PostDetallViewModel.RelayCommand(o => discardChanges());
             Post = post;
+            AuthorPost = (post.User.name + " " + post.User.last_name);
+            DescriptionPost = post.description;
+            TitlePost = post.title;
+            LocationPost = post.location;
+            IdPost = post.Id_Post;
+            DateCreatedPost = DateTime.Parse(post.date_created);
+            if(post.date_finished != null) DateFinishedPost = DateTime.Parse(post.date_finished);
+
+        }
+
+        public void saveChanges()
+        {
+            Post pNew = new Post();
+            pNew.title = TitlePost;
+            pNew.description = DescriptionPost;
+            pNew.Id_Post = IdPost;
+            pNew.date_created = DateCreatedPost.ToString("dd-MM-yyyy");
+            pNew.date_finished = DateFinishedPost.ToString("dd-MM-yyyy");
+            pNew.location = LocationPost;
+            PostsRepository.UpdatePost(pNew);
+            Application.Current.Windows[1].Close();
+        }
+
+        public void discardChanges()
+        {
+            MessageBoxResult mbRes = MessageBox.Show("Are you sure you want to discard changes?", "Warning", MessageBoxButton.YesNo);
+            if (mbRes == MessageBoxResult.Yes)
+            {
+                Application.Current.Windows[1].Close();
+            }
+        }
+
+        private int _idPost;
+        public int IdPost
+        {
+            get { return _idPost; }
+            set
+            {
+                _idPost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private string _authorPost;
+        public string AuthorPost
+        {
+            get { return _authorPost; }
+            set
+            {
+                _authorPost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private string _categoryPost;
+        public string CategoryPost
+        {
+            get { return _categoryPost; }
+            set
+            {
+                _categoryPost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private string _descriptionPost;
+        public string DescriptionPost
+        {
+            get { return _descriptionPost; }
+            set
+            {
+                _descriptionPost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private string _titlePost;
+        public string TitlePost
+        {
+            get { return _titlePost; }
+            set
+            {
+                _titlePost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private string _locationPost;
+        public string LocationPost
+        {
+            get { return _locationPost; }
+            set
+            {
+                _locationPost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private DateTime _dateCreatedPost;
+        public DateTime DateCreatedPost
+        {
+            get { return _dateCreatedPost; }
+            set
+            {
+                _dateCreatedPost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private DateTime _dateFinishedPost;
+        public DateTime DateFinishedPost
+        {
+            get { return _dateFinishedPost; }
+            set
+            {
+                _dateFinishedPost = value; NotifyPropertyChanged();
+            }
         }
     }
 }

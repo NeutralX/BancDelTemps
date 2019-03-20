@@ -11,25 +11,31 @@
         mc:Ignorable="d"
         Title="PostDetall" Height="454.978" Width="595.301" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.DataContext>
-        <ViewModel:UserDetallViewModel/>
+        <ViewModel:PostDetallViewModel/>
     </Window.DataContext>
     <Border BorderBrush="Black" BorderThickness="1">
         <Grid>
-            <Grid x:Name="Lel" Background="#3F51B5" Margin="0,0,0,414"/>
-            <materialDesign:PackIcon Kind="Close" Margin="569,10,0,0" Foreground="White"/>
-            <TextBox x:Name="Author" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxAuthor}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="55,52,376,340" />
-            <TextBox x:Name="Category" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxCategory}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="55,118,376,274" />
-            <TextBox x:Name="Title" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxTitle}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="55,184,376,208" />
-            <TextBox x:Name="Desc"  TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxDescription}" Margin="244,52,66,274" Text="Hello there"/>
-            <TextBox x:Name="Location" materialDesign:HintAssist.Hint="{x:Static p:Resources.GridLocation}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="244,184,187,208" />
-            <DatePicker x:Name="DateCreated" IsEnabled="False" materialDesign:HintAssist.Hint="01-01-2019" Margin="55,282,376,138" />
-            <DatePicker x:Name="DateFinished" IsEnabled="False" materialDesign:HintAssist.Hint="31-12-2019" Margin="244,282,187,138" />
-            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="55,256,453,176" Text="Date created"/>
-            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="244,256,264,176" Text="Date finished"/>
-            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Guardar canvis" HorizontalAlignment="Left" Margin="55,371,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
-            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Descartar canvis" HorizontalAlignment="Left" Margin="244,371,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
-            <Button x:Name="Delete"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Borrar anunci" HorizontalAlignment="Left" Margin="446,371,0,0" VerticalAlignment="Top" Width="137" Height="36"/>
-            <Button x:Name="Info"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Informació usuari" HorizontalAlignment="Left" Margin="436,222,0,0" VerticalAlignment="Top" Width="147" Height="36"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="592*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="Lel" Background="#3F51B5" Margin="0,0,0,414" Grid.ColumnSpan="2"/>
+            <Button Background="{x:Null}" Margin="562,-1,0,414" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Command="{Binding ButtonCloseApp}" Height="40" Width="Auto" Grid.Column="1">
+                <materialDesign:PackIcon Kind="Close" Foreground="White" Grid.Column="1"/>
+            </Button>
+            <TextBox x:Name="Author" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxAuthor}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="54.289,52,376,340" Grid.Column="1" Text="{Binding AuthorPost}" IsEnabled="False" />
+            <TextBox x:Name="Category" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxCategory}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="54.289,118,376,274" Grid.Column="1" />
+            <TextBox x:Name="Title" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxTitle}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="54.289,184,376,208" Grid.Column="1" Text="{Binding TitlePost}" />
+            <TextBox x:Name="Desc"  TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxDescription}" Margin="243.289,118,66,274" Text="{Binding DescriptionPost}" Grid.Column="1"/>
+            <TextBox x:Name="Location" materialDesign:HintAssist.Hint="{x:Static p:Resources.GridLocation}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="243.289,184,187,208" Grid.Column="1" Text="{Binding LocationPost}" />
+            <DatePicker x:Name="DateCreated" IsEnabled="False" materialDesign:HintAssist.Hint="01-01-2019" Margin="54.289,282,376,138" Grid.Column="1" Text="{Binding DateCratedPost}" SelectedDate="{Binding DateCreatedPost}" />
+            <DatePicker x:Name="DateFinished" IsEnabled="False" materialDesign:HintAssist.Hint="31-12-2019" Margin="243.289,282,187,138" Grid.Column="1" Text="{Binding DateFinishedPost}" SelectedDate="{Binding DateFinishedPost}" />
+            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="54.289,256,453,176" Text="Date created" Grid.Column="1"/>
+            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="243.289,256,264,176" Text="Date finished" Grid.Column="1"/>
+            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Guardar canvis" HorizontalAlignment="Left" Margin="54.289,371,0,0" VerticalAlignment="Top" Width="137" Height="36" Grid.Column="1" Command="{Binding ButtonSaveChanges}"/>
+            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Descartar canvis" HorizontalAlignment="Left" Margin="229.289,371,0,0" VerticalAlignment="Top" Width="137" Height="36" RenderTransformOrigin="0.234,0.69" Grid.Column="1" Command="{Binding ButtonDiscardChanges}"/>
+            <Button x:Name="Delete"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Borrar anunci" HorizontalAlignment="Left" Margin="407.289,371,0,0" VerticalAlignment="Top" Width="137" Height="36" RenderTransformOrigin="0.333,0.452" Grid.Column="1"/>
+            <Button x:Name="Info"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Informació usuari" HorizontalAlignment="Left" Margin="243.289,77,0,0" VerticalAlignment="Top" Width="147" Height="36" Grid.Column="1"/>
 
         </Grid>
     </Border>
