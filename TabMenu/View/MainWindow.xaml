@@ -182,7 +182,7 @@
                     <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="29,179,919,303" Text="{x:Static p:Resources.ButtonFilterState}"/>
                 </Grid>
                 <Grid x:Name ="GridPacts" Height="503" Background="#e6e6e6" Visibility="Hidden">
-                    <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Pacts}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False">
+                    <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Pacts}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False" SelectedItem="{Binding Pact}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Id_Pact}" ClipboardContentBinding="{x:Null}" Header="Id"/>
                             <DataGridTextColumn Binding="{Binding title}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridTitle}"/>
@@ -190,6 +190,11 @@
                             <DataGridTextColumn Binding="{Binding date_created}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridDateCreated}"/>
                             <DataGridTextColumn Binding="{Binding date_finished}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridDateFinished}"/>
                         </DataGrid.Columns>
+                        <DataGrid.InputBindings>
+                            <MouseBinding
+                                MouseAction="LeftDoubleClick"
+                                Command="{Binding DobleClickPacts}"/>
+                        </DataGrid.InputBindings>
                     </DataGrid>
                     <DatePicker x:Name="DatePickerPactsCreated" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextDatePicker}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="14,221,900,229" SelectedDate="{Binding DataIniciPact}" />
                     <DatePicker x:Name="DatePickerPactsFinished" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextDatePicker}" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="14,303,900,147" SelectedDate="{Binding DataFinalPact}" />

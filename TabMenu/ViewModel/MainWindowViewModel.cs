@@ -95,6 +95,9 @@ namespace BancDelTemps.ViewModel
         public ICommand DobleClickUsers { get; set; }
         public ICommand DobleClickPosts { get; set; }
         public ICommand DobleClickReports { get; set; }
+        public ICommand DobleClickPacts { get; set; }
+        public ICommand DobleClickCategories { get; set; }
+
 
 
 
@@ -123,11 +126,11 @@ namespace BancDelTemps.ViewModel
             ButtonFiltrePostDataInici = new RelayCommand(o => Posts = PostsRepository.GetPostsByDateCreated(_dataIniciPost));
             ButtonFiltrePostDataFinal = new RelayCommand(o => Posts = PostsRepository.GetPostsByDateFinished(_dataFinalPost));
             ButtonFiltrePostReiniciar = new RelayCommand(o => PostsPopulate());
-            DobleClickPosts = new RelayCommand(o=> obrirDetallPosts());
+            DobleClickPosts = new RelayCommand(o => obrirDetallPosts());
             //REPORT
             ButtonFiltreReportDescripcio = new RelayCommand(o => Reports = ReportsRepository.GetReportsByDescription(_descripcioReport));
             ButtonFiltreReportReiniciar = new RelayCommand(o => EstatReport = false);
-            DobleClickReports = new RelayCommand(o=> obrirDetallReport());
+            DobleClickReports = new RelayCommand(o => obrirDetallReport());
             //PACT
             DataIniciPact = DateTime.Today;
             DataFinalPact = DateTime.Today;
@@ -136,6 +139,10 @@ namespace BancDelTemps.ViewModel
             ButtonFiltrePactDataInici = new RelayCommand(o => Pacts = PactsRepository.GetPactsByDateCreated(_dataIniciPact));
             ButtonFiltrePactDataFinal = new RelayCommand(o => Pacts = PactsRepository.GetPactsByDateFinished(_dataFinalPact));
             ButtonFiltrePactReiniciar = new RelayCommand(o => PactsPopulate());
+            DobleClickPacts = new RelayCommand(o => ObrirDetallPact());
+
+            //CATEGORIA
+
 
             UsersPopulate();
             PostsPopulate();
@@ -447,8 +454,7 @@ namespace BancDelTemps.ViewModel
 
         private Report _report;
 
-        public Report Report
-        {
+        public Report Report {
             get => _report;
             set { _report = value; NotifyPropertyChanged(); }
         }
@@ -499,6 +505,19 @@ namespace BancDelTemps.ViewModel
         public List<Pact> Pacts {
             get { return _pacts; }
             set { _pacts = value; NotifyPropertyChanged(); }
+        }
+
+        private Pact _pact;
+
+        public Pact Pact {
+            get => _pact;
+            set { _pact = value; NotifyPropertyChanged(); }
+        }
+
+        private void ObrirDetallPact()
+        {
+            PactsWindow pactsWindow = new PactsWindow(Pact);
+            pactsWindow.ShowDialog();
         }
 
         private void PactsPopulate()
@@ -559,6 +578,19 @@ namespace BancDelTemps.ViewModel
 
         #endregion
         #region Categories
+
+        private Category _category;
+        public Category Category {
+            get => _category;
+            set { _category = value; NotifyPropertyChanged(); }
+        }
+
+        private void ObrirDetallCategory()
+        {
+            CategoriesWindow categoriesWindow = new CategoriesWindow(Category);
+            categoriesWindow.ShowDialog();
+        }
+
 
 
 

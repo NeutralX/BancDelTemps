@@ -12,19 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BancDelTemps.Model.Class;
-using BancDelTemps.ViewModel;
 
 namespace BancDelTemps.View
 {
     /// <summary>
-    /// Interaction logic for PactsWindow.xaml
+    /// Interaction logic for CategoriesWindow.xaml
     /// </summary>
-    public partial class PactsWindow : Window
+    public partial class CategoriesWindow : Window
     {
-        public PactsWindow(Pact pact)
+        public CategoriesWindow(Category category)
         {
             InitializeComponent();
-            DataContext = new PactsDetallViewModel(pact);
+
         }
     }
 }

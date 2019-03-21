@@ -117,9 +117,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\PactsDetallViewModel.cs" />
+    <Compile Include="ViewModel\CategoryDetallViewModel.cs" />
     <Compile Include="ViewModel\ReportDetallViewModel.cs" />
     <Compile Include="ViewModel\PostDetallViewModel.cs" />
     <Compile Include="ViewModel\UserDetallViewModel.cs" />
+    <Compile Include="View\CategoriesWindow.xaml.cs">
+      <DependentUpon>CategoriesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Informacio.xaml.cs">
       <DependentUpon>Informacio.xaml</DependentUpon>
     </Compile>
@@ -135,6 +140,10 @@
     <Compile Include="View\UserDetall.xaml.cs">
       <DependentUpon>UserDetall.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\CategoriesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Informacio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
