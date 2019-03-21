@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BancDelTemps.Model.Class;
+using BancDelTemps.ViewModel;
 
 namespace BancDelTemps.View
 {
@@ -19,9 +21,12 @@ namespace BancDelTemps.View
     /// </summary>
     public partial class Informacio : Window
     {
-        public Informacio()
+        public Informacio(Object ob)
         {
             InitializeComponent();
+            DataContext = new InformacioViewModel(ob);
         }
+
+        
     }
 }

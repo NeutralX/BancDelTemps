@@ -24,7 +24,6 @@
                 <materialDesign:PackIcon Kind="Close" Foreground="White" Grid.Column="1"/>
             </Button>
             <TextBox x:Name="Author" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxAuthor}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="54.289,52,376,340" Grid.Column="1" Text="{Binding AuthorPost}" IsEnabled="False" />
-            <TextBox x:Name="Category" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxCategory}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="54.289,118,376,274" Grid.Column="1" />
             <TextBox x:Name="Title" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxTitle}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="54.289,184,376,208" Grid.Column="1" Text="{Binding TitlePost}" />
             <TextBox x:Name="Desc"  TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxDescription}" Margin="243.289,118,66,274" Text="{Binding DescriptionPost}" Grid.Column="1"/>
             <TextBox x:Name="Location" materialDesign:HintAssist.Hint="{x:Static p:Resources.GridLocation}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="243.289,184,187,208" Grid.Column="1" Text="{Binding LocationPost}" />
@@ -34,9 +33,9 @@
             <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="243.289,256,264,176" Text="Date finished" Grid.Column="1"/>
             <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Guardar canvis" HorizontalAlignment="Left" Margin="54.289,371,0,0" VerticalAlignment="Top" Width="137" Height="36" Grid.Column="1" Command="{Binding ButtonSaveChanges}"/>
             <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Descartar canvis" HorizontalAlignment="Left" Margin="229.289,371,0,0" VerticalAlignment="Top" Width="137" Height="36" RenderTransformOrigin="0.234,0.69" Grid.Column="1" Command="{Binding ButtonDiscardChanges}"/>
-            <Button x:Name="Delete"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Borrar anunci" HorizontalAlignment="Left" Margin="407.289,371,0,0" VerticalAlignment="Top" Width="137" Height="36" RenderTransformOrigin="0.333,0.452" Grid.Column="1"/>
-            <Button x:Name="Info"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Informació usuari" HorizontalAlignment="Left" Margin="243.289,77,0,0" VerticalAlignment="Top" Width="147" Height="36" Grid.Column="1"/>
-            <ComboBox x:Name="Gender" materialDesign:HintAssist.Hint="Gender" MinWidth="72" Margin="55,132,376,274" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedIndex="{Binding SelectedIndexGenre}" Height="47" >
+            <Button x:Name="Delete"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Borrar anunci" HorizontalAlignment="Left" Margin="407.289,371,0,0" VerticalAlignment="Top" Width="137" Height="36" RenderTransformOrigin="0.333,0.452" Grid.Column="1" Command="{Binding ButtonDeletePost}"/>
+            <Button x:Name="Info"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Informació usuari" HorizontalAlignment="Left" Margin="243.289,77,0,0" VerticalAlignment="Top" Width="147" Height="36" Grid.Column="1" Command="{Binding ButtonMostrarDetallsUsuari}"/>
+            <ComboBox x:Name="Category" materialDesign:HintAssist.Hint="Category" MinWidth="72" Margin="54,137,376,269" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="47" Grid.Column="1" >
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel />

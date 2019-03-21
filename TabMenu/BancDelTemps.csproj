@@ -119,6 +119,7 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\PactsDetallViewModel.cs" />
     <Compile Include="ViewModel\CategoryDetallViewModel.cs" />
+    <Compile Include="ViewModel\InformacioViewModel.cs" />
     <Compile Include="ViewModel\ReportDetallViewModel.cs" />
     <Compile Include="ViewModel\PostDetallViewModel.cs" />
     <Compile Include="ViewModel\UserDetallViewModel.cs" />
