@@ -75,13 +75,13 @@ namespace BancDelTemps.Model
 
         public static Post UpdatePost(Post p2Upd)
         {
-            Post p = (Post)MakeRequest(string.Concat(ws1, "post/", p2Upd.Id_Post), p2Upd, "PUT", "application/json", typeof(Post));
+            Post p = (Post)MakeRequest(string.Concat(ws1, "updatePost/", p2Upd.Id_Post), p2Upd, "PUT", "application/json", typeof(Post));
             return p;
         }
 
         public static void DeletePost(int id)
         {
-            MakeRequest(string.Concat(ws1, "post/", id), null, "DELETE", null, typeof(void));
+            MakeRequest(string.Concat(ws1, "deletePost/", id), null, "DELETE", null, typeof(void));
         }
 
         public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)

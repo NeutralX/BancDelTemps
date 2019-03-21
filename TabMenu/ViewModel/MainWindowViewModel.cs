@@ -353,6 +353,7 @@ namespace BancDelTemps.ViewModel
 
             PostDetall postDetall = new PostDetall(Post);
             postDetall.ShowDialog();
+            PostsPopulate();
         }
 
         private Post _post;

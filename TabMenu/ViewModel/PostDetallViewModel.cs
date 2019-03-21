@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Input;
 using BancDelTemps.Model;
 using BancDelTemps.Model.Class;
+using BancDelTemps.View;
 
 namespace BancDelTemps.ViewModel
 {
@@ -57,6 +58,8 @@ namespace BancDelTemps.ViewModel
         public ICommand ButtonCloseApp { get; set; }
         public ICommand ButtonSaveChanges { get; set; }
         public ICommand ButtonDiscardChanges { get; set; }
+        public ICommand ButtonMostrarDetallsUsuari { get; set; }
+        public ICommand ButtonDeletePost { get; set; }
         public Post Post { get; set; }
 
         public PostDetallViewModel()
@@ -68,6 +71,8 @@ namespace BancDelTemps.ViewModel
             ButtonCloseApp = new PostDetallViewModel.RelayCommand(o => Application.Current.Windows[1].Close());
             ButtonSaveChanges = new PostDetallViewModel.RelayCommand(o => saveChanges());
             ButtonDiscardChanges = new PostDetallViewModel.RelayCommand(o => discardChanges());
+            ButtonMostrarDetallsUsuari = new PostDetallViewModel.RelayCommand(o => userDetails());
+            ButtonDeletePost = new PostDetallViewModel.RelayCommand(o => deletePost());
             Post = post;
             AuthorPost = (post.User.name + " " + post.User.last_name);
             DescriptionPost = post.description;
@@ -88,6 +93,9 @@ namespace BancDelTemps.ViewModel
             pNew.date_created = DateCreatedPost.ToString("dd-MM-yyyy");
             pNew.date_finished = DateFinishedPost.ToString("dd-MM-yyyy");
             pNew.location = LocationPost;
+            pNew.Category_Id_Category = 1;
+            pNew.actiu = Post.actiu;
+            pNew.UserId_User = Post.UserId_User;
             PostsRepository.UpdatePost(pNew);
             Application.Current.Windows[1].Close();
         }
@@ -99,6 +107,22 @@ namespace BancDelTemps.ViewModel
             {
                 Application.Current.Windows[1].Close();
             }
+        }
+
+        public void deletePost()
+        {
+            MessageBoxResult mbRes = MessageBox.Show("Are you sure you want to delete this post?", "Warning", MessageBoxButton.YesNo);
+            if (mbRes == MessageBoxResult.Yes)
+            {
+                PostsRepository.DeletePost(Post.Id_Post);
+                Application.Current.Windows[1].Close();
+            }
+        }
+
+        public void userDetails()
+        {
+                Informacio i = new Informacio(Post.User);
+                i.ShowDialog();
         }
 
         private int _idPost;
