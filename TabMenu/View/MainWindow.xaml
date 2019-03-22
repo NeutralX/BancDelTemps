@@ -208,7 +208,13 @@
 
                 </Grid>
                 <Grid  x:Name ="GridCategories" Height="503" Background="#e6e6e6" Visibility="Hidden">
-                    <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single"/>
+                    <DataGrid HorizontalAlignment="Left" Height="450" Margin="440,28,0,0" VerticalAlignment="Top" Width="615" ItemsSource="{Binding Categories}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False" SelectedItem="{Binding Category}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Id_Category}" ClipboardContentBinding="{x:Null}" Header="Id"/>
+                            <DataGridTextColumn Binding="{Binding name}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridTitle}"/>
+                            <DataGridTextColumn Binding="{Binding description}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.GridDescription}"/>
+                           </DataGrid.Columns>
+                    </DataGrid>
                     <Button x:Name="TextBoxCategoriesFiltreDesc" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per descripció" HorizontalAlignment="Left" Margin="210,208,0,0" VerticalAlignment="Top" Width="206" Height="36" RenderTransformOrigin="0.722,0.528"/>
                     <TextBox x:Name="TextBoxCategoriesDesc" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="Descripció" Margin="10,194,904,0" Text="{Binding TitolPost}" />
                     <Button x:Name="ButtonCategoriesTitol" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Filtrar per títol" HorizontalAlignment="Left" Margin="210,122,0,0" VerticalAlignment="Top" Width="206" Height="36" RenderTransformOrigin="0.722,0.528"/>

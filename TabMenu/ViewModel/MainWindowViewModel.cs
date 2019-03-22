@@ -148,6 +148,7 @@ namespace BancDelTemps.ViewModel
             PostsPopulate();
             ReportsPopulate();
             PactsPopulate();
+            CategoriesPopulate();
 
             _firstTime = true;
             LastHourSeries = new SeriesCollection
@@ -586,10 +587,23 @@ namespace BancDelTemps.ViewModel
             set { _category = value; NotifyPropertyChanged(); }
         }
 
+        private List<Category> _categories;
+
+        public List<Category> Categories
+        {
+            get => _categories;
+            set { _categories = value; NotifyPropertyChanged(); }
+        }
+
         private void ObrirDetallCategory()
         {
             CategoriesWindow categoriesWindow = new CategoriesWindow(Category);
             categoriesWindow.ShowDialog();
+        }
+
+        private void CategoriesPopulate()
+        {
+            Categories = CategoriesRepository.GetAllCategories();
         }
 
 
