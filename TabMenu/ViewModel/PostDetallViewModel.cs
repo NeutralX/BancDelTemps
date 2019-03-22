@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -73,12 +74,14 @@ namespace BancDelTemps.ViewModel
             ButtonDiscardChanges = new PostDetallViewModel.RelayCommand(o => discardChanges());
             ButtonMostrarDetallsUsuari = new PostDetallViewModel.RelayCommand(o => userDetails());
             ButtonDeletePost = new PostDetallViewModel.RelayCommand(o => deletePost());
+            Categories = CategoriesRepository.GetAllCategoriyNames();
             Post = post;
             AuthorPost = (post.User.name + " " + post.User.last_name);
             DescriptionPost = post.description;
             TitlePost = post.title;
             LocationPost = post.location;
             IdPost = post.Id_Post;
+            SelectedIndexCategory = post.Category_Id_Category;
             DateCreatedPost = DateTime.Parse(post.date_created);
             if(post.date_finished != null) DateFinishedPost = DateTime.Parse(post.date_finished);
 
@@ -93,7 +96,7 @@ namespace BancDelTemps.ViewModel
             pNew.date_created = DateCreatedPost.ToString("dd-MM-yyyy");
             pNew.date_finished = DateFinishedPost.ToString("dd-MM-yyyy");
             pNew.location = LocationPost;
-            pNew.Category_Id_Category = 1;
+            pNew.Category_Id_Category = SelectedIndexCategory;
             pNew.actiu = Post.actiu;
             pNew.UserId_User = Post.UserId_User;
             PostsRepository.UpdatePost(pNew);
@@ -132,6 +135,26 @@ namespace BancDelTemps.ViewModel
             set
             {
                 _idPost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private List<String> _categories;
+        public List<String> Categories
+        {
+            get { return _categories; }
+            set
+            {
+                _categories = value; NotifyPropertyChanged();
+            }
+        }
+
+        private int _selectedIndexCategory;
+        public int SelectedIndexCategory
+        {
+            get { return _selectedIndexCategory; }
+            set
+            {
+                _selectedIndexCategory = value; NotifyPropertyChanged();
             }
         }
 

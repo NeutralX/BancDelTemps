@@ -35,16 +35,12 @@
             <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Descartar canvis" HorizontalAlignment="Left" Margin="229.289,371,0,0" VerticalAlignment="Top" Width="137" Height="36" RenderTransformOrigin="0.234,0.69" Grid.Column="1" Command="{Binding ButtonDiscardChanges}"/>
             <Button x:Name="Delete"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Borrar anunci" HorizontalAlignment="Left" Margin="407.289,371,0,0" VerticalAlignment="Top" Width="137" Height="36" RenderTransformOrigin="0.333,0.452" Grid.Column="1" Command="{Binding ButtonDeletePost}"/>
             <Button x:Name="Info"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Informació usuari" HorizontalAlignment="Left" Margin="243.289,77,0,0" VerticalAlignment="Top" Width="147" Height="36" Grid.Column="1" Command="{Binding ButtonMostrarDetallsUsuari}"/>
-            <ComboBox x:Name="Category" materialDesign:HintAssist.Hint="Category" MinWidth="72" Margin="54,137,376,269" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="47" Grid.Column="1" >
+            <ComboBox x:Name="Category" materialDesign:HintAssist.Hint="Category" MinWidth="72" Margin="54,137,376,269" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="47" Grid.Column="1" ItemsSource="{Binding Categories}" SelectedIndex="{Binding SelectedIndexCategory}" >
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel />
                     </ItemsPanelTemplate>
                 </ComboBox.ItemsPanel>
-                <ComboBoxItem Content="Categoria 1" />
-                <ComboBoxItem Content="Categoria 2" />
-                <ComboBoxItem Content="Categoria 3" />
-                <ComboBoxItem Content="Categoria 4" />
             </ComboBox>
         </Grid>
     </Border>
