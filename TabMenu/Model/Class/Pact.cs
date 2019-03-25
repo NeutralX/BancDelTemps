@@ -10,6 +10,8 @@ namespace BancDelTemps.Model.Class
         public string description { get; set; }
         public string title { get; set; }
         public int Posts_Id_Post { get; set; }
+        public int Id_Creador { get; set; }
+        public int Id_NoCreador { get; set; }
 
         public virtual Post Post { get; set; }
         public virtual Report Report { get; set; }

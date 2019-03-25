@@ -81,7 +81,7 @@ namespace BancDelTemps.ViewModel
             TitlePost = post.title;
             LocationPost = post.location;
             IdPost = post.Id_Post;
-            SelectedIndexCategory = post.Category_Id_Category;
+            SelectedItemCategory = CategoriesRepository.GetSingleCategory(post.Category_Id_Category).name;
             DateCreatedPost = DateTime.Parse(post.date_created);
             if(post.date_finished != null) DateFinishedPost = DateTime.Parse(post.date_finished);
 
@@ -96,7 +96,7 @@ namespace BancDelTemps.ViewModel
             pNew.date_created = DateCreatedPost.ToString("dd-MM-yyyy");
             pNew.date_finished = DateFinishedPost.ToString("dd-MM-yyyy");
             pNew.location = LocationPost;
-            pNew.Category_Id_Category = SelectedIndexCategory;
+            pNew.Category_Id_Category = CategoriesRepository.GetCategoryIdByString(SelectedItemCategory); 
             pNew.actiu = Post.actiu;
             pNew.UserId_User = Post.UserId_User;
             PostsRepository.UpdatePost(pNew);
@@ -148,13 +148,13 @@ namespace BancDelTemps.ViewModel
             }
         }
 
-        private int _selectedIndexCategory;
-        public int SelectedIndexCategory
+        private string _selectedItemCategory;
+        public string SelectedItemCategory
         {
-            get { return _selectedIndexCategory; }
+            get { return _selectedItemCategory; }
             set
             {
-                _selectedIndexCategory = value; NotifyPropertyChanged();
+                _selectedItemCategory = value; NotifyPropertyChanged();
             }
         }
 

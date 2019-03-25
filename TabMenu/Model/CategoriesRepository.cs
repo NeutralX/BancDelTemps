@@ -34,6 +34,12 @@ namespace BancDelTemps.Model
             return r;
         }
 
+        public static int GetCategoryIdByString(string name)
+        {
+            int id = (int)MakeRequest(string.Concat(ws1, "categoryId/", name), null, "GET", "application/json", typeof(int));
+            return id;
+        }
+
         public static Category InsertCategory(Category r2Add)
         {
             Category r = (Category)MakeRequest(string.Concat(ws1, "category"), r2Add, "Category", "application/json", typeof(Category));

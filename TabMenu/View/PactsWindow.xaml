@@ -15,16 +15,20 @@
     <Border BorderBrush="Black" BorderThickness="1">
         <Grid>
             <Grid x:Name="Lel" Background="#3F51B5" Margin="0,0,0,412"/>
-            <materialDesign:PackIcon Kind="Close" Margin="643,10,0,0" Foreground="White"/>
-            <TextBox x:Name="Title" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxTitle}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="66,75,443,312" Text="{Binding TitlePost}" />
-            <TextBox x:Name="Desc"  TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxDescription}" Margin="283,46,106,312" Text="{Binding DescriptionPost}"/>
-            <DatePicker x:Name="DateCreated" IsEnabled="False" materialDesign:HintAssist.Hint="01-01-2019" Margin="66,209,462,195" Text="{Binding DateCratedPost}" SelectedDate="{Binding DateCreatedPost}" />
-            <DatePicker x:Name="DateFinished" IsEnabled="False" materialDesign:HintAssist.Hint="31-12-2019" Margin="283,209,242,195" Text="{Binding DateFinishedPost}" SelectedDate="{Binding DateFinishedPost}" />
+            <Button Background="{x:Null}" Margin="629,0,0,408" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Command="{Binding ButtonCloseApp}">
+                <materialDesign:PackIcon Kind="Close" Foreground="White" Width="25" Height="25" />
+            </Button>
+            <TextBox x:Name="Title" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxTitle}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="66,75,443,312" Text="{Binding TitlePacts}" />
+            <TextBox x:Name="Desc"  TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxDescription}" Margin="283,46,106,312" Text="{Binding DescriptionPacts}"/>
+            <DatePicker x:Name="DateCreated" IsEnabled="False" materialDesign:HintAssist.Hint="01-01-2019" Margin="66,209,462,195" SelectedDate="{Binding DateCreatedPact}" />
+            <DatePicker x:Name="DateFinished" IsEnabled="False" materialDesign:HintAssist.Hint="31-12-2019" Margin="283,209,242,195" SelectedDate="{Binding DateFinishedPact}" />
             <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="66,174,519,247" Text="Date created"/>
             <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="283,174,287,247" Text="Date finished"/>
-            <Button x:Name="Info"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Informació anunci" HorizontalAlignment="Left" Margin="485,203,0,0" VerticalAlignment="Top" Width="147" Height="36"/>
-            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Guardar canvis" HorizontalAlignment="Left" Margin="135,299,0,0" VerticalAlignment="Top" Width="137" Height="36" Command="{Binding ButtonSaveChanges}"/>
-            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Descartar canvis" HorizontalAlignment="Left" Margin="310,299,0,0" VerticalAlignment="Top" Width="137" Height="36" RenderTransformOrigin="0.234,0.69" Command="{Binding ButtonDiscardChanges}"/>
+            <Button x:Name="InfoPost"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Informació anunci" HorizontalAlignment="Left" Margin="254,292,0,0" VerticalAlignment="Top" Width="147" Height="36"/>
+            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Guardar canvis" HorizontalAlignment="Left" Margin="160,377,0,0" VerticalAlignment="Top" Width="137" Height="36" Command="{Binding ButtonSaveChanges}"/>
+            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Descartar canvis" HorizontalAlignment="Left" Margin="335,377,0,0" VerticalAlignment="Top" Width="137" Height="36" RenderTransformOrigin="0.234,0.69" Command="{Binding ButtonDiscardChanges}"/>
+            <Button x:Name="InfoAuthor"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Informació autor" HorizontalAlignment="Left" Margin="79,292,0,0" VerticalAlignment="Top" Width="147" Height="36"/>
+            <Button x:Name="InfoNoAuthor"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Informació Participant" HorizontalAlignment="Left" Margin="435,292,0,0" VerticalAlignment="Top" Width="147" Height="36" FontSize="11"/>
 
         </Grid>
     </Border>
