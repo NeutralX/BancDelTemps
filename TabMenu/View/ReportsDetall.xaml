@@ -15,7 +15,9 @@
     <Border BorderBrush="Black" BorderThickness="1">
         <Grid>
             <Grid x:Name="Lel" Background="#3F51B5" Margin="0,0,0,432"/>
-            <materialDesign:PackIcon Kind="Close" Margin="636,10,0,0" Foreground="White"/>
+            <Button Background="{x:Null}" Margin="622,0,0,429" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Command="{Binding ButtonCloseApp}">
+                <materialDesign:PackIcon Kind="Close" Foreground="White" Width="25" Height="25" />
+            </Button>
             <ListView x:Name="ReportedUser" Margin="10,61,348,171">
                 <ListView.View>
                     <GridView>

@@ -53,6 +53,8 @@ namespace BancDelTemps.ViewModel
         }
         #endregion
 
+        #region Main
+        public ICommand ButtonCloseApp { get; set; }
         public Report Report { get; set; }
 
         public ReportDetallViewModel()
@@ -61,7 +63,11 @@ namespace BancDelTemps.ViewModel
 
         public ReportDetallViewModel(Report report)
         {
+            ButtonCloseApp = new RelayCommand(o => Application.Current.Windows[1].Close());
             Report = report;
+
         }
+
+        #endregion
     }
 }
