@@ -63,7 +63,7 @@ namespace BancDelTemps.Model
 
         public static Post GetPostById(int idPost)
         {
-            Post p = (Post)MakeRequest(string.Concat(ws1, "post/", idPost), null, "POST", "application/json", typeof(Post));
+            Post p = (Post)MakeRequest(string.Concat(ws1, "postSi/", idPost), null, "GET", "application/json", typeof(Post));
             return p;
         }
 

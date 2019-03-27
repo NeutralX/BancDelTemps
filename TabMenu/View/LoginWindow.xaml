@@ -18,8 +18,7 @@
     <StackPanel Background="WhiteSmoke">
         <Grid Height="40" Background="#3F51B5">
             <StackPanel HorizontalAlignment="Left" Margin="20 0">
-                <ComboBox FontSize="15" Width="50" Foreground="#FFA2A2A2" VerticalAlignment="Center" SelectedValue="{Binding SelectedValueCulture}" SelectedIndex="0" SelectedItem="{Binding SelectedItemCulture}"  >
-                    <ComboBoxItem Content="" />
+                <ComboBox FontSize="15" Width="50" Foreground="#FFA2A2A2" VerticalAlignment="Center" SelectedValue="{Binding SelectedValueCulture}" SelectedIndex="{Binding SelectedIndexCulture}" SelectedItem="{Binding SelectedItemCulture}" >
                     <ComboBoxItem Content="EN" />
                     <ComboBoxItem Content="ES"/>
                     <ComboBoxItem Content="CA"/>

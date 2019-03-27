@@ -88,6 +88,9 @@ namespace BancDelTemps.ViewModel
             uNew.gender = GenderUser;
             uNew.email = EmailUser;
             uNew.date_of_birth = BirthDateUser.ToString("dd-MM-yyyy");
+            uNew.register_date = User.register_date;
+            uNew.picture_path = User.picture_path;
+            uNew.time_hours = User.time_hours;
             UsersRepository.UpdateUser(uNew);
             Application.Current.Windows[1].Close();
         }

@@ -7,7 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using BancDelTemps.Model;
 using BancDelTemps.Model.Class;
+using BancDelTemps.View;
 
 namespace BancDelTemps.ViewModel
 {
@@ -57,9 +59,14 @@ namespace BancDelTemps.ViewModel
         }
         #endregion
 
+
         public ICommand ButtonCloseApp { get; set; }
         public ICommand ButtonSaveChanges { get; set; }
         public ICommand ButtonDiscardChanges { get; set; }
+        public ICommand ButtonShowAuthor { get; set; }
+        public ICommand ButtonShowPost { get; set; }
+        public ICommand ButtonShowParticipant { get; set; }
+        public Pact Pact { get; set; }
 
         public PactsDetallViewModel()
         {
@@ -67,14 +74,31 @@ namespace BancDelTemps.ViewModel
 
         public PactsDetallViewModel(Pact pact)
         {
+            Pact = pact;
             ButtonCloseApp = new PactsDetallViewModel.RelayCommand(o => Application.Current.Windows[1].Close());
             ButtonSaveChanges = new PactsDetallViewModel.RelayCommand(o => saveChanges());
             ButtonDiscardChanges = new PactsDetallViewModel.RelayCommand(o => discardChanges());
+            ButtonShowAuthor = new PactsDetallViewModel.RelayCommand(o => authorDetails());
+            ButtonShowPost = new PactsDetallViewModel.RelayCommand(o => postDetails());
+            ButtonShowParticipant = new PactsDetallViewModel.RelayCommand(o => participantDetails());
+
+            TitlePact = pact.title;
+            DescriptionPact = pact.description;
+            DateCreatedPact = DateTime.Parse(pact.date_created);
+            DateFinishedPact = DateTime.Parse(pact.date_finished);
         }
 
         public void saveChanges()
         {
             Pact pNew = new Pact();
+            pNew.title = TitlePact;
+            pNew.description = DescriptionPact;
+            pNew.date_created = DateCreatedPact.ToString("dd-MM-yyyy");
+            pNew.date_finished = DateFinishedPact.ToString("dd-MM-yyyy");
+            pNew.Id_Creador = Pact.Id_Creador;
+            pNew.Id_NoCreador = Pact.Id_NoCreador;
+            pNew.Id_Pact = Pact.Id_Pact;
+            PactsRepository.UpdatePact(pNew);
             Application.Current.Windows[1].Close();
         }
 
@@ -87,8 +111,26 @@ namespace BancDelTemps.ViewModel
             }
         }
 
+        public void authorDetails()
+        {
+            Informacio i = new Informacio(UsersRepository.GetUser(Pact.Id_Creador));
+            i.ShowDialog();
+        }
+
+        public void postDetails()
+        {
+            Informacio i = new Informacio(PostsRepository.GetPostById(Pact.Id_Pact));
+            i.ShowDialog();
+        }
+
+        public void participantDetails()
+        {
+            Informacio i = new Informacio(UsersRepository.GetUser(Pact.Id_NoCreador));
+            i.ShowDialog();
+        }
+
         private string _titlePact;
-        public string TitlePacts
+        public string TitlePact
         {
             get { return _titlePact; }
             set
@@ -98,7 +140,7 @@ namespace BancDelTemps.ViewModel
         }
 
         private string _descriptionPact;
-        public string DescriptionPacts
+        public string DescriptionPact
         {
             get { return _descriptionPact; }
             set

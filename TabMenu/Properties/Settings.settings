@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Culture" Type="System.String" Scope="User">
-      <Value Profile="(Default)">en</Value>
+      <Value Profile="(Default)">es</Value>
     </Setting>
     <Setting Name="Username" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

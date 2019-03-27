@@ -53,7 +53,7 @@ namespace BancDelTemps.Model
 
         public static User GetUser(int id)
         {
-            User u = (User)MakeRequest(string.Concat(ws1, "user/", id), null, "GET", "application/json", typeof(User));
+            User u = (User)MakeRequest(string.Concat(ws1, "userSi/", id), null, "GET", "application/json", typeof(User));
             return u;
         }
 

@@ -14,6 +14,5 @@ namespace BancDelTemps.Model.Class
         public int Id_NoCreador { get; set; }
 
         public virtual Post Post { get; set; }
-        public virtual Report Report { get; set; }
     }
 }

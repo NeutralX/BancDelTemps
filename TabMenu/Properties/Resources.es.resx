@@ -251,4 +251,19 @@
   <data name="GenreWoman" xml:space="preserve">
     <value>Mujer</value>
   </data>
+  <data name="GridGenre" xml:space="preserve">
+    <value>Género</value>
+  </data>
+  <data name="DiscardChanges" xml:space="preserve">
+    <value>Descartar cambios</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Guardar cambios</value>
+  </data>
+  <data name="DeletePost" xml:space="preserve">
+    <value>Eliminar anuncio</value>
+  </data>
+  <data name="UserInfo" xml:space="preserve">
+    <value>Información usuario</value>
+  </data>
 </root>

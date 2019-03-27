@@ -24,19 +24,19 @@ namespace BancDelTemps.Model
 
         public static Pact InsertPact(Pact p2Add)
         {
-            Pact p = (Pact)MakeRequest(string.Concat(ws1, "pact"), p2Add, "POST", "application/json", typeof(Pact));
+            Pact p = (Pact)MakeRequest(string.Concat(ws1, "insertPact"), p2Add, "POST", "application/json", typeof(Pact));
             return p;
         }
 
         public static Pact UpdatePact(Pact p2Upd)
         {
-            Pact p = (Pact)MakeRequest(string.Concat(ws1, "pact/", p2Upd.Id_Pact), p2Upd, "PUT", "application/json", typeof(Pact));
+            Pact p = (Pact)MakeRequest(string.Concat(ws1, "updatePact/", p2Upd.Id_Pact), p2Upd, "PUT", "application/json", typeof(Pact));
             return p;
         }
 
         public static void DeletePact(int id)
         {
-            MakeRequest(string.Concat(ws1, "pact/", id), null, "DELETE", null, typeof(void));
+            MakeRequest(string.Concat(ws1, "deletePact/", id), null, "DELETE", null, typeof(void));
         }
 
         public static List<Pact> GetPactsByTitle(string titlePact)

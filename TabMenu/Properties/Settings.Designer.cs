@@ -25,7 +25,7 @@ namespace BancDelTemps.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("en")]
+        [global::System.Configuration.DefaultSettingValueAttribute("es")]
         public string Culture {
             get {
                 return ((string)(this["Culture"]));

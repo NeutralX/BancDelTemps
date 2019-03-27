@@ -520,6 +520,7 @@ namespace BancDelTemps.ViewModel
         {
             PactsWindow pactsWindow = new PactsWindow(Pact);
             pactsWindow.ShowDialog();
+            PactsPopulate();
         }
 
         private void PactsPopulate()

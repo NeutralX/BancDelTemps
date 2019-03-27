@@ -169,6 +169,24 @@ namespace BancDelTemps.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Post.
+        /// </summary>
+        public static string DeletePost {
+            get {
+                return ResourceManager.GetString("DeletePost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discard Changes.
+        /// </summary>
+        public static string DiscardChanges {
+            get {
+                return ResourceManager.GetString("DiscardChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Men.
         /// </summary>
         public static string GenreMen {
@@ -250,6 +268,15 @@ namespace BancDelTemps.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Genre.
+        /// </summary>
+        public static string GridGenre {
+            get {
+                return ResourceManager.GetString("GridGenre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last name.
         /// </summary>
         public static string GridLastName {
@@ -318,6 +345,15 @@ namespace BancDelTemps.Properties {
         public static string LoginErrorText {
             get {
                 return ResourceManager.GetString("LoginErrorText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Changes.
+        /// </summary>
+        public static string SaveChanges {
+            get {
+                return ResourceManager.GetString("SaveChanges", resourceCulture);
             }
         }
         
@@ -444,6 +480,15 @@ namespace BancDelTemps.Properties {
         public static string TitleUsers {
             get {
                 return ResourceManager.GetString("TitleUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User information.
+        /// </summary>
+        public static string UserInfo {
+            get {
+                return ResourceManager.GetString("UserInfo", resourceCulture);
             }
         }
     }

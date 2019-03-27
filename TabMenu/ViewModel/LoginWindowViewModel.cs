@@ -75,6 +75,18 @@ namespace BancDelTemps.ViewModel
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.Culture);
+            switch (Settings.Default.Culture)
+            {
+                case "en":
+                    SelectedIndexCulture = 0;
+                    break;
+                case "es":
+                    SelectedIndexCulture = 1;
+                    break;
+                case "ca":
+                    SelectedIndexCulture = 2;
+                    break;
+            }
             //GENERAL
             ButtonCloseApp = new RelayCommand(o => System.Windows.Application.Current.Shutdown());
             ButtonLogin = new RelayCommand(o => LoginToApp(o));
@@ -101,6 +113,16 @@ namespace BancDelTemps.ViewModel
             }
         }
 
+        private int _selectedIndexCulture;
+        public int SelectedIndexCulture
+        {
+            get { return _selectedIndexCulture; }
+            set
+            {
+                _selectedIndexCulture = value; NotifyPropertyChanged();
+            }
+        }
+
         public void Language_Changer(string culture)
         {
 
@@ -120,6 +142,13 @@ namespace BancDelTemps.ViewModel
             Settings.Default.Save();
             System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             App.Current.Shutdown();
+        }
+
+        private List<string> _cultures;
+        public List<string> Cultures
+        {
+            get { return _cultures; }
+            set { _cultures = value; NotifyPropertyChanged(); }
         }
 
         private string _username;
@@ -164,19 +193,20 @@ namespace BancDelTemps.ViewModel
             set
             {
                 _isCheckedRemember = value; NotifyPropertyChanged();
-                
+
             }
         }
 
+
         public async void LoginToApp(object parameter)
         {
-            
+
             var passwordBox = parameter as PasswordBox;
             Password = passwordBox.Password;
             if (_username != "" && _password != "")
             {
                 ProgressVisibility = "VISIBLE";
-                Admin login = new Admin(_username,_password);
+                Admin login = new Admin(_username, _password);
                 if (_isCheckedRemember == true)
                 {
                     Settings.Default.Username = _username;
@@ -187,8 +217,8 @@ namespace BancDelTemps.ViewModel
                     Settings.Default.Username = "";
                     Settings.Default.Save();
                 }
-                    Admin returnAdmin = await Task.Run(() => loginAdmin(login));
-                
+                Admin returnAdmin = await Task.Run(() => loginAdmin(login));
+
                 if (returnAdmin != null)
                 {
                     MainWindow mw = new MainWindow();
@@ -200,13 +230,13 @@ namespace BancDelTemps.ViewModel
                     IsDialogOpen = true;
                 }
                 ProgressVisibility = "HIDDEN";
-            } 
+            }
         }
 
         public async Task<Admin> loginAdmin(Admin login)
         {
-             Admin returnAdmin = AdminsRepository.LoginAdmin(login);
-             return returnAdmin;
+            Admin returnAdmin = AdminsRepository.LoginAdmin(login);
+            return returnAdmin;
         }
     }
 }
