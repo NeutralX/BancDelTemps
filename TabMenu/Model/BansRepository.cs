@@ -22,9 +22,9 @@ namespace BancDelTemps.Model
             return lb;
         }
 
-        public static Ban InsertBan(Pact b2Add)
+        public static Ban InsertBan(Ban b2Add)
         {
-            Ban b = (Ban)MakeRequest(string.Concat(ws1, "bans"), b2Add, "POST", "application/json", typeof(Ban));
+            Ban b = (Ban)MakeRequest(string.Concat(ws1, "insertBan"), b2Add, "POST", "application/json", typeof(Ban));
             return b;
         }
 

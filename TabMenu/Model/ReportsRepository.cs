@@ -30,7 +30,7 @@ namespace BancDelTemps.Model
 
         public static Report UpdateReport(Report r2Upd)
         {
-            Report r = (Report)MakeRequest(string.Concat(ws1, "report/", r2Upd.Id_Report), r2Upd, "PUT", "application/json", typeof(Report));
+            Report r = (Report)MakeRequest(string.Concat(ws1, "updateReport/", r2Upd.Id_Report), r2Upd, "PUT", "application/json", typeof(Report));
             return r;
         }
 
