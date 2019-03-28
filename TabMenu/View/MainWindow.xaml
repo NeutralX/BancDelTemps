@@ -145,7 +145,7 @@
                     </DataGrid>
                     <Button x:Name="ButtonPostsFiltreCreador" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.ButtonFilterAuthor}" HorizontalAlignment="Left" Margin="210,134,0,0" VerticalAlignment="Top" Width="206" Height="36" RenderTransformOrigin="0.722,0.528" Command="{Binding ButtonFiltrePostCreador}"/>
                     <TextBox x:Name="TextBoxPostsCreador" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap" MaxWidth="400" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxAuthor}" Margin="10,120,904,0" Text="{Binding CreadorPost}"/>
-                    <ComboBox x:Name="ComboBoxPostsCategoria" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxCategory}" MinWidth="72" Margin="10,211,904,252" ItemsSource="{Binding LongListToTestComboVirtualization}" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Text="{Binding CategoriaPost}">
+                    <ComboBox x:Name="ComboBoxPostsCategoria" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxCategory}" MinWidth="72" Margin="10,211,904,252" ItemsSource="{Binding CategoriesPost}" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Text="{Binding CategoriaPost}" SelectedItem="{Binding SelectedItemCategoryPost}">
                         <ComboBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <VirtualizingStackPanel />

@@ -255,10 +255,34 @@
   <data name="SaveChanges" xml:space="preserve">
     <value>Save Changes</value>
   </data>
+  <data name="Attribute" xml:space="preserve">
+    <value>Attribute</value>
+  </data>
+  <data name="AuthorReport" xml:space="preserve">
+    <value>Author of the report</value>
+  </data>
+  <data name="BanReported" xml:space="preserve">
+    <value>Ban reported user</value>
+  </data>
+  <data name="BanReporter" xml:space="preserve">
+    <value>Ban reporter user</value>
+  </data>
   <data name="DeletePost" xml:space="preserve">
     <value>Delete Post</value>
   </data>
+  <data name="ReportedUser" xml:space="preserve">
+    <value>Reported user</value>
+  </data>
   <data name="UserInfo" xml:space="preserve">
     <value>User information</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ParticipantInfo" xml:space="preserve">
+    <value>Participant information</value>
+  </data>
+  <data name="PostInfo" xml:space="preserve">
+    <value>Post information</value>
   </data>
 </root>

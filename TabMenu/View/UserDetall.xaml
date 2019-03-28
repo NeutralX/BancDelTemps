@@ -34,8 +34,8 @@
                 </ComboBox.ItemsPanel>
             </ComboBox>
             <DatePicker x:Name="BirthDate" materialDesign:HintAssist.Hint="01-01-2019" Margin="239,182,210,76" SelectedDate="{Binding BirthDateUser}" IsEnabled="False" />
-            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.SaveChanges}" HorizontalAlignment="Left" Margin="421,76,0,0" VerticalAlignment="Top" Width="162" Height="36" Command="{Binding ButtonSaveChanges}"/>
-            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.DiscardChanges}" HorizontalAlignment="Left" Margin="421,184,0,0" VerticalAlignment="Top" Width="162" Height="36" Command="{Binding ButtonDiscardChanges}"/>
+            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.SaveChanges}" HorizontalAlignment="Left" Margin="421,84,0,0" VerticalAlignment="Top" Width="162" Height="36" Command="{Binding ButtonSaveChanges}"/>
+            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.DiscardChanges}" HorizontalAlignment="Left" Margin="421,179,0,0" VerticalAlignment="Top" Width="162" Height="36" Command="{Binding ButtonDiscardChanges}"/>
             <TextBox x:Name="Id" materialDesign:HintAssist.Hint="Id" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="55,46,376,182" IsEnabled="False" Text="{Binding IdUser}" />
 
         </Grid>

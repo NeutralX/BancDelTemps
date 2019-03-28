@@ -255,10 +255,34 @@
   <data name="SaveChanges" xml:space="preserve">
     <value>Guardar canvis</value>
   </data>
+  <data name="Attribute" xml:space="preserve">
+    <value>Atribut</value>
+  </data>
+  <data name="AuthorReport" xml:space="preserve">
+    <value>Autor del report</value>
+  </data>
+  <data name="BanReported" xml:space="preserve">
+    <value>Ban usuari reportat</value>
+  </data>
+  <data name="BanReporter" xml:space="preserve">
+    <value>Ban usuari reportador</value>
+  </data>
   <data name="DeletePost" xml:space="preserve">
     <value>Eliminar anunci</value>
   </data>
+  <data name="ReportedUser" xml:space="preserve">
+    <value>Usuari reportat</value>
+  </data>
   <data name="UserInfo" xml:space="preserve">
     <value>Informació usuari</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="ParticipantInfo" xml:space="preserve">
+    <value>Informació participant</value>
+  </data>
+  <data name="PostInfo" xml:space="preserve">
+    <value>Informació anunci</value>
   </data>
 </root>

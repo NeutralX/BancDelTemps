@@ -85,6 +85,19 @@ namespace BancDelTemps.ViewModel
             uNew.Id_User = IdUser;
             uNew.name = NameUser;
             uNew.last_name = LastNameUser;
+            if (SelectedIndexGenre == 0)
+            {
+                GenderUser = "Home";
+            }
+            else if (SelectedIndexGenre == 1)
+            {
+
+                GenderUser = "Dona";
+            }
+            else
+            {
+                GenderUser = "Other";
+            }
             uNew.gender = GenderUser;
             uNew.email = EmailUser;
             uNew.date_of_birth = BirthDateUser.ToString("dd-MM-yyyy");

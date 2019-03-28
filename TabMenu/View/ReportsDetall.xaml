@@ -20,25 +20,25 @@
             </Button>
             <DataGrid HorizontalAlignment="Left" Height="224" Margin="10,74,0,0" VerticalAlignment="Top" Width="310" ItemsSource="{Binding Objects}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Atribut}" ClipboardContentBinding="{x:Null}" Header="Atribut"/>
-                    <DataGridTextColumn Binding="{Binding Valor}" ClipboardContentBinding="{x:Null}" Header="Valor"/>
+                    <DataGridTextColumn Binding="{Binding Atribut}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.Attribute}"/>
+                    <DataGridTextColumn Binding="{Binding Valor}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.Value}"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="10,48,494,400" Text="Reported user"/>
-            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="342,42,188,408" Text="Author of the report"/>
+            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="10,48,494,400" Text="{x:Static p:Resources.ReportedUser}"/>
+            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="342,42,188,408" Text="{x:Static p:Resources.AuthorReport}"/>
             <TextBox x:Name="Desc"  TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxDescription}" Margin="31,314,292,65" Text="{Binding Description}"/>
-            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Guardar canvis" HorizontalAlignment="Left" Margin="31,423,0,0" VerticalAlignment="Top" Width="137" Height="36" Command="{Binding ButtonSaveChanges}"/>
-            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Descartar canvis" HorizontalAlignment="Left" Margin="183,423,0,0" VerticalAlignment="Top" Width="137" Height="36" Command="{Binding ButtonDiscardChanges}"/>
-            <Button x:Name="BanReported"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Banejar reportat" HorizontalAlignment="Left" Margin="342,423,0,0" VerticalAlignment="Top" Width="137" Height="36" Command="{Binding ButtonBanNoAuthor}"/>
-            <Button x:Name="BanAuthor"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Banejar autor" HorizontalAlignment="Left" Margin="498,423,0,0" VerticalAlignment="Top" Width="138" Height="36" Command="{Binding ButtonBanAuthor}"/>
+            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.SaveChanges}" HorizontalAlignment="Left" Margin="10,423,0,0" VerticalAlignment="Top" Width="137" Height="36" Command="{Binding ButtonSaveChanges}"/>
+            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.DiscardChanges}" HorizontalAlignment="Left" Margin="167,423,0,0" VerticalAlignment="Top" Width="137" Height="36" Command="{Binding ButtonDiscardChanges}"/>
+            <Button x:Name="BanReported"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.BanReported}" HorizontalAlignment="Left" Margin="324,423,0,0" VerticalAlignment="Top" Width="150" Height="36" Command="{Binding ButtonBanNoAuthor}" FontSize="10"/>
+            <Button x:Name="BanAuthor"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.BanReporter}" HorizontalAlignment="Left" Margin="495,423,0,0" VerticalAlignment="Top" Width="157" Height="36" Command="{Binding ButtonBanAuthor}" FontSize="10"/>
             <DataGrid HorizontalAlignment="Left" Height="224" Margin="342,74,0,0" VerticalAlignment="Top" Width="310" ItemsSource="{Binding Objects2}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Atribut}" ClipboardContentBinding="{x:Null}" Header="Atribut"/>
-                    <DataGridTextColumn Binding="{Binding Valor}" ClipboardContentBinding="{x:Null}" Header="Valor"/>
+                    <DataGridTextColumn Binding="{Binding Atribut}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.Attribute}"/>
+                    <DataGridTextColumn Binding="{Binding Valor}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.Value}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <ToggleButton Style="{StaticResource MaterialDesignSwitchAccentToggleButton}" ToolTip="Default ToggleButton Style" Margin="400,352,166,83" IsChecked="{Binding Revised}" />
-            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="420,328,110,122" Text="Està revisat?"/>
+            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="420,328,110,122" Text="{x:Static p:Resources.GridRevised}"/>
         </Grid>
     </Border>
 </Window>

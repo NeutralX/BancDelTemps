@@ -61,6 +61,42 @@ namespace BancDelTemps.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Attribute.
+        /// </summary>
+        public static string Attribute {
+            get {
+                return ResourceManager.GetString("Attribute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Author of the report.
+        /// </summary>
+        public static string AuthorReport {
+            get {
+                return ResourceManager.GetString("AuthorReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ban reported user.
+        /// </summary>
+        public static string BanReported {
+            get {
+                return ResourceManager.GetString("BanReported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ban reporter user.
+        /// </summary>
+        public static string BanReporter {
+            get {
+                return ResourceManager.GetString("BanReporter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filter by author.
         /// </summary>
         public static string ButtonFilterAuthor {
@@ -349,6 +385,33 @@ namespace BancDelTemps.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Participant information.
+        /// </summary>
+        public static string ParticipantInfo {
+            get {
+                return ResourceManager.GetString("ParticipantInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Post information.
+        /// </summary>
+        public static string PostInfo {
+            get {
+                return ResourceManager.GetString("PostInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reported user.
+        /// </summary>
+        public static string ReportedUser {
+            get {
+                return ResourceManager.GetString("ReportedUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save Changes.
         /// </summary>
         public static string SaveChanges {
@@ -489,6 +552,15 @@ namespace BancDelTemps.Properties {
         public static string UserInfo {
             get {
                 return ResourceManager.GetString("UserInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value.
+        /// </summary>
+        public static string Value {
+            get {
+                return ResourceManager.GetString("Value", resourceCulture);
             }
         }
     }

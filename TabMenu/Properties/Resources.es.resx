@@ -260,10 +260,34 @@
   <data name="SaveChanges" xml:space="preserve">
     <value>Guardar cambios</value>
   </data>
+  <data name="Attribute" xml:space="preserve">
+    <value>Atributo</value>
+  </data>
+  <data name="AuthorReport" xml:space="preserve">
+    <value>Autor del reporte</value>
+  </data>
+  <data name="BanReported" xml:space="preserve">
+    <value>Ban usuario reportado</value>
+  </data>
+  <data name="BanReporter" xml:space="preserve">
+    <value>Ban usuario reportador</value>
+  </data>
   <data name="DeletePost" xml:space="preserve">
     <value>Eliminar anuncio</value>
   </data>
+  <data name="ReportedUser" xml:space="preserve">
+    <value>Usuario reportado</value>
+  </data>
   <data name="UserInfo" xml:space="preserve">
     <value>Información usuario</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="ParticipantInfo" xml:space="preserve">
+    <value>Información participante</value>
+  </data>
+  <data name="PostInfo" xml:space="preserve">
+    <value>Información anuncio</value>
   </data>
 </root>

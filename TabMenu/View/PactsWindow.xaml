@@ -22,13 +22,13 @@
             <TextBox x:Name="Desc"  TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxDescription}" Margin="283,75,106,312" Text="{Binding DescriptionPact}"/>
             <DatePicker x:Name="DateCreated" IsEnabled="False" materialDesign:HintAssist.Hint="01-01-2019" Margin="66,209,462,195" SelectedDate="{Binding DateCreatedPact}" />
             <DatePicker x:Name="DateFinished" IsEnabled="False" materialDesign:HintAssist.Hint="31-12-2019" Margin="283,209,242,195" SelectedDate="{Binding DateFinishedPact}" />
-            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="66,174,519,247" Text="Date created"/>
-            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="283,174,287,247" Text="Date finished"/>
-            <Button x:Name="InfoPost"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Informació anunci" HorizontalAlignment="Left" Margin="254,292,0,0" VerticalAlignment="Top" Width="147" Height="36" Command="{Binding ButtonShowPost}"/>
-            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Guardar canvis" HorizontalAlignment="Left" Margin="160,377,0,0" VerticalAlignment="Top" Width="137" Height="36" Command="{Binding ButtonSaveChanges}"/>
-            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Descartar canvis" HorizontalAlignment="Left" Margin="335,377,0,0" VerticalAlignment="Top" Width="137" Height="36" RenderTransformOrigin="0.234,0.69" Command="{Binding ButtonDiscardChanges}"/>
-            <Button x:Name="InfoAuthor"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Informació autor" HorizontalAlignment="Left" Margin="79,292,0,0" VerticalAlignment="Top" Width="147" Height="36" Command="{Binding ButtonShowAuthor}"/>
-            <Button x:Name="InfoNoAuthor"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Informació Participant" HorizontalAlignment="Left" Margin="435,292,0,0" VerticalAlignment="Top" Width="147" Height="36" FontSize="11" Command="{Binding ButtonShowParticipant}"/>
+            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="66,174,519,247" Text="{x:Static p:Resources.GridDateCreated}"/>
+            <TextBlock Style="{StaticResource MaterialDesignCaptionTextBlock}" Margin="283,174,287,247" Text="{x:Static p:Resources.GridDateFinished}"/>
+            <Button x:Name="InfoPost"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.PostInfo}" HorizontalAlignment="Left" Margin="254,292,0,0" VerticalAlignment="Top" Width="147" Height="36" Command="{Binding ButtonShowPost}"/>
+            <Button x:Name="Save"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.SaveChanges}" HorizontalAlignment="Left" Margin="160,377,0,0" VerticalAlignment="Top" Width="137" Height="36" Command="{Binding ButtonSaveChanges}"/>
+            <Button x:Name="Discard"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.DiscardChanges}" HorizontalAlignment="Left" Margin="335,377,0,0" VerticalAlignment="Top" Width="137" Height="36" RenderTransformOrigin="0.234,0.69" Command="{Binding ButtonDiscardChanges}"/>
+            <Button x:Name="InfoAuthor"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.UserInfo}" HorizontalAlignment="Left" Margin="79,292,0,0" VerticalAlignment="Top" Width="147" Height="36" Command="{Binding ButtonShowAuthor}"/>
+            <Button x:Name="InfoNoAuthor"  Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="{x:Static p:Resources.ParticipantInfo}" HorizontalAlignment="Left" Margin="435,292,0,0" VerticalAlignment="Top" Width="147" Height="36" FontSize="11" Command="{Binding ButtonShowParticipant}"/>
 
         </Grid>
     </Border>

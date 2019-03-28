@@ -122,11 +122,12 @@ namespace BancDelTemps.ViewModel
             DataFinalPost = DateTime.Today;
             ButtonFiltrePostTitol = new RelayCommand(o => Posts = PostsRepository.GetPostsByTitle(_titolPost));
             ButtonFiltrePostCreador = new RelayCommand(o => Posts = PostsRepository.GetPostsByUser(_creadorPost));
-            ButtonFiltrePostCategoria = new RelayCommand(o => Posts = PostsRepository.GetPostsByCategory(_categoriaPost));
+            ButtonFiltrePostCategoria = new RelayCommand(o => Posts = PostsRepository.GetPostsByCategory(CategoriesRepository.GetCategoryIdByString(SelectedItemCategoryPost)));
             ButtonFiltrePostDataInici = new RelayCommand(o => Posts = PostsRepository.GetPostsByDateCreated(_dataIniciPost));
             ButtonFiltrePostDataFinal = new RelayCommand(o => Posts = PostsRepository.GetPostsByDateFinished(_dataFinalPost));
             ButtonFiltrePostReiniciar = new RelayCommand(o => PostsPopulate());
             DobleClickPosts = new RelayCommand(o => obrirDetallPosts());
+            CategoriesPost = CategoriesRepository.GetAllCategoriyNames();
             //REPORT
             ButtonFiltreReportDescripcio = new RelayCommand(o => Reports = ReportsRepository.GetReportsByDescription(_descripcioReport));
             ButtonFiltreReportReiniciar = new RelayCommand(o => EstatReport = false);
@@ -381,7 +382,7 @@ namespace BancDelTemps.ViewModel
         {
             TitolPost = "";
             CreadorPost = "";
-            CategoriaPost = 0;
+            CategoriaPost = "";
             CreadorPost = "";
             DataIniciPost = DateTime.Today;
             DataFinalPost = DateTime.Today;
@@ -405,11 +406,31 @@ namespace BancDelTemps.ViewModel
             }
         }
 
-        private int _categoriaPost;
-        public int CategoriaPost {
+        private string _categoriaPost;
+        public string CategoriaPost {
             get { return _categoriaPost; }
             set {
                 _categoriaPost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private List<String> _categoriesPost;
+        public List<String> CategoriesPost
+        {
+            get { return _categoriesPost; }
+            set
+            {
+                _categoriesPost = value; NotifyPropertyChanged();
+            }
+        }
+
+        private string _selectedItemCategoryPost;
+        public string SelectedItemCategoryPost
+        {
+            get { return _selectedItemCategoryPost; }
+            set
+            {
+                _selectedItemCategoryPost = value; NotifyPropertyChanged();
             }
         }
 
@@ -527,6 +548,8 @@ namespace BancDelTemps.ViewModel
         {
             TitolPact = "";
             DescripcioPact = "";
+            DataIniciPact = DateTime.Today;
+            DataFinalPact = DateTime.Today;
             Pacts = PactsRepository.GetAllPacts();
 
         }

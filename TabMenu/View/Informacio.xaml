@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BancDelTemps.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:ViewModel="clr-namespace:BancDelTemps.ViewModel" x:Class="BancDelTemps.View.Informacio"
+        xmlns:ViewModel="clr-namespace:BancDelTemps.ViewModel"
+        xmlns:p="clr-namespace:BancDelTemps.Properties"
+        x:Class="BancDelTemps.View.Informacio"
         mc:Ignorable="d"
         Title="Informacio" Height="346.989" Width="541.684" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.DataContext>
@@ -19,8 +21,8 @@
             </Button>
             <DataGrid HorizontalAlignment="Left" Height="296" Margin="10,39,0,0" VerticalAlignment="Top" Width="520" ItemsSource="{Binding Objects}" CanUserReorderColumns="False" IsReadOnly="True" SelectedIndex="0" SelectionMode="Single" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Atribut}" ClipboardContentBinding="{x:Null}" Header="Atribut"/>
-                    <DataGridTextColumn Binding="{Binding Valor}" ClipboardContentBinding="{x:Null}" Header="Valor"/>
+                    <DataGridTextColumn Binding="{Binding Atribut}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.Attribute}"/>
+                    <DataGridTextColumn Binding="{Binding Valor}" ClipboardContentBinding="{x:Null}" Header="{x:Static p:Resources.Value}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
