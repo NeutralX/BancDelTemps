@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -206,6 +208,16 @@ namespace BancDelTemps.ViewModel
             if (_username != "" && _password != "")
             {
                 ProgressVisibility = "VISIBLE";
+
+                var data = Encoding.UTF8.GetBytes("text");
+                byte[] hash;
+                using (SHA512 shaM = new SHA512Managed())
+                {
+                    hash = shaM.ComputeHash(data);
+                }
+                var str = Encoding.Default.GetString(hash);
+
+
                 Admin login = new Admin(_username, _password);
                 if (_isCheckedRemember == true)
                 {
