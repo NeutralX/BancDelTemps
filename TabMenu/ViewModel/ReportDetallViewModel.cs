@@ -172,7 +172,7 @@ namespace BancDelTemps.ViewModel
             PropertyInfo[] properties = _userAutor.GetType().GetProperties();
             foreach (var p in properties)
             {
-                if (p.PropertyType.ToString().Contains("ICollection")) continue;
+                if (p.PropertyType.ToString().Contains("ICollection") || p.Name == "password") continue;
                 ObjectInfo obi = new ObjectInfo(p.Name, p.GetValue(_userAutor).ToString());
                 llista.Add(obi);
 
@@ -186,7 +186,7 @@ namespace BancDelTemps.ViewModel
             PropertyInfo[] properties = _userNoAutor.GetType().GetProperties();
             foreach (var p in properties)
             {
-                if (p.PropertyType.ToString().Contains("ICollection")) continue;
+                if (p.PropertyType.ToString().Contains("ICollection") || p.Name =="password") continue;
                 ObjectInfo obi = new ObjectInfo(p.Name, p.GetValue(_userNoAutor).ToString());
                 llista2.Add(obi);
 
