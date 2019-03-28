@@ -20,7 +20,7 @@ namespace BancDelTemps.Model.Class
         public string title { get; set; }
         public int UserId_User { get; set; }
         public int Category_Id_Category { get; set; }
-        public bool actiu { get; set; }
+        public bool active { get; set; }
 
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
