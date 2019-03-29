@@ -20,7 +20,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20 0" Background="#3F51B5">
                     <Button Content="FAQ" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
                     <Button Content="CONTACT" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
-                    <Button Content="ORDER STATUS" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
+                    <Button Content="SERVER STATUS" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
                     <Button Content="MY ACCOUNT" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" FontSize="15" FontWeight="Bold" VerticalAlignment="Center"/>
                     <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Command="{Binding ButtonCloseApp}">
                         <materialDesign:PackIcon Kind="Power" Foreground="#ffffff" Width="25" Height="25" />
@@ -34,7 +34,7 @@
                     <Button Uid="2" Width="150" Content="{x:Static p:Resources.TitlePosts}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
                     <Button Uid="3" Width="150" Content="{x:Static p:Resources.TitleReports}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
                     <Button Uid="4" Width="150" Content="{x:Static p:Resources.TitlePacts}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
-                    <Button Uid="5" Width="150" Content="{x:Static p:Resources.TitleCategories}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click"/>
+                    <Button Uid="5" Width="150" Content="{x:Static p:Resources.TitleCategories}" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#ffffff" Click="Button_Click" Visibility="Hidden" IsEnabled="False" />
                 </StackPanel>
                 <Grid x:Name="GridCursor" Width="150" Height="5" Background="#ffffff" HorizontalAlignment="Left" Margin="10,45,0,7"/>
             </Grid>
