@@ -14,8 +14,7 @@
         <ViewModel:UserDetallViewModel/>
     </Window.DataContext>
     <Border BorderBrush="Black" BorderThickness="1">
-        <Grid>
-
+        <Grid Background="#e6e6e6">
             <Grid x:Name="blue" Background="#3F51B5" Margin="0,0,0,252"/>
             <Button Background="{x:Null}" Margin="553,0,0,249" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Command="{Binding ButtonCloseApp}">
                 <materialDesign:PackIcon Kind="Close" Foreground="White" Width="25" Height="25" />

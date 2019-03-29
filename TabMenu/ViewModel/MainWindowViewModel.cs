@@ -209,7 +209,7 @@ namespace BancDelTemps.ViewModel
                 while (true)
                 {
                     Thread.Sleep(500);
-                    _trend += (r.NextDouble() > 0.3 ? 1 : -1) * r.Next(0, 5);
+                    _trend += (r.NextDouble() > 0.3 ? 1 : -1) * r.Next(-1, 4);
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         LastHourSeries[0].Values.Add(new ObservableValue(_trend));

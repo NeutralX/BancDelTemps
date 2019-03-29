@@ -13,7 +13,7 @@
         <ViewModel:CategoryDetallViewModel/>
     </Window.DataContext>
     <Border BorderBrush="Black" BorderThickness="1">
-        <Grid>
+        <Grid Background="#e6e6e6">
             <Grid x:Name="Lel" Background="#3F51B5" Margin="0,0,0,277"/>
             <materialDesign:PackIcon Kind="Close" Margin="522,10,0,0" Foreground="White"/>
             <TextBox x:Name="Desc"  TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="280" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" materialDesign:HintAssist.Hint="{x:Static p:Resources.TextboxDescription}" Margin="229,60,39,179" Text="{Binding DescriptionPost}"/>
