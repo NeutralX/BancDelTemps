@@ -14,7 +14,7 @@
         <ViewModel:PostDetallViewModel/>
     </Window.DataContext>
     <Border BorderBrush="Black" BorderThickness="1">
-        <Grid>
+        <Grid Background="#e6e6e6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="592*"/>

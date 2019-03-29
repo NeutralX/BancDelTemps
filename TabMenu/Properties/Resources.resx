@@ -288,4 +288,7 @@
   <data name="GraphBigText" xml:space="preserve">
     <value>Total users</value>
   </data>
+  <data name="User" xml:space="preserve">
+    <value>Users</value>
+  </data>
 </root>
