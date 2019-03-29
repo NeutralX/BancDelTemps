@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -29,6 +30,14 @@ namespace BancDelTemps.Model
         }
         public static Admin LoginAdmin(Admin login)
         {
+            var data = Encoding.UTF8.GetBytes("admin");
+            byte[] hash;
+            using (SHA512 shaM = new SHA512Managed())
+            {
+                hash = shaM.ComputeHash(data);
+            }
+            var str = Encoding.Default.GetString(hash);
+            login.password = str;
             Admin a = (Admin)MakeRequest(string.Concat(ws1, "admin/login"), login, "PUT", "application/json", typeof(Admin));
             return a;
         }

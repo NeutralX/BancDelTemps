@@ -97,7 +97,7 @@ namespace BancDelTemps.ViewModel
             pNew.date_finished = DateFinishedPost.ToString("dd-MM-yyyy");
             pNew.location = LocationPost;
             pNew.Category_Id_Category = CategoriesRepository.GetCategoryIdByString(SelectedItemCategory); 
-            pNew.actiu = Post.actiu;
+            pNew.active = Post.active;
             pNew.UserId_User = Post.UserId_User;
             PostsRepository.UpdatePost(pNew);
             Application.Current.Windows[1].Close();

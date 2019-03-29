@@ -209,13 +209,7 @@ namespace BancDelTemps.ViewModel
             {
                 ProgressVisibility = "VISIBLE";
 
-                var data = Encoding.UTF8.GetBytes("text");
-                byte[] hash;
-                using (SHA512 shaM = new SHA512Managed())
-                {
-                    hash = shaM.ComputeHash(data);
-                }
-                var str = Encoding.Default.GetString(hash);
+                //UsersRepository.AddAdmin();
 
 
                 Admin login = new Admin(_username, _password);

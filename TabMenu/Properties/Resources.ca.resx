@@ -285,4 +285,7 @@
   <data name="PostInfo" xml:space="preserve">
     <value>Informació anunci</value>
   </data>
+  <data name="GraphBigText" xml:space="preserve">
+    <value>Total usuaris</value>
+  </data>
 </root>

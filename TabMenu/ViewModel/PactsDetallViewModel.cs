@@ -95,8 +95,8 @@ namespace BancDelTemps.ViewModel
             pNew.description = DescriptionPact;
             pNew.date_created = DateCreatedPact.ToString("dd-MM-yyyy");
             pNew.date_finished = DateFinishedPact.ToString("dd-MM-yyyy");
-            pNew.Id_Creador = Pact.Id_Creador;
-            pNew.Id_NoCreador = Pact.Id_NoCreador;
+            pNew.Id_Author = Pact.Id_Author;
+            pNew.Id_NoAuthor = Pact.Id_NoAuthor;
             pNew.Id_Pact = Pact.Id_Pact;
             PactsRepository.UpdatePact(pNew);
             Application.Current.Windows[1].Close();
@@ -113,7 +113,7 @@ namespace BancDelTemps.ViewModel
 
         public void authorDetails()
         {
-            Informacio i = new Informacio(UsersRepository.GetUser(Pact.Id_Creador));
+            Informacio i = new Informacio(UsersRepository.GetUser(Pact.Id_Author));
             i.ShowDialog();
         }
 
@@ -125,7 +125,7 @@ namespace BancDelTemps.ViewModel
 
         public void participantDetails()
         {
-            Informacio i = new Informacio(UsersRepository.GetUser(Pact.Id_NoCreador));
+            Informacio i = new Informacio(UsersRepository.GetUser(Pact.Id_NoAuthor));
             i.ShowDialog();
         }
 

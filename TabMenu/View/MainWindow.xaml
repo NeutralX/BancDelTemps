@@ -92,10 +92,10 @@
                             </wpf:CartesianChart.AxisX>
                         </wpf:CartesianChart>
                         <StackPanel Grid.Row="4" VerticalAlignment="Center" Margin="81,25,154,24">
-                            <TextBlock Opacity=".4" FontSize="13" Margin="10,0,130,0">Total electricity Consumption <LineBreak /> of Galaxy SOHO</TextBlock>
+                            <TextBlock Opacity=".4" FontSize="13" Margin="10,0,130,0" Text="{x:Static p:Resources.GraphBigText}"/>
                             <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
                                 <TextBlock Foreground="#303030" FontSize="40" Text="{Binding LastLecture, StringFormat=\{0:N1\}}" />
-                                <TextBlock Foreground="#303030" FontSize="18" VerticalAlignment="Bottom" Margin="8, 6"><Run Text="kWh"/></TextBlock>
+                                <TextBlock Foreground="#303030" FontSize="18" VerticalAlignment="Bottom" Margin="8, 6"><Run Text="{x:Static p:Resources.TitleUsers}"/></TextBlock>
                             </StackPanel>
                         </StackPanel>
                     </Grid>

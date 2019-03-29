@@ -250,6 +250,15 @@ namespace BancDelTemps.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total users.
+        /// </summary>
+        public static string GraphBigText {
+            get {
+                return ResourceManager.GetString("GraphBigText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Author name.
         /// </summary>
         public static string GridAuthorName {

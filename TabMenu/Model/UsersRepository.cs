@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -59,6 +60,16 @@ namespace BancDelTemps.Model
 
         public static void AddAdmin()
         {
+            var data = Encoding.UTF8.GetBytes("admin");
+            byte[] hash;
+            using (SHA512 shaM = new SHA512Managed())
+            {
+                hash = shaM.ComputeHash(data);
+            }
+            var str = Encoding.Default.GetString(hash);
+            Admin admin = new Admin("admin",str);
+            MakeRequest(string.Concat(ws1, "insertAdmin"),admin,"POST", "application/json",typeof(Admin));
+
 
         }
 
