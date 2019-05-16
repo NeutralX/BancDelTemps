@@ -81,7 +81,14 @@ namespace BancDelTemps.Model
 
         public static void DeletePost(int id)
         {
-            MakeRequest(string.Concat(ws1, "deletePost/", id), null, "DELETE", null, typeof(void));
+            try
+            {
+                MakeRequest(string.Concat(ws1, "deletePost/", id), null, "DELETE", null, typeof(void));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public static object MakeRequest(string requestUrl, object JSONRequest, string JSONmethod, string JSONContentType, Type JSONResponseType)

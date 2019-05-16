@@ -119,7 +119,7 @@ namespace BancDelTemps.ViewModel
 
         public void postDetails()
         {
-            Informacio i = new Informacio(PostsRepository.GetPostById(Pact.Id_Pact));
+            Informacio i = new Informacio(PostsRepository.GetPostById(Pact.Posts_Id_Post));
             i.ShowDialog();
         }
 
