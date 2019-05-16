@@ -36,7 +36,7 @@ namespace BancDelTemps.Model
 
         public static int GetCategoryIdByString(string name)
         {
-            int id = (int)MakeRequest(string.Concat(ws1, "categoryId/", name), null, "GET", "application/json", typeof(int));
+            int id = (int)MakeRequest(string.Concat(ws1, "categoryIdWindows/", name), null, "GET", "application/json", typeof(int));
             return id;
         }
 
