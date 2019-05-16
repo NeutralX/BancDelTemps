@@ -70,7 +70,7 @@ namespace BancDelTemps.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://172.16.12.12:45455/api/.
+        ///   Looks up a localized string similar to http://192.168.1.40:45455/api/.
         /// </summary>
         public static string ipWebService {
             get {

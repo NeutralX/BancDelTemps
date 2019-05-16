@@ -88,7 +88,13 @@ namespace BancDelTemps.ViewModel
             PropertyInfo[] properties = obj.GetType().GetProperties();
             foreach (var p in properties)
             {
-                if (p.PropertyType.ToString().Contains("ICollection") || p.Name == "password") continue;
+                if (p.PropertyType.ToString().Contains("ICollection") || p.Name == "password" || p.Name=="Category") continue;
+                if (p.Name == "date_finished")
+                {
+                    var ob = new ObjectInfo("date_finished", "");
+                    llista.Add(ob);
+                    continue;
+                }
                 ObjectInfo obi = new ObjectInfo(p.Name, p.GetValue(obj).ToString());
                 llista.Add(obi);
 
