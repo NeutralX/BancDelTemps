@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace BancDelTemps.Model.Class
@@ -21,11 +22,15 @@ namespace BancDelTemps.Model.Class
         public int UserId_User { get; set; }
         public int Category_Id_Category { get; set; }
         public bool active { get; set; }
+        public int hours { get; set; }
 
+        [JsonIgnore]
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Pact> Pacts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Report> Reports { get; set; }
         public virtual User User { get; set; }
     }

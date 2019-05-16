@@ -121,6 +121,6 @@
     <value>EN</value>
   </data>
   <data name="ipWebService" xml:space="preserve">
-    <value>http://172.16.12.12:45455/api/</value>
+    <value>http://192.168.1.142:45455/api/</value>
   </data>
 </root>
